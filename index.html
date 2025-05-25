@@ -13,80 +13,85 @@
     href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
     rel="stylesheet">
 
+  <!-- DaisyUI -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <!-- Tailwind -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+  <!-- Alpine -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Lottie -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
 
+  <!-- swiper -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 
   <style type="text/tailwindcss">
     @theme {
-        --text-xxs: 0.625rem; /* text 10px */
-        --font-noto-serif-hk: "Noto Serif HK", serif;
-        --font-noto-serif-jp: "Noto Serif JP", serif;
-        --font-noto-sans-jp: "Noto Sans JP", sans-serif;
-        --font-noto-sans-hk: "Noto Sans HK", sans-serif,;
-        --font-noto-sans-tc: "Noto Sans TC", sans-serif,;
-        --font-noto-sans-jp: "Noto Sans JP", sans-serif,;
-        --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
-        --font-cactus-classical-serif: "Cactus Classical Serif", serif;
-        --color-stone-950: #4D403E;
+      --text-xxs: 0.625rem; /* text 10px */
+      --font-noto-serif-hk: "Noto Serif HK", serif;
+      --font-noto-serif-jp: "Noto Serif JP", serif;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-noto-sans-hk: "Noto Sans HK", sans-serif,;
+      --font-noto-sans-tc: "Noto Sans TC", sans-serif,;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif,;
+      --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
+      --font-cactus-classical-serif: "Cactus Classical Serif", serif;
+      --color-stone-950: #4D403E;
+    }
+
+
+    html {
+      font-size: 16px;
+      color: #4D403E;
+    }
+
+    @media screen and (min-width: 768px) {
+      :root {
+        font-size: 1.11111111vw;
       }
+    } 
 
-
-      html {
+    @media screen and (min-width: 1440px) {
+      :root {
         font-size: 16px;
-        color: #4D403E;
       }
-      
-      @media screen and (min-width: 768px) {
-        :root {
-          font-size: 1.11111111vw;
-        }
-      } 
+    }
 
-      @media screen and (min-width: 1440px) {
-        :root {
-          font-size: 16px;
-        }
+    @media screen and (max-width: 767px) {
+      :root {
+        font-size: 5vw;
       }
+    }
 
-      @media screen and (max-width: 767px) {
-        :root {
-          font-size: 5vw;
-        }
+    @layer components {
+      .text-body {
+        @apply leading-[130%] tracking-[0.2rem]
       }
 
-      @layer components {
-        .text-body {
-          @apply leading-[130%] tracking-[0.2rem]
-        }
-
-        .text-caption {
-          @apply leading-[160%] tracking-[0.2rem]
-        }
-
-        .text-info-size {
-          @apply text-[min(0.75rem,12px)] md:text-[min(1.5rem,20px)]
-        }
-
-        .text-eng {
-          @apply leading-[130%] tracking-[0.1rem]
-        }
-
-        .custom-heading-en {
-          @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[min(0.625rem,10px)] md:text-[min(1rem,16px)];
-        }
-
-        .custom-heading-zh {
-          @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[min(1.75rem,28px)] md:text-[min(2.25rem,36px)] mt-[min(0.625rem,10px)];
-        }
+      .text-caption {
+        @apply leading-[160%] tracking-[0.2rem]
       }
-    </style>
+
+      .text-info-size {
+        @apply text-[min(0.75rem,12px)] md:text-[min(1.5rem,20px)]
+      }
+
+      .text-eng {
+        @apply leading-[130%] tracking-[0.1rem]
+      }
+
+      .custom-heading-en {
+        @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[min(0.625rem,10px)] md:text-[min(1rem,16px)];
+      }
+
+      .custom-heading-zh {
+        @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[min(1.75rem,28px)] md:text-[min(2.25rem,36px)] mt-[min(0.625rem,10px)];
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -125,20 +130,20 @@
           <span
             class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[min(0.625rem,10px)] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
           <div x-data x-init="
-                const anim = lottie.loadAnimation({
-                  container: $el,
-                  renderer: 'svg',
-                  loop: true,
-                  autoplay: true,
-                  path: 'assets/lottie/scroll_s.json'
-                });
+            const anim = lottie.loadAnimation({
+              container: $el,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: 'assets/lottie/scroll_s.json'
+            });
 
-                anim.addEventListener('DOMLoaded', () => {
-                  $el.querySelectorAll('path').forEach(p => {
-                    p.setAttribute('stroke-width', '1.5'); // 加粗線條
-                  });
-                });
-              " class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"></div>
+            anim.addEventListener('DOMLoaded', () => {
+              $el.querySelectorAll('path').forEach(p => {
+                p.setAttribute('stroke-width', '1.5'); // 加粗線條
+              });
+            });
+          " class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"></div>
         </div>
       </div>
       <div
@@ -162,69 +167,69 @@
         <div class="hidden md:flex md:mt-[min(3.125rem,50px)] items-center h-[min(1rem,16px)]">
           <span class="text-body text-[min(0.75rem,12px)] font-noto-sans-jp font-normal">SCROLL</span>
           <div x-data x-init="
-                const anim = lottie.loadAnimation({
-                  container: $el,
-                  renderer: 'svg',
-                  loop: true,
-                  autoplay: true,
-                  path: 'assets/lottie/scroll_s.json'
-                });
+            const anim = lottie.loadAnimation({
+              container: $el,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: 'assets/lottie/scroll_s.json'
+            });
 
-                anim.addEventListener('DOMLoaded', () => {
-                  $el.querySelectorAll('path').forEach(p => {
-                    p.setAttribute('stroke', '#4D403E'); // 換顏色
-                  });
-                });
-              " class="h-full ml-[0.3125rem]"></div>
+            anim.addEventListener('DOMLoaded', () => {
+              $el.querySelectorAll('path').forEach(p => {
+                p.setAttribute('stroke', '#4D403E'); // 換顏色
+              });
+            });
+          " class="h-full ml-[0.3125rem]"></div>
         </div>
       </div>
     </section>
 
     <!-- voc -->
     <section class="py-25" x-data="{
-          customers: [
-            {
-              'img': './assets/voc_1.png',
-              'name': 'Aさん',
-              'age': '30代女性', 
-              'title': 'ヘアメイクさんの<br>提案力に大満足！',
-              'content': '担当者の提案力と技術力に感動しました。「老けて見えてしまう」「貫禄がある印象を持たれる」という私の悩みに対して、そのような印象を与えないヘアメイクを提案してくださり、人生で一番納得の行く仕上がりでした。とてもうれしかったです。',
-              'office': 'スタジオAQUA 表参道渋谷店'
-            },
-            {
-              'img': './assets/voc_2.png',
-              'name': 'Bさん',
-              'age': '20代女性',
-              'title': 'オンライン相談で<br>不安が解消された！',
-              'content': '申込の前にオンラインでのお打合せをしていただき、納得して申込ができました。当日まではメールでのやり取りでしたが、細かい質問や見積変更も含めスムーズなやり取りをしていただきました。衣装のラインナップは十分で、事前にネットで確認することができました。',
-              'office': 'スタジオSOLA 美瑛店 '
-            },
-            {
-              'img': './assets/voc_3.png',
-              'name': 'Cさん',
-              'age': '30代女性',
-              'title': '自然な笑顔の素敵<br>な写真でした！',
-              'content': '彼がカメラの前で笑うのが苦手なのですが、ふとした瞬間の笑顔をばっちりと撮っていただいていたので、自然な笑顔の素敵な写真になっていました。また、モノクロや物陰からの撮影など少しオリジナリティがあるバージョンも撮っていただき、プロならではの写真に仕上がっていたのも気に入りました。',
-              'office': 'スタジオTVB 梅田店'
-            },
-            {
-              'img': './assets/voc_4.png',
-              'name': 'Stephanie',
-              'age': '30代女性',
-              'title': 'オンライン相談で<br>不安が解消された！',
-              'content': '由查詢到揀衫，影相，成個過程都好暢順。落單之後有whatsapp group follow up，日本當地既工作人服務好好，影相嗰日超時又唔駛收錢，影咗既相都俾晒我哋，唔會影完先知原來仲有其他額外收費，亦唔會hard sell。出黎既成品都好靚，抵讚!!',
-              'office': '香港尖沙嘴 Office '
-            },
-            {
-              'img': './assets/voc_5.png',
-              'name': 'Joyce',
-              'age': '20代女性',
-              'title': '自然な笑顔の素敵<br>な写真でした！',
-              'content': '諮詢員好細心咁了解我哋兩個既想法，再推介適合我哋既拍攝地點，仲列明晒所有收費俾我哋。我哋當時仲未決定去邊度影相，佢都好細心咁講解，仲主動建議我哋不用急於決定， 過程中完全無Hard sell，令哋感到好安心。已經推薦好多朋友搵您哋！',
-              'office': '香港尖沙嘴 Office '
-            }
-          ]
-        }">
+      customers: [
+        {
+          'img': './assets/voc_1.png',
+          'name': 'Aさん',
+          'age': '30代女性', 
+          'title': 'ヘアメイクさんの<br>提案力に大満足！',
+          'content': '担当者の提案力と技術力に感動しました。「老けて見えてしまう」「貫禄がある印象を持たれる」という私の悩みに対して、そのような印象を与えないヘアメイクを提案してくださり、人生で一番納得の行く仕上がりでした。とてもうれしかったです。',
+          'office': 'スタジオAQUA 表参道渋谷店'
+        },
+        {
+          'img': './assets/voc_2.png',
+          'name': 'Bさん',
+          'age': '20代女性',
+          'title': 'オンライン相談で<br>不安が解消された！',
+          'content': '申込の前にオンラインでのお打合せをしていただき、納得して申込ができました。当日まではメールでのやり取りでしたが、細かい質問や見積変更も含めスムーズなやり取りをしていただきました。衣装のラインナップは十分で、事前にネットで確認することができました。',
+          'office': 'スタジオSOLA 美瑛店 '
+        },
+        {
+          'img': './assets/voc_3.png',
+          'name': 'Cさん',
+          'age': '30代女性',
+          'title': '自然な笑顔の素敵<br>な写真でした！',
+          'content': '彼がカメラの前で笑うのが苦手なのですが、ふとした瞬間の笑顔をばっちりと撮っていただいていたので、自然な笑顔の素敵な写真になっていました。また、モノクロや物陰からの撮影など少しオリジナリティがあるバージョンも撮っていただき、プロならではの写真に仕上がっていたのも気に入りました。',
+          'office': 'スタジオTVB 梅田店'
+        },
+        {
+          'img': './assets/voc_4.png',
+          'name': 'Stephanie',
+          'age': '30代女性',
+          'title': 'オンライン相談で<br>不安が解消された！',
+          'content': '由查詢到揀衫，影相，成個過程都好暢順。落單之後有whatsapp group follow up，日本當地既工作人服務好好，影相嗰日超時又唔駛收錢，影咗既相都俾晒我哋，唔會影完先知原來仲有其他額外收費，亦唔會hard sell。出黎既成品都好靚，抵讚!!',
+          'office': '香港尖沙嘴 Office '
+        },
+        {
+          'img': './assets/voc_5.png',
+          'name': 'Joyce',
+          'age': '20代女性',
+          'title': '自然な笑顔の素敵<br>な写真でした！',
+          'content': '諮詢員好細心咁了解我哋兩個既想法，再推介適合我哋既拍攝地點，仲列明晒所有收費俾我哋。我哋當時仲未決定去邊度影相，佢都好細心咁講解，仲主動建議我哋不用急於決定， 過程中完全無Hard sell，令哋感到好安心。已經推薦好多朋友搵您哋！',
+          'office': '香港尖沙嘴 Office '
+        }
+      ]
+    }">
       <div class="relative">
         <div class="absolute top-0 md:top-8 -z-10 md:hidden"><img src="./assets/voc_sm_bg.png" class="w-full h-34" />
         </div>
@@ -233,7 +238,8 @@
         <p
           class="font-noto-sans-tc md:font-noto-sans-hk mt-8.25 md:mt-7.5 text-xs md:text-xl font-light text-caption text-center whitespace-pre-line">
           DE&Co. 婚紗攝影的獨特魅力
-          聽聽喜愛 DE&Co. 的顧客心得分享！</p>
+          聽聽喜愛 DE&Co. 的顧客心得分享
+        </p>
       </div>
 
       <!-- desktop -->
@@ -302,20 +308,20 @@
       <h2 class="custom-heading-en md:">Appointment</h2>
       <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
       <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
+      <div x-data="gridSlideCarousel({
+        dots: true, touchSwipe: true,
+        images: [
+          { id: '01', img: 'assets/appointment_1.png', alt: '紅葉季拍攝推薦' },
+          { id: '02', img: 'assets/appointment_2.png', alt: '紅葉季拍攝推薦' },
+          { id: '03', img: 'assets/appointment_3.png', alt: '紅葉季拍攝推薦' },
+          { id: '04', img: 'assets/appointment_4.png', alt: '紅葉季拍攝推薦' },
+          { id: '05', img: 'assets/appointment_5.png', alt: '紅葉季拍攝推薦' },
+          { id: '06', img: 'assets/appointment_6.png', alt: '紅葉季拍攝推薦' },
+          { id: '07', img: 'assets/appointment_7.png', alt: '紅葉季拍攝推薦' },
+          { id: '08', img: 'assets/appointment_8.png', alt: '紅葉季拍攝推薦' }
+        ]
+      })" x-init="init($el)" class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
 
-      <div x-data="gridSlideCarousel({ 
-            dots: true, touchSwipe: true,
-            images: [
-              { id: '01', img: 'assets/appointment_1.png', alt: '紅葉季拍攝推薦' },
-              { id: '02', img: 'assets/appointment_2.png', alt: '紅葉季拍攝推薦' },
-              { id: '03', img: 'assets/appointment_3.png', alt: '紅葉季拍攝推薦' },
-              { id: '04', img: 'assets/appointment_4.png', alt: '紅葉季拍攝推薦' },
-              { id: '05', img: 'assets/appointment_5.png', alt: '紅葉季拍攝推薦' },
-              { id: '06', img: 'assets/appointment_6.png', alt: '紅葉季拍攝推薦' },
-              { id: '07', img: 'assets/appointment_7.png', alt: '紅葉季拍攝推薦' },
-              { id: '08', img: 'assets/appointment_8.png', alt: '紅葉季拍攝推薦' }
-            ]
-          })" x-init="init($el)" class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
         <!-- 輪播容器 -->
         <div class="overflow-hidden">
           <div x-ref="swiperContainer" class="swiper-container">
@@ -323,10 +329,11 @@
               :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`">
               <template x-for="(page, pageIndex) in pagedImages" :key="pageIndex">
                 <div class="grid sm:gap-x-2 md:gap-x-4 gap-y-4 sm:gap-y-3 md:gap-y-8 swiper-slide" :style="`
-                      width: ${100 / pagedImages.length}%;
-                      grid-template-columns: repeat(${columns}, 1fr);
-                      grid-template-rows: repeat(${rows}, 1fr);
-                    `">
+                  display: grid !important;
+                  width: ${100 / pagedImages.length}%;
+                  grid-template-columns: repeat(${columns}, 1fr);
+                  grid-template-rows: repeat(${rows}, 1fr);
+                `">
                   <template x-for="(item, idx) in page" :key="item.id || idx">
                     <div class="flex flex-col items-start">
                       <div class="w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3">
@@ -358,55 +365,53 @@
       <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
       <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
       <div x-data="{
-          services: [
-            {
-              id: '01',
-              img: 'assets/service_1.png',
-              alt: '交通',
-              translateY: '0vw',
-              smTranslateY: '0vw',
-              text: ['全方案皆含完整服務', '（交通、妝髮、翻譯）', '拍攝當天無任何額外隱藏收費']
-            },
-            {
-              id: '02',
-              img: 'assets/service_2.png',
-              alt: '服裝',
-              translateY: '-6vw',
-              smTranslateY: '-2vw',
-              text: ['網上預覽婚紗及和服款式', '日本當地提供超過8000款選擇', '無需攜帶繁重行李，即可出行']
-            },
-            {
-              id: '03',
-              img: 'assets/service_3.png',
-              alt: '場地',
-              translateY: '-13vw',
-              smTranslateY: '-6vw',
-              text: ['拍攝全程合法安心', '超過千個室內外拍攝地點自由選擇', '並協助取得當地合法拍攝許可']
-            },
-            {
-              id: '04',
-              img: 'assets/service_4.png',
-              alt: '全國',
-              translateY: '-45vw',
-              smTranslateY: '-10vw',
-              text: ['遠離人潮的隱世秘景', '全國25間Studio', '小眾城市也可輕鬆抵達拍攝']
-            }
-          ]
-        }"
+        services: [
+          {
+            id: '01',
+            img: 'assets/service_1.png',
+            alt: '交通',
+            translateY: '0vw',
+            smTranslateY: '0vw',
+            text: ['全方案皆含完整服務', '（交通、妝髮、翻譯）', '拍攝當天無任何額外隱藏收費']
+          },
+          {
+            id: '02',
+            img: 'assets/service_2.png',
+            alt: '服裝',
+            translateY: '-6vw',
+            smTranslateY: '-2vw',
+            text: ['網上預覽婚紗及和服款式', '日本當地提供超過8000款選擇', '無需攜帶繁重行李，即可出行']
+          },
+          {
+            id: '03',
+            img: 'assets/service_3.png',
+            alt: '場地',
+            translateY: '-13vw',
+            smTranslateY: '-6vw',
+            text: ['拍攝全程合法安心', '超過千個室內外拍攝地點自由選擇', '並協助取得當地合法拍攝許可']
+          },
+          {
+            id: '04',
+            img: 'assets/service_4.png',
+            alt: '全國',
+            translateY: '-45vw',
+            smTranslateY: '-10vw',
+            text: ['遠離人潮的隱世秘景', '全國25間Studio', '小眾城市也可輕鬆抵達拍攝']
+          }
+        ]}"
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-[min(1.875rem,30px)] md:mt-[min(4.68rem,75px)] md:gap-x-[1vw]">
 
         <template x-for="(service, index) in services" :key="service.id">
           <div :class="[
-                index % 2 === 0 
-                  ? 'flex justify-self-start sm:justify-self-center md:justify-self-start -ml-4 sm:-ml-3 md:ml-0'
-                  : 'flex flex-row-reverse sm:flex-row justify-self-end sm:justify-self-center md:justify-self-start -mr-4 sm:mr-0 sm:-ml-3 md:ml-0',
-                index !== 0 ? 'mt-[min(1.25rem,20px)] md:mt-0' : '',
-                index >= 2 ? 'sm:mt-5' : 'sm:mt-0',
-              ]">
+            index % 2 === 0 
+              ? 'flex justify-self-start sm:justify-self-center md:justify-self-start -ml-4 sm:-ml-3 md:ml-0'
+              : 'flex flex-row-reverse sm:flex-row justify-self-end sm:justify-self-center md:justify-self-start -mr-4 sm:mr-0 sm:-ml-3 md:ml-0',
+            index !== 0 ? 'mt-[min(1.25rem,20px)] md:mt-0' : '',
+            index >= 2 ? 'sm:mt-5' : 'sm:mt-0',
+          ]">
             <!-- 編號 + 垂直線 -->
-            <div class="flex flex-col items-center" :class="[
-                  index % 2 === 0 ? '-mr-1 sm:mr-0.5 md:mr-[0.5vw]' : 'sm:mr-0.5 md:mr-[0.5vw]',
-                ]">
+            <div class="flex flex-col items-center"
+              :class="[index % 2 === 0 ? '-mr-1 sm:mr-0.5 md:mr-[0.5vw]' : 'sm:mr-0.5 md:mr-[0.5vw]',]">
               <div
                 class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-hk font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
                 x-text="service.id"></div>
@@ -417,11 +422,13 @@
             <div class="flex flex-col items-start" :class="index % 2 === 0 ? '' : '-mr-1 md:mr-0'">
               <div
                 class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[31.25vw] sm:h-[27vw] md:h-[min(18.75rem,300px)] overflow-hidden">
-                <img :src="service.img" :alt="service.alt" class="w-full object-cover h-auto" :style="window.innerWidth < 640
-                      ? 'transform: translateY(' + service.translateY + ');'
-                      : (window.innerWidth < 768
-                          ? 'transform: translateY(' + service.smTranslateY + ');'
-                          : '')" />
+                <img :src="service.img" :alt="service.alt" class="w-full object-cover h-auto" :style="
+                  window.innerWidth < 640
+                    ? 'transform: translateY(' + service.translateY + ');'
+                    : (window.innerWidth < 768
+                      ? 'transform: translateY(' + service.smTranslateY + ');'
+                      : '')
+                " />
               </div>
               <div
                 class="mt-[min(0.625rem,10px)] md:mt-4 text-left text-[min(0.75rem,12px)] sm:text-[1.5vw] md:text-[0.89vw] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
