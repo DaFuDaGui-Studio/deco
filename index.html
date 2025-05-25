@@ -89,7 +89,20 @@
       .text-info-size {
         @apply text-[min(0.75rem,12px)] md:text-[min(1.5rem,20px)]
       }
-    </style>
+
+      .text-eng {
+        @apply leading-[130%] tracking-[0.1rem]
+      }
+
+      .custom-heading-en {
+        @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[min(0.625rem,10px)] md:text-[min(1rem,16px)];
+      }
+
+      .custom-heading-zh {
+        @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[min(1.75rem,28px)] md:text-[min(2.25rem,36px)] mt-[min(0.625rem,10px)];
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -252,15 +265,14 @@
                 x-text="items[currentIndex].desc"></p>
             </div>
 
-
-            <div class="flex items-center font-noto-sans-hk font-normal"><!-- 控制按鈕 -->
+            <!-- 控制按鈕 -->
+            <div class="flex items-center font-noto-sans-hk font-normal">
               <button @click="currentIndex = (currentIndex - 1 + items.length) % items.length"
                 class="flex items-center text-xl leading-[130%] tracking-[0.125rem] mr-[30px] group">
                 <img src="./assets/icons/arrow-rignt-circle.svg"
                   class="size-4 transform scale-x-[-1] mr-[8px] group-hover:hidden" />
                 <img src="./assets/icons/arrow-rignt-circle-hover.svg"
                   class="size-4 transform scale-x-[-1] mr-[8px] hidden group-hover:inline-block" />
-
                 PREV
               </button>
               <button @click="currentIndex = (currentIndex + 1) % items.length"
@@ -272,24 +284,25 @@
               </button>
             </div>
           </div>
-          <div class="flex justify-end space-x-4 w-[60%]"> <!-- 圖片列 -->
+
+          <!-- 圖片列 -->
+          <div class="flex justify-end space-x-4 w-[60%]">
             <template x-for="(item, index) in items" :key="index">
               <div class="transition-all duration-300 overflow-hidden justify-items-end"
                 :class="currentIndex === index ? 'w-[25rem]' : 'w-[3.125rem]'">
                 <p class="w-[9.375rem] h-[1.875rem] border-b text-right font-light"
                   :class="currentIndex === index ? 'block' : 'hidden'">FLOW</p>
-
                 <div class="h-[1.875rem]" :class="currentIndex !== index ? 'block' : 'hidden'">
                   <p class="font-noto-serif-hk font-bold
                     text-[1.25rem] leading-[92%] tracking-[0.125rem]" x-text="item.step"></p>
                   <p class="font-noto-sans-jp font-light text-[0.625rem] leading-[130%] tracking-[0.125rem]">Step</p>
-
                 </div>
                 <img :src="item.image" class="h-[18.75rem] object-cover mt-5" alt="">
               </div>
             </template>
           </div>
         </div>
+
         <!-- mobile -->
         <div class="flex md:hidden">
           <!--HTML CODE-->
@@ -418,12 +431,10 @@
       </div>
       <div
         class="ml-[10%] mr-[10%] font-noto-sans-hk font-light leading-[160%] tracking-[0.25rem] text-[0.625rem] text-left md:text-right md:mr-[2.4%] md:ml-0 mt-[2.5rem] md:text-[min(1rem,16px)]">
-
         <p>DE &amp; Co. 秉持「<span class="font-bold">日式服務</span>」的細膩與貼心，從諮詢到成品，全程細心跟進</p>
         <p>我們<span class="font-bold">堅持價格透明，絕不強迫推銷，讓您輕鬆享受愉悅的婚紗拍攝體驗</span></p>
       </div>
     </section>
-
 
     <!-- voc -->
     <section class="py-25" x-data="{
@@ -691,6 +702,19 @@
   </footer>
 </body>
 <script defer>
+
+  var swiper = new Swiper(".default-carousel", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  
   function carousel() {
     return {
       images: [],
@@ -881,19 +905,6 @@
     };
   }
 
-</script>
-<script>
-  var swiper = new Swiper(".default-carousel", {
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
 </script>
 
 </html>
