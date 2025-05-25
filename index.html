@@ -602,8 +602,12 @@
         <!-- 點點 -->
         <div class="flex justify-center mt-6 sm:mt-4 space-x-2 md:hidden">
           <template x-for="(dot, index) in pagedImages.length" :key="index">
-            <button @click="goToPage(index)" :class="index === currentPage ? 'bg-black' : 'bg-gray-400'"
-              class="w-[2.2vw] sm:w-[1.2vw] aspect-square rounded-full"></button>
+            <button @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer"
+              :style="index === currentPage 
+              ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;' 
+              : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'"
+            >
+            </button>
           </template>
         </div>
       </div>
