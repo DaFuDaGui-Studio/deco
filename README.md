@@ -103,9 +103,10 @@
   <div class="flex justify-center mt-2 space-x-2 md:hidden">
     <template x-for="(dot, index) in pagedImages.length" :key="index">
       <button
-        @click="goToPage(index)"
-        :class="index === currentPage ? 'bg-black' : 'bg-gray-400'"
-        class="w-[0.5rem] h-[0.5rem] sm:w-[0.4rem] sm:h-[0.4rem] rounded-full"
+        @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer"
+        :style="index === currentPage 
+          ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;' 
+          : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'"
       ></button>
     </template>
   </div>
