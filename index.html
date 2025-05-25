@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本婚紗攝影 | DE&Co. Japan Pre-Wedding Photography 日本當地婚紗相</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本婚紗攝影 | DE&Co. Japan Pre-Wedding Photography 日本當地婚紗相</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+
+  <!-- swiper.js -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
-    <style type="text/tailwindcss">
-      @theme {
+  <style type="text/tailwindcss">
+    @theme {
         --text-xxs: 0.625rem; /* text 10px */
         --font-noto-serif-hk: "Noto Serif HK", serif;
         --font-noto-serif-jp: "Noto Serif JP", serif;
@@ -82,48 +89,44 @@
         }
       }
     </style>
-  </head>
-  <body>
-    <header class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 pt-6 pb-5 md:py-7 font-cactus-classical-serif">
-      <div class="w-16 md:w-31.25">
-        <img src="./assets/logo.svg" alt="Arrow Icon" class="w-full">
-      </div>
-      <div class="hidden md:block text-sm leading-[130%] tracking-[0.5rem]">
-        專人為您規劃合適的攝影方案
-      </div>
-      <div class="flex items-center gap-x-2.5 text-xs md:text-xl text-body">
-        <span>立即線上諮詢</span>
-        <a href="" class="flex items-center group w-4.25 h-4.25">
-          <img src="./assets/icons/arrow-rignt-circle.svg" class="size-full inline-block group-hover:!hidden" />
-          <img src="./assets/icons/arrow-rignt-circle-hover.svg" class="size-full hidden group-hover:!inline-block" />
-        </a>
-      </div>
-    </header>
+</head>
 
-    <div class="mx-auto max-w-[1440px]">
-      <!-- banner -->
-      <section>
+<body>
+  <header
+    class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 pt-6 pb-5 md:py-7 font-cactus-classical-serif">
+    <div class="w-16 md:w-31.25">
+      <img src="./assets/logo.svg" alt="Arrow Icon" class="w-full">
+    </div>
+    <div class="hidden md:block text-sm leading-[130%] tracking-[0.5rem]">
+      專人為您規劃合適的攝影方案
+    </div>
+    <div class="flex items-center gap-x-2.5 text-xs md:text-xl text-body">
+      <span>立即線上諮詢</span>
+      <a href="" class="flex items-center group w-4.25 h-4.25">
+        <img src="./assets/icons/arrow-rignt-circle.svg" class="size-full inline-block group-hover:!hidden" />
+        <img src="./assets/icons/arrow-rignt-circle-hover.svg" class="size-full hidden group-hover:!inline-block" />
+      </a>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-[1440px]">
+    <!-- banner -->
+    <section>
+      <div x-data="carousel({desktopEnabled: true})" x-init="init($el)"
+        data-images='["assets/banner_1.png","assets/banner_2.png","assets/banner_3.png","assets/banner_4.png"]'
+        class="relative h-[400px] md:h-auto overflow-hidden md:aspect-[1440/600]">
+        <template x-for="(img, index) in images" :key="index">
+          <img :src="img"
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-auto max-w-none md:w-full transition-opacity duration-1000"
+            :class="current === index ? 'opacity-100 z-10' : 'opacity-0 z-0'" style="transition-property: opacity;"
+            alt="" />
+        </template>
+        <!-- scroll icon phone -->
         <div
-          x-data="carousel({desktopEnabled: true})"
-          x-init="init($el)"
-          data-images='["assets/banner_1.png","assets/banner_2.png","assets/banner_3.png","assets/banner_4.png"]'
-          class="relative h-[400px] md:h-auto overflow-hidden md:aspect-[1440/600]"
-        >
-          <template x-for="(img, index) in images" :key="index">
-            <img
-              :src="img"
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-auto max-w-none md:w-full transition-opacity duration-1000"
-              :class="current === index ? 'opacity-100 z-10' : 'opacity-0 z-0'"
-              style="transition-property: opacity;"
-              alt=""
-            />
-          </template>
-          <!-- scroll icon phone -->
-          <div class="flex md:hidden items-center h-[min(0.875rem,14px)] absolute left-1/2 bottom-[0] transform -translate-x-1/2 translate-y-[-0.625rem] z-20 ">
-            <span class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[min(0.625rem,10px)] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
-            <div
-              x-data
-              x-init="
+          class="flex md:hidden items-center h-[min(0.875rem,14px)] absolute left-1/2 bottom-[0] transform -translate-x-1/2 translate-y-[-0.625rem] z-20 ">
+          <span
+            class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[min(0.625rem,10px)] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
+          <div x-data x-init="
                 const anim = lottie.loadAnimation({
                   container: $el,
                   renderer: 'svg',
@@ -137,33 +140,30 @@
                     p.setAttribute('stroke-width', '1.5'); // 加粗線條
                   });
                 });
-              "
-              class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"
-            ></div>
-          </div>
+              " class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"></div>
         </div>
-        <div
-          class="flex flex-col items-center h-[min(8.5rem,136px)] md:h-[min(23.5rem,375px)] bg-no-repeat bg-[25%_35%] md:bg-[center_70%] bg-[length:800px] md:bg-[length:100%]"
-          style="background-image: url('assets/banner_bg.png');">
-          <!-- japanese title phone -->
-          <div class="block md:hidden flex flex-col items-center flex-grow mt-[min(1.875rem,30px)]">
-            <p class="font-cactus-classical-serif text-[min(1.5rem,20px)] text-center text-caption">
-              「特別な瞬間」<br>を一生の思い出に
-            </p>
-          </div>
-          <!-- japanese title -->
-          <p class="hidden md:block font-cactus-classical-serif text-[min(3rem,40px)] text-body md:mt-[min(4.375rem,70px)]">
-            「特別な瞬間」を一生の思い出に
+      </div>
+      <div
+        class="flex flex-col items-center h-[min(8.5rem,136px)] md:h-[min(23.5rem,375px)] bg-no-repeat bg-[25%_35%] md:bg-[center_70%] bg-[length:800px] md:bg-[length:100%]"
+        style="background-image: url('assets/banner_bg.png');">
+        <!-- japanese title phone -->
+        <div class="block md:hidden flex flex-col items-center flex-grow mt-[min(1.875rem,30px)]">
+          <p class="font-cactus-classical-serif text-[min(1.5rem,20px)] text-center text-caption">
+            「特別な瞬間」<br>を一生の思い出に
           </p>
-          <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static md:mt-[min(2.5rem,40px)]">
-            將「特別的瞬間」變成一生的回憶
-          </p>
-          <!-- scroll icon -->
-          <div class="hidden md:flex md:mt-[min(3.125rem,50px)] items-center h-[min(1rem,16px)]">
-            <span class="text-body text-[min(0.75rem,12px)] font-noto-sans-jp font-normal">SCROLL</span>
-            <div
-              x-data
-              x-init="
+        </div>
+        <!-- japanese title -->
+        <p
+          class="hidden md:block font-cactus-classical-serif text-[min(3rem,40px)] text-body md:mt-[min(4.375rem,70px)]">
+          「特別な瞬間」を一生の思い出に
+        </p>
+        <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static md:mt-[min(2.5rem,40px)]">
+          將「特別的瞬間」變成一生的回憶
+        </p>
+        <!-- scroll icon -->
+        <div class="hidden md:flex md:mt-[min(3.125rem,50px)] items-center h-[min(1rem,16px)]">
+          <span class="text-body text-[min(0.75rem,12px)] font-noto-sans-jp font-normal">SCROLL</span>
+          <div x-data x-init="
                 const anim = lottie.loadAnimation({
                   container: $el,
                   renderer: 'svg',
@@ -177,16 +177,13 @@
                     p.setAttribute('stroke', '#4D403E'); // 換顏色
                   });
                 });
-              "
-              class="h-full ml-[0.3125rem]"
-            ></div>
-          </div>
+              " class="h-full ml-[0.3125rem]"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- voc -->
-      <section class="py-25"
-        x-data="{
+    <!-- voc -->
+    <section class="py-25" x-data="{
           customers: [
             {
               'img': './assets/voc_1.png',
@@ -230,154 +227,112 @@
             }
           ]
         }">
-        <div class="relative">
-          <div class="absolute top-0 md:top-8 -z-10 md:hidden"><img src="./assets/voc_sm_bg.png" class="w-full h-34" /></div>
-          <div class="absolute top-0 md:top-8 -z-10 hidden md:block"><img src="./assets/banner_bg.png" /></div>
-          <h3 class="font-noto-serif-hk text-[1.75rem] md:text-4xl leading-[130%] tracking-[0.2em] text-center">顧客心聲</h3>
-          <p class="font-noto-sans-tc md:font-noto-sans-hk mt-8.25 md:mt-7.5 text-xs md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co. 婚紗攝影的獨特魅力
-            聽聽喜愛 DE&Co. 的顧客心得分享！</p>
+      <div class="relative">
+        <div class="absolute top-0 md:top-8 -z-10 md:hidden"><img src="./assets/voc_sm_bg.png" class="w-full h-34" />
         </div>
+        <div class="absolute top-0 md:top-8 -z-10 hidden md:block"><img src="./assets/banner_bg.png" /></div>
+        <h3 class="font-noto-serif-hk text-[1.75rem] md:text-4xl leading-[130%] tracking-[0.2em] text-center">顧客心聲</h3>
+        <p
+          class="font-noto-sans-tc md:font-noto-sans-hk mt-8.25 md:mt-7.5 text-xs md:text-xl font-light text-caption text-center whitespace-pre-line">
+          DE&Co. 婚紗攝影的獨特魅力
+          聽聽喜愛 DE&Co. 的顧客心得分享！</p>
+      </div>
 
-        <!-- desktop -->
-        <div class="hidden md:block mt-20 px-35">
-          <div class="grid grid-cols-5 gap-x-0.5 w-full">
-            <template x-for="(customer, index) in customers" :key="`voc_${index}`">
+      <!-- desktop -->
+      <div class="hidden md:block mt-20 px-35">
+        <div class="grid grid-cols-5 gap-x-0.5 w-full">
+          <template x-for="(customer, index) in customers" :key="`voc_${index}`">
+            <div class="flex flex-col items-center gap-y-5">
+              <img :src="customer.img" class="rounded-full w-37.5 h-37.5" />
+              <p class="flex gap-x-2.5 text-sm font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                <span x-text="customer.name"></span>
+                <span x-text="customer.age"></span>
+              </p>
+              <p class="font-cactus-classical-serif text-center text-xl text-caption" x-html="customer.title"></p>
+              <p class="px-3 text-sm font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
+            </div>
+          </template>
+        </div>
+        <div class="grid grid-cols-5 w-full mt-5">
+          <template x-for="(customer, index) in customers" :key="`voc_${index}`">
+            <div class="flex items-end justify-center gap-x-2.5">
+              <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
+              <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-xs" x-text="customer.office"></p>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- mobile -->
+      <div x-data="slideIndicatorCarousel()" class="md:hidden mt-14.5">
+        <!-- carousel -->
+        <div class="carousel w-full" x-ref="carousel" @scroll="onScroll">
+          <template x-for="(customer, index) in customers" :key="`voc_${index}`">
+            <div class="carousel-item w-full flex flex-col items-center justify-between gap-y-5"
+              :id="`carousel_voc${index}`">
               <div class="flex flex-col items-center gap-y-5">
-                <img :src="customer.img" class="rounded-full w-37.5 h-37.5" />
-                <p class="flex gap-x-2.5 text-sm font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                <img :src="customer.img" class="rounded-full w-25 h-25" />
+                <p class="flex gap-x-2.5 text-xxs font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
                   <span x-text="customer.name"></span>
                   <span x-text="customer.age"></span>
                 </p>
-                <p class="font-cactus-classical-serif text-center text-xl text-caption" x-html="customer.title"></p>
-                <p class="px-3 text-sm font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
+                <p class="font-cactus-classical-serif text-center text-xs text-caption"
+                  x-text="customer.title.replace('<br>', '')"></p>
+                <p class="px-7.5 text-xxs font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
               </div>
-            </template>
-          </div>
-          <div class="grid grid-cols-5 w-full mt-5">
-            <template x-for="(customer, index) in customers" :key="`voc_${index}`">
-              <div class="flex items-end justify-center gap-x-2.5">
+              <div class="flex items-end gap-x-2.5">
                 <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
-                <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-xs" x-text="customer.office"></p>
+                <p class="font-noto-sans-hk leading-[130%] text-xxs tracking-[0.2em]" x-text="customer.office"></p>
               </div>
-            </template>
-          </div>
+            </div>
+          </template>
         </div>
 
-        <!-- mobile -->
-        <div
-          x-data="slideIndicatorCarousel()"
-          class="md:hidden mt-14.5"
-        > 
-          <!-- carousel -->
-          <div class="carousel w-full" x-ref="carousel" @scroll="onScroll">
-            <template x-for="(customer, index) in customers" :key="`voc_${index}`">
-              <div class="carousel-item w-full flex flex-col items-center justify-between gap-y-5" :id="`carousel_voc${index}`">
-                <div class="flex flex-col items-center gap-y-5">
-                  <img :src="customer.img" class="rounded-full w-25 h-25" />
-                  <p class="flex gap-x-2.5 text-xxs font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
-                    <span x-text="customer.name"></span>
-                    <span x-text="customer.age"></span>
-                  </p>
-                  <p class="font-cactus-classical-serif text-center text-xs text-caption" x-text="customer.title.replace('<br>', '')"></p>
-                  <p class="px-7.5 text-xxs font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
-                </div>
-                <div class="flex items-end gap-x-2.5">
-                  <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
-                  <p class="font-noto-sans-hk leading-[130%] text-xxs tracking-[0.2em]" x-text="customer.office"></p>
-                </div>
-              </div>
-            </template>
-          </div>
-
-          <!-- carousel indicator -->
-          <div class="flex w-full justify-center gap-2.5 py-2 mt-8">
-            <template x-for="(_customer, index) in customers" :key="`voc_dot_${index}`">
-              <button @click="goTo(index)" :class="{'bg-stone-950': current == index}" class="border border-stone-950 size-2.5 rounded-full"></button>
-            </template>
-          </div>
+        <!-- carousel indicator -->
+        <div class="flex w-full justify-center gap-2.5 py-2 mt-8">
+          <template x-for="(_customer, index) in customers" :key="`voc_dot_${index}`">
+            <button @click="goTo(index)" :class="{'bg-stone-950': current == index}"
+              class="border border-stone-950 size-2.5 rounded-full"></button>
+          </template>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- appointment -->
-      <section class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
-        <h2 class="custom-heading-en md:">Appointment</h2>
-        <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
-        <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
-        <div
-          x-data="galleryCarousel({ 
+    <!-- appointment -->
+    <section
+      class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
+      <h2 class="custom-heading-en md:">Appointment</h2>
+      <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
+      <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
+
+      <div x-data="gridSlideCarousel({ 
             dots: true, touchSwipe: true,
             images: [
-              {
-                id: '01',
-                img: 'assets/appointment_1.png',
-                alt: '紅葉季拍攝推薦',
-              },
-              {
-                id: '02',
-                img: 'assets/appointment_2.png',
-                alt: '紅葉季拍攝推薦',
-              },
-              {
-                id: '03',
-                img: 'assets/appointment_3.png',
-                alt: '紅葉季拍攝推薦',
-              },
-              {
-                id: '04',
-                img: 'assets/appointment_4.png',
-                alt: '紅葉季拍攝推薦',
-              },
-              {
-                id: '05',
-                img: 'assets/appointment_5.png',
-                alt: '紅葉季拍攝推薦',
-              },
-              {
-                id: '06',
-                img: 'assets/appointment_6.png',
-                alt: '紅葉季拍攝推薦',
-              },
-              {
-                id: '07',
-                img: 'assets/appointment_7.png',
-                alt: '紅葉季拍攝推薦',
-              },
-              {
-                id: '08',
-                img: 'assets/appointment_8.png',
-                alt: '紅葉季拍攝推薦',
-              }
+              { id: '01', img: 'assets/appointment_1.png', alt: '紅葉季拍攝推薦' },
+              { id: '02', img: 'assets/appointment_2.png', alt: '紅葉季拍攝推薦' },
+              { id: '03', img: 'assets/appointment_3.png', alt: '紅葉季拍攝推薦' },
+              { id: '04', img: 'assets/appointment_4.png', alt: '紅葉季拍攝推薦' },
+              { id: '05', img: 'assets/appointment_5.png', alt: '紅葉季拍攝推薦' },
+              { id: '06', img: 'assets/appointment_6.png', alt: '紅葉季拍攝推薦' },
+              { id: '07', img: 'assets/appointment_7.png', alt: '紅葉季拍攝推薦' },
+              { id: '08', img: 'assets/appointment_8.png', alt: '紅葉季拍攝推薦' }
             ]
-          })"
-          x-init="init($el)"
-          class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]"
-        >
-          <!-- 輪播容器 -->
-          <div class="overflow-hidden">
-            <div
-              class="flex transition-transform duration-500"
-              :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`"
-              @touchstart="touchSwipe ? touchStart($event) : null"
-              @touchend="touchSwipe ? touchEnd($event) : null"
-            >
+          })" x-init="init($el)" class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
+        <!-- 輪播容器 -->
+        <div class="overflow-hidden">
+          <div x-ref="swiperContainer" class="swiper-container">
+            <div class="flex transition-transform duration-500 swiper-wrapper"
+              :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`">
               <template x-for="(page, pageIndex) in pagedImages" :key="pageIndex">
-                <!-- 用 grid 做頁面，調整列數跟欄數 -->
-                <div
-                  class="grid sm:gap-x-2 md:gap-x-4 gap-y-4 sm:gap-y-3 md:gap-y-8"
-                  :style="`
-                    width: ${100 / pagedImages.length}%;
-                    grid-template-columns: repeat(${Number(columns)}, 1fr);
-                    grid-template-rows: repeat(${Number(rows)}, 1fr);
-                  `"
-                >
+                <div class="grid sm:gap-x-2 md:gap-x-4 gap-y-4 sm:gap-y-3 md:gap-y-8 swiper-slide" :style="`
+                      width: ${100 / pagedImages.length}%;
+                      grid-template-columns: repeat(${columns}, 1fr);
+                      grid-template-rows: repeat(${rows}, 1fr);
+                    `">
                   <template x-for="(item, idx) in page" :key="item.id || idx">
                     <div class="flex flex-col items-start">
                       <div class="w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3">
-                        <img
-                          :src="item.img"
-                          :alt="item.alt"
-                          class="h-full"
-                        />
+                        <img :src="item.img" :alt="item.alt" class="h-full" />
                       </div>
                       <p x-text="item.alt" class="text-left text-info-size text-caption font-noto-sans-hk"></p>
                     </div>
@@ -386,26 +341,25 @@
               </template>
             </div>
           </div>
-
-          <!-- 點點 -->
-          <div class="flex justify-center mt-6 sm:mt-4 space-x-2 md:hidden">
-            <template x-for="(dot, index) in pagedImages.length" :key="index">
-              <button
-                @click="goToPage(index)"
-                :class="index === currentPage ? 'bg-black' : 'bg-gray-400'"
-                class="w-[2.2vw] sm:w-[1.2vw] aspect-square rounded-full"
-              ></button>
-            </template>
-          </div>
         </div>
-      </section>
 
-      <!-- service -->
-      <section class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
-        <h2 class="custom-heading-en text-center">Service</h2>
-        <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
-        <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
-        <div x-data="{
+        <!-- 點點 -->
+        <div class="flex justify-center mt-6 sm:mt-4 space-x-2 md:hidden">
+          <template x-for="(dot, index) in pagedImages.length" :key="index">
+            <button @click="goToPage(index)" :class="index === currentPage ? 'bg-black' : 'bg-gray-400'"
+              class="w-[2.2vw] sm:w-[1.2vw] aspect-square rounded-full"></button>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- service -->
+    <section
+      class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
+      <h2 class="custom-heading-en text-center">Service</h2>
+      <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
+      <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
+      <div x-data="{
           services: [
             {
               id: '01',
@@ -440,247 +394,248 @@
               text: ['遠離人潮的隱世秘景', '全國25間Studio', '小眾城市也可輕鬆抵達拍攝']
             }
           ]
-        }" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-[min(1.875rem,30px)] md:mt-[min(4.68rem,75px)] md:gap-x-[1vw]">
-          
-          <template x-for="(service, index) in services" :key="service.id">
-            <div
-              :class="[
+        }"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-[min(1.875rem,30px)] md:mt-[min(4.68rem,75px)] md:gap-x-[1vw]">
+
+        <template x-for="(service, index) in services" :key="service.id">
+          <div :class="[
                 index % 2 === 0 
                   ? 'flex justify-self-start sm:justify-self-center md:justify-self-start -ml-4 sm:-ml-3 md:ml-0'
                   : 'flex flex-row-reverse sm:flex-row justify-self-end sm:justify-self-center md:justify-self-start -mr-4 sm:mr-0 sm:-ml-3 md:ml-0',
                 index !== 0 ? 'mt-[min(1.25rem,20px)] md:mt-0' : '',
                 index >= 2 ? 'sm:mt-5' : 'sm:mt-0',
-              ]"
-            >
-              <!-- 編號 + 垂直線 -->
-              <div
-                class="flex flex-col items-center"
-                :class="[
+              ]">
+            <!-- 編號 + 垂直線 -->
+            <div class="flex flex-col items-center" :class="[
                   index % 2 === 0 ? '-mr-1 sm:mr-0.5 md:mr-[0.5vw]' : 'sm:mr-0.5 md:mr-[0.5vw]',
-                ]"
-              >
-                <div class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-hk font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]" x-text="service.id"></div>
-                <div class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[25vw] sm:h-[22vw] md:h-[17vw]"></div>
-              </div>
+                ]">
+              <div
+                class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-hk font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
+                x-text="service.id"></div>
+              <div class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[25vw] sm:h-[22vw] md:h-[17vw]"></div>
+            </div>
 
-              <!-- 圖片 + 文字 -->
-              <div class="flex flex-col items-start" :class="index % 2 === 0 ? '' : '-mr-1 md:mr-0'">
-                <div class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[31.25vw] sm:h-[27vw] md:h-[min(18.75rem,300px)] overflow-hidden">
-                  <img
-                    :src="service.img"
-                    :alt="service.alt"
-                    class="w-full object-cover h-auto"
-                    :style="window.innerWidth < 640
+            <!-- 圖片 + 文字 -->
+            <div class="flex flex-col items-start" :class="index % 2 === 0 ? '' : '-mr-1 md:mr-0'">
+              <div
+                class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[31.25vw] sm:h-[27vw] md:h-[min(18.75rem,300px)] overflow-hidden">
+                <img :src="service.img" :alt="service.alt" class="w-full object-cover h-auto" :style="window.innerWidth < 640
                       ? 'transform: translateY(' + service.translateY + ');'
                       : (window.innerWidth < 768
                           ? 'transform: translateY(' + service.smTranslateY + ');'
-                          : '')"
-                  />
-                </div>
-                <div class="mt-[min(0.625rem,10px)] md:mt-4 text-left text-[min(0.75rem,12px)] sm:text-[1.5vw] md:text-[0.89vw] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
-                  <template x-for="line in service.text" :key="line">
-                    <p class="whitespace-nowrap" x-text="line"></p>
-                  </template>
-                </div>
+                          : '')" />
+              </div>
+              <div
+                class="mt-[min(0.625rem,10px)] md:mt-4 text-left text-[min(0.75rem,12px)] sm:text-[1.5vw] md:text-[0.89vw] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
+                <template x-for="line in service.text" :key="line">
+                  <p class="whitespace-nowrap" x-text="line"></p>
+                </template>
               </div>
             </div>
-          </template>
-        </div>
-      </section>
+          </div>
+        </template>
+      </div>
+    </section>
 
 
-    </div>
+  </div>
 
-    <footer class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-xxs md:text-sm text-eng">
-      COPYRIGHT ©DECOLLTE PHOTOGRAPHY CO.,LTD ALL RIGHTS RESERVED.
-    </footer>
-  </body>
-  <script defer>
-    function carousel() {
-      return {
-        images: [],
-        current: 0,
-        interval: null,
-        init(el) {
-          if (el) {
-            // 從 data-images 屬性讀圖片陣列，並轉成陣列
-            this.images = JSON.parse(el.getAttribute('data-images'))
+  <footer
+    class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-xxs md:text-sm text-eng">
+    COPYRIGHT ©DECOLLTE PHOTOGRAPHY CO.,LTD ALL RIGHTS RESERVED.
+  </footer>
+</body>
+<script defer>
+  function carousel() {
+    return {
+      images: [],
+      current: 0,
+      interval: null,
+      init(el) {
+        if (el) {
+          // 從 data-images 屬性讀圖片陣列，並轉成陣列
+          this.images = JSON.parse(el.getAttribute('data-images'))
 
-             // 啟動輪播
-            this.interval = setInterval(() => {
-              this.current = (this.current + 1) % this.images.length
-            }, 5000)
-          }
-        }
-      }
-    }
-
-    function slideIndicatorCarousel(autoPlay){
-      return {
-        autoPlay: autoPlay || false,
-        carousel: null,
-        items: [],
-        current: 0,
-        offsetLefts: [],
-        init() {
-          this.carousel = this.$refs.carousel
-          setTimeout(() => {
-            const items = this.carousel.querySelectorAll(".carousel-item")
-            this.items = items
-            this.offsetLefts = Array.from(items).map(item => item.offsetLeft);
-            if(this.autoPlay) {
-              this.autoNextItem(this.items.length)
-            }
-          }, 100);
-        },
-        goTo(index) {
-          const left = this.offsetLefts[index];
-          this.carousel.scrollTo({ left: left })
-        },
-        onScroll(e){
-          const currentIndex = this.offsetLefts.indexOf(e.target.scrollLeft)
-          if(currentIndex >= 0){
-            this.current = currentIndex
-          }
-        },
-        autoNextItem(length){
-          setInterval(()=>{
-            if(this.current == length - 1){
-              this.current = 0
-            } else {
-              this.current += 1
-            }
-            const left = this.offsetLefts[this.current];
-            this.carousel.scrollTo({ left: left })
+          // 啟動輪播
+          this.interval = setInterval(() => {
+            this.current = (this.current + 1) % this.images.length
           }, 5000)
         }
       }
     }
+  }
 
-    function galleryCarousel(options = {}) {
-      return {
-        images: options.images || [],
-        currentPage: 0,
-        startX: 0,
-        endX: 0,
-        screenWidthReactive: window.innerWidth,
-
-        dots: options.dots ?? false,
-        arrows: options.arrows ?? false,
-        touchSwipe: options.touchSwipe ?? false,
-        pauseOnHover: options.pauseOnHover ?? false,
-        autoPlay: options.autoPlay ?? false,
-        
-        // 使用哪種排版
-        layout: options.layout ?? 'grid', 
-        
-        // 外部可傳入的 columns 和 rows 預設值，用於圖片排版
-        defaultColumns: options.columns ?? null,
-        defaultRows: options.rows ?? 2,
-
-        get screenWidth() {
-          return this.screenWidthReactive;
-        },
-
-        get columns() {
-          if (this.defaultColumns !== null) {
-            if (typeof this.defaultColumns === 'number') {
-              return this.defaultColumns;  // 固定欄數
-            }
-            if (typeof this.defaultColumns === 'object') {
-              // 判斷螢幕寬度回傳對應欄數
-              if (this.screenWidth >= 768) return this.defaultColumns.desktop ?? 4;
-              else if (this.screenWidth >= 640) return this.defaultColumns.tablet ?? 2;
-              else return this.defaultColumns.mobile ?? 1;
-            }
+  function slideIndicatorCarousel(autoPlay) {
+    return {
+      autoPlay: autoPlay || false,
+      carousel: null,
+      items: [],
+      current: 0,
+      offsetLefts: [],
+      init() {
+        this.carousel = this.$refs.carousel
+        setTimeout(() => {
+          const items = this.carousel.querySelectorAll(".carousel-item")
+          this.items = items
+          this.offsetLefts = Array.from(items).map(item => item.offsetLeft);
+          if (this.autoPlay) {
+            this.autoNextItem(this.items.length)
           }
-
-          // 預設行為（沒傳 defaultColumns）
-          if (this.screenWidth >= 768) return 4;
-          else if (this.screenWidth >= 640) return 2;
-          else return 1;
-        },
-
-        get rows() {
-          return this.defaultRows;
-        },
-
-        get itemsPerPage() {
-          // flex 直接用欄數當一頁的張數
-          if (this.layout === 'flex') {
-            return this.columns;
+        }, 100);
+      },
+      goTo(index) {
+        const left = this.offsetLefts[index];
+        this.carousel.scrollTo({ left: left })
+      },
+      onScroll(e) {
+        const currentIndex = this.offsetLefts.indexOf(e.target.scrollLeft)
+        if (currentIndex >= 0) {
+          this.current = currentIndex
+        }
+      },
+      autoNextItem(length) {
+        setInterval(() => {
+          if (this.current == length - 1) {
+            this.current = 0
+          } else {
+            this.current += 1
           }
+          const left = this.offsetLefts[this.current];
+          this.carousel.scrollTo({ left: left })
+        }, 5000)
+      }
+    }
+  }
 
-          // grid 一頁有 columns x rows 張圖
-          return this.columns * this.rows;
-        },
+  function gridSlideCarousel(options = {}) {
+    return {
+      images: options.images || [],
+      currentPage: 0,
+      startX: 0,
+      endX: 0,
+      screenWidthReactive: window.innerWidth,
 
-        get pagedImages() {
-          const pages = [];
-          for (let i = 0; i < this.images.length; i += this.itemsPerPage) {
-            pages.push(this.images.slice(i, i + this.itemsPerPage));
+      dots: options.dots ?? false,
+      arrows: options.arrows ?? false,
+      touchSwipe: options.touchSwipe ?? false,
+      pauseOnHover: options.pauseOnHover ?? false,
+      autoPlay: options.autoPlay ?? false,
+
+      // 外部可傳入的 columns 和 rows 預設值，用於圖片排版
+      defaultColumns: options.columns ?? null,
+      defaultRows: options.rows ?? 2,
+      swiper: null,
+
+      get screenWidth() {
+        return this.screenWidthReactive;
+      },
+
+      get columns() {
+        if (this.defaultColumns !== null) {
+          if (typeof this.defaultColumns === "number") {
+            return this.defaultColumns; // 固定欄數
           }
-          return pages;
-        },
+          if (typeof this.defaultColumns === "object") {
+            if (this.screenWidth >= 768) return this.defaultColumns.desktop ?? 4;
+            else if (this.screenWidth >= 640) return this.defaultColumns.tablet ?? 2;
+            else return this.defaultColumns.mobile ?? 1;
+          }
+        }
 
-        get totalPages() {
-          return this.pagedImages.length;
-        },
-        
-        init() {
-          window.addEventListener('resize', () => {
+        // 預設行為（沒傳 columns）
+        if (this.screenWidth >= 768) return 4;
+        else if (this.screenWidth >= 640) return 2;
+        else return 1;
+      },
+
+      get rows() {
+        return this.defaultRows;
+      },
+
+      get itemsPerPage() {
+        return this.columns * this.rows;
+      },
+
+      get pagedImages() {
+        const pages = [];
+        for (let i = 0; i < this.images.length; i += this.itemsPerPage) {
+          pages.push(this.images.slice(i, i + this.itemsPerPage));
+        }
+        return pages;
+      },
+
+      get totalPages() {
+        return this.pagedImages.length;
+      },
+
+      get isTouchDevice() {
+        return (
+          'ontouchstart' in window ||          // 傳統判斷方式
+          navigator.maxTouchPoints > 0 ||      // 新式觸控裝置判斷（Windows觸控筆記型電腦等）
+          navigator.msMaxTouchPoints > 0       // 舊IE判斷
+        );
+      },
+
+      init(el) {
+        if (el) {
+          window.addEventListener("resize", () => {
             this.screenWidthReactive = window.innerWidth;
             this.currentPage = 0;
+            if (this.swiper) this.swiper.update();
           });
-  
-          if (this.autoPlay && this.totalPages > 1) {
-            this.startAutoPlay();
+
+          if (this.touchSwipe) {
+            if (!this.isTouchDevice) {
+              // 桌機用 Swiper
+              this.swiper = new Swiper(el.querySelector(".swiper-container"), {
+                slidesPerView: 1,
+                allowTouchMove: true,
+                resistanceRatio: 0,
+                loop: false,
+                on: {
+                  slideChange: () => {
+                    this.currentPage = this.swiper.activeIndex;
+                  },
+                },
+              });
+            } else {
+              // 手機用自己寫的 touch 滑動
+              el.addEventListener("touchstart", this.touchStart.bind(this));
+              el.addEventListener("touchend", this.touchEnd.bind(this));
+            }
           }
-        },
+        }
+      },
 
-        startAutoPlay() {
-          this.stopAutoPlay();
-          this.interval = setInterval(() => {
-            this.currentPage = (this.currentPage + 1) % this.totalPages;
-          }, 5000);
-        },
+      goToPage(page) {
+        if (page < 0) page = 0;
+        else if (page >= this.pagedImages.length) page = this.pagedImages.length - 1;
+        this.currentPage = page;
 
-        stopAutoPlay() {
-          if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
-          }
-        },
+        if (this.swiper) {
+          this.swiper.slideTo(page);
+        }
+      },
 
-        goToPage(page) {
-          if (page < 0) page = 0;
-          else if (page >= this.pagedImages.length) page = this.pagedImages.length - 1;
-          this.currentPage = page;
+      touchStart(e) {
+        if (this.autoPlay) this.stopAutoPlay();
+        this.startX = e.touches[0].clientX;
+      },
 
-          if (this.autoPlay) {
-            this.stopAutoPlay();
-            setTimeout(() => this.startAutoPlay(), 2000);
-          }
-        },
+      touchEnd(e) {
+        this.endX = e.changedTouches[0].clientX;
+        const diff = this.endX - this.startX;
+        if (Math.abs(diff) > 30) {
+          if (diff > 0) this.goToPage(this.currentPage - 1);
+          else this.goToPage(this.currentPage + 1);
+        }
+        if (this.autoPlay) {
+          setTimeout(() => this.startAutoPlay(), 2000);
+        }
+      },
+    };
+  }
 
-        touchStart(e) {
-          if (this.autoPlay) this.stopAutoPlay();
-          this.startX = e.touches[0].clientX;
-        },
+</script>
 
-        touchEnd(e) {
-          this.endX = e.changedTouches[0].clientX;
-          const diff = this.endX - this.startX;
-          if (Math.abs(diff) > 30) {
-            if (diff > 0) this.goToPage(this.currentPage - 1);
-            else this.goToPage(this.currentPage + 1);
-          }
-          if (this.autoPlay) {
-            setTimeout(() => this.startAutoPlay(), 2000);
-          }
-        },
-      };
-    }
-
-  </script>
 </html>
