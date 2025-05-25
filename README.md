@@ -10,13 +10,13 @@
 * 下面有點點的 每個點點 @click="goTo('第幾個item')"
 
 
-## galleryCarousel 使用說明
+## gridSlideCarousel 使用說明
 
 ### 功能介紹
 支援自動 / 滑動 / 手動輪播功能，並可設定圖片欄數、列數、顯示點點、箭頭、滑動切換、暫停播放等參數。
 
 ### 使用方式
-使用 `x-data="galleryCarousel(options)"` 初始化，`options` 為設定參數物件。
+使用 `x-data="gridSlideCarousel(options)"` 初始化，`options` 為設定參數物件。
 
 ### 可用參數（預設為 false 或預設值）
 - `dots`：是否顯示底部點點導航，預設 `false`
@@ -24,7 +24,6 @@
 - `touchSwipe`：是否啟用觸控滑動切換，預設 `false`
 - `pauseOnHover`：滑鼠懸停是否暫停自動播放，預設 `false`
 - `autoPlay`：是否啟用自動播放，預設 `false`
-- `layout`：排版方法(flex/grid)，預設`grid`
 - `columns`：圖片欄數，可設定數字或物件，預設 `{ mobile: 1, tablet: 2, desktop: 4 }`  
   - 物件可只設定部分欄位，未設定欄位會使用預設值補齊
 - `rows`：圖片列數，預設 `2`
@@ -39,7 +38,7 @@
 ### 使用範例
 ```html
 <div
-  x-data="galleryCarousel({ 
+  x-data="gridSlideCarousel({ 
     dots: true, 
     arrows: true, 
     columns: { mobile: 1, tablet: 2, desktop: 4 }, 
@@ -62,9 +61,6 @@
     <div
       class="flex transition-transform duration-500"
       :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`"
-      <!-- 使用 touchSwipe 功能時，才需要加上這兩個事件 -->
-      @touchstart="touchSwipe ? touchStart($event) : null"
-      @touchend="touchSwipe ? touchEnd($event) : null"
     >
       <template x-for="(page, pageIndex) in pagedImages" :key="pageIndex">
         <!-- 用 grid 做頁面，調整列數跟欄數 -->
@@ -78,16 +74,6 @@
         >
           <template x-for="item in page" :key="item.id">
             <div class="p-2 bg-gray-100 rounded">
-              <img :src="item.img" :alt="item.alt" class="w-auto h-full" />
-              <p class="text-sm text-center mt-1" x-text="item.alt"></p>
-            </div>
-          </template>
-        </div>
-
-        <!-- 用 flex 做頁面 -->
-        <div class="flex flex-wrap justify-center gap-4">
-          <template x-for="img in pagedImages[currentPage]" :key="img">
-            <div :style="`flex: 0 0 ${100 / columns}%`">
               <img :src="item.img" :alt="item.alt" class="w-auto h-full" />
               <p class="text-sm text-center mt-1" x-text="item.alt"></p>
             </div>
