@@ -552,7 +552,7 @@
 
     <!-- appointment -->
     <section
-      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[35px]">
       <h2 class="custom-heading-en md:">Appointment</h2>
       <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
       <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
@@ -612,7 +612,7 @@
 
     <!-- service -->
     <section
-      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[35px]">
       <h2 class="custom-heading-en text-center">Service</h2>
       <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
       <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
@@ -663,11 +663,11 @@
           ]">
             <!-- 編號 + 垂直線 -->
             <div class="flex flex-col items-center"
-              :class="[index % 2 === 0 ? '-mr-1 sm:mr-0.5 md:mr-[0.5vw]' : 'sm:mr-0.5 md:mr-[0.5vw]',]">
+              :class="[index % 2 === 0 ? '-mr-1 sm:mr-2 md:mr-[0.5vw]' : 'sm:mr-2 md:mr-[0.5vw]',]">
               <div
                 class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-hk font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
                 x-text="service.id"></div>
-              <div class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[25vw] sm:h-[22vw] md:h-[17vw]"></div>
+              <div class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[clamp(75px,25vw,160px)] sm:h-[clamp(140px,22vw,170px)] md:h-[clamp(130px,17vw,200px)]"></div>
             </div>
 
             <!-- 圖片 + 文字 -->
@@ -694,7 +694,7 @@
       </div>
     </section>
 
-  </mmain>
+  </main>
 
   <footer
     class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-[min(0.625rem,10px)] md:text-sm text-eng">
