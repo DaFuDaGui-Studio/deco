@@ -13,8 +13,6 @@
     href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
     rel="stylesheet">
 
-  <!-- DaisyUI -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <!-- Tailwind -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -34,9 +32,8 @@
       --font-noto-serif-hk: "Noto Serif HK", serif;
       --font-noto-serif-jp: "Noto Serif JP", serif;
       --font-noto-sans-jp: "Noto Sans JP", sans-serif;
-      --font-noto-sans-hk: "Noto Sans HK", sans-serif,;
-      --font-noto-sans-tc: "Noto Sans TC", sans-serif,;
-      --font-noto-sans-jp: "Noto Sans JP", sans-serif,;
+      --font-noto-sans-hk: "Noto Sans HK", sans-serif;
+      --font-noto-sans-tc: "Noto Sans TC", sans-serif;
       --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
       --font-cactus-classical-serif: "Cactus Classical Serif", serif;
       --color-stone-950: #4D403E;
@@ -57,6 +54,10 @@
     .swiper-pagination-bullet-active {
       background: #4D403E !important;
       transform: scale(1.2);
+    }
+
+    .voc .swiper-pagination {
+      @apply !relative mt-[32px]
     }
 
     @media screen and (min-width: 768px) {
@@ -107,23 +108,23 @@
 
 <body>
   <header
-    class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 pt-6 pb-5 md:py-7 font-cactus-classical-serif">
-    <div class="w-16 md:w-31.25">
+    class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 py-[min(1.25rem,20px)] md:py-7 font-cactus-classical-serif">
+    <div class="w-[min(4rem,64px)] md:w-31.25">
       <img src="./assets/logo.svg" alt="Arrow Icon" class="w-full">
     </div>
     <div class="hidden md:block text-sm leading-[130%] tracking-[0.5rem]">
       專人為您規劃合適的攝影方案
     </div>
-    <div class="flex items-center gap-x-2.5 text-xs md:text-xl text-body">
+    <div class="flex items-center gap-x-2.5 text-[min(0.75rem,12px)] md:text-xl text-body">
       <span>立即線上諮詢</span>
-      <a href="" class="flex items-center group w-4.25 h-4.25">
+      <a href="" class="flex items-center group w-[min(0.937rem, 15px)] h-[min(0.937rem, 15px)] md:w-4.25 md:h-4.25">
         <img src="./assets/icons/arrow-rignt-circle.svg" class="size-full inline-block group-hover:!hidden" />
         <img src="./assets/icons/arrow-rignt-circle-hover.svg" class="size-full hidden group-hover:!inline-block" />
       </a>
     </div>
   </header>
 
-  <div class="mx-auto max-w-[1440px]">
+  <main>
     <!-- banner -->
     <section>
       <div x-data="carousel({desktopEnabled: true})" x-init="init($el)"
@@ -197,7 +198,7 @@
     </section>
 
     <!-- flow -->
-    <section>
+    <section class="mx-auto max-w-[1440px]">
       <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
         <h1
           class="mb-2 font-noto-sans-hk font-light leading-[130%] tracking-[0.1rem] text-[0.625rem] text-center md:text-left text-[min(1rem,16px)]">
@@ -437,7 +438,7 @@
     </section>
 
     <!-- voc -->
-    <section class="py-25" x-data="{
+    <section class="voc py-[100px] md:py-25" x-data="{
       customers: [
         {
           'img': './assets/voc_1.png',
@@ -482,19 +483,17 @@
       ]
     }">
       <div class="relative">
-        <div class="absolute top-0 md:top-8 -z-10 md:hidden"><img src="./assets/voc_sm_bg.png" class="w-full h-34" />
-        </div>
-        <div class="absolute top-0 md:top-8 -z-10 hidden md:block"><img src="./assets/banner_bg.png" /></div>
-        <h3 class="font-noto-serif-hk text-[1.75rem] md:text-4xl leading-[130%] tracking-[0.2em] text-center">顧客心聲</h3>
+
+        <div class="absolute top-3 md:top-8 -z-10 w-full"><img src="./assets/banner_bg.png" class="w-full h-[(6.75rem,108px)] md:h-auto object-cover object-[25%_75%] md:object-center" /></div>
+        <h3 class="custom-heading-zh text-center">顧客心聲</h3>
         <p
-          class="font-noto-sans-tc md:font-noto-sans-hk mt-8.25 md:mt-7.5 text-xs md:text-xl font-light text-caption text-center whitespace-pre-line">
-          DE&Co. 婚紗攝影的獨特魅力
+          class="font-noto-sans-tc md:font-noto-sans-hk mt-[min(2.06rem,33px)] md:mt-7.5 text-[min(0.75rem,12px)] md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co. 婚紗攝影的獨特魅力
           聽聽喜愛 DE&Co. 的顧客心得分享
         </p>
       </div>
 
       <!-- desktop -->
-      <div class="hidden md:block mt-20 px-35">
+      <div class="hidden md:block mx-auto max-w-[1440px] mt-20 px-35">
         <div class="grid grid-cols-5 gap-x-0.5 w-full">
           <template x-for="(customer, index) in customers" :key="`voc_${index}`">
             <div class="flex flex-col items-center gap-y-5">
@@ -519,43 +518,41 @@
       </div>
 
       <!-- mobile -->
-      <div x-data="slideIndicatorCarousel()" class="md:hidden mt-14.5">
-        <!-- carousel -->
-        <div class="carousel w-full" x-ref="carousel" @scroll="onScroll">
-          <template x-for="(customer, index) in customers" :key="`voc_${index}`">
-            <div class="carousel-item w-full flex flex-col items-center justify-between gap-y-5"
-              :id="`carousel_voc${index}`">
-              <div class="flex flex-col items-center gap-y-5">
-                <img :src="customer.img" class="rounded-full w-25 h-25" />
-                <p class="flex gap-x-2.5 text-xxs font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
-                  <span x-text="customer.name"></span>
-                  <span x-text="customer.age"></span>
-                </p>
-                <p class="font-cactus-classical-serif text-center text-xs text-caption"
-                  x-text="customer.title.replace('<br>', '')"></p>
-                <p class="px-7.5 text-xxs font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
-              </div>
-              <div class="flex items-end gap-x-2.5">
-                <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
-                <p class="font-noto-sans-hk leading-[130%] text-xxs tracking-[0.2em]" x-text="customer.office"></p>
-              </div>
+      <div class="md:hidden mt-[58px]">
+        <div class="w-full relative">
+          <div class="swiper voc-swiper swiper-container">
+            <div class="swiper-wrapper">
+              <!--items-->
+              <template x-for="(customer, index) in customers" :key="`voc-${index}`">
+                <div class="swiper-slide">             
+                  <div class="w-full flex flex-col items-center justify-between gap-y-[20px]">
+                    <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
+                      <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
+                      <p class="flex gap-x-2.5 text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                        <span x-text="customer.name"></span>
+                        <span x-text="customer.age"></span>
+                      </p>
+                      <p class="font-cactus-classical-serif text-center text-[min(0.75rem,12px)] text-caption"
+                        x-text="customer.title.replace('<br>', '')"></p>
+                      <p class="px-7.5 text-[min(0.625rem,10px)] font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
+                    </div>
+                    <div class="flex items-end gap-x-[min(0.625rem,10px)]">
+                      <img src="./assets/icons/location.svg" class="w-[min(0.937rem,15px)] h-[min(1.25rem,20px)]" />
+                      <p class="font-noto-sans-hk leading-[130%] text-[min(0.625rem,10px)] tracking-[0.2em]" x-text="customer.office"></p>
+                    </div>
+                  </div>
+                </div>
+              </template>
             </div>
-          </template>
-        </div>
-
-        <!-- carousel indicator -->
-        <div class="flex w-full justify-center gap-2.5 py-2 mt-8">
-          <template x-for="(_customer, index) in customers" :key="`voc_dot_${index}`">
-            <button @click="goTo(index)" :class="{'bg-stone-950': current == index}"
-              class="border border-stone-950 size-2.5 rounded-full"></button>
-          </template>
+            <div class="swiper-pagination "></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- appointment -->
     <section
-      class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
       <h2 class="custom-heading-en md:">Appointment</h2>
       <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
       <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
@@ -615,7 +612,7 @@
 
     <!-- service -->
     <section
-      class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
       <h2 class="custom-heading-en text-center">Service</h2>
       <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
       <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
@@ -697,11 +694,10 @@
       </div>
     </section>
 
-
-  </div>
+  </mmain>
 
   <footer
-    class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-xxs md:text-sm text-eng">
+    class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-[min(0.625rem,10px)] md:text-sm text-eng">
     COPYRIGHT ©DECOLLTE PHOTOGRAPHY CO.,LTD ALL RIGHTS RESERVED.
   </footer>
 </body>
@@ -719,6 +715,20 @@
     },
   });
 
+  setTimeout(() => {
+    const voc_swiper = new Swiper(".voc-swiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
+    })
+  }, 100);
+
   function carousel() {
     return {
       images: [],
@@ -734,48 +744,6 @@
             this.current = (this.current + 1) % this.images.length
           }, 5000)
         }
-      }
-    }
-  }
-
-  function slideIndicatorCarousel(autoPlay) {
-    return {
-      autoPlay: autoPlay || false,
-      carousel: null,
-      items: [],
-      current: 0,
-      offsetLefts: [],
-      init() {
-        this.carousel = this.$refs.carousel
-        setTimeout(() => {
-          const items = this.carousel.querySelectorAll(".carousel-item")
-          this.items = items
-          this.offsetLefts = Array.from(items).map(item => item.offsetLeft);
-          if (this.autoPlay) {
-            this.autoNextItem(this.items.length)
-          }
-        }, 100);
-      },
-      goTo(index) {
-        const left = this.offsetLefts[index];
-        this.carousel.scrollTo({ left: left })
-      },
-      onScroll(e) {
-        const currentIndex = this.offsetLefts.indexOf(e.target.scrollLeft)
-        if (currentIndex >= 0) {
-          this.current = currentIndex
-        }
-      },
-      autoNextItem(length) {
-        setInterval(() => {
-          if (this.current == length - 1) {
-            this.current = 0
-          } else {
-            this.current += 1
-          }
-          const left = this.offsetLefts[this.current];
-          this.carousel.scrollTo({ left: left })
-        }, 5000)
       }
     }
   }
