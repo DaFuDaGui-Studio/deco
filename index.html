@@ -88,7 +88,7 @@
       }
 
       .text-info-size {
-        @apply text-[min(0.75rem,12px)] md:text-[min(1.5rem,20px)]
+        @apply text-[clamp(12px,3.75vw,16px)] sm:text-[clamp(14px,2vw,16px)] md:text-[clamp(14px,1.38vw,20px)]
       }
 
       .text-eng {
@@ -96,11 +96,11 @@
       }
 
       .custom-heading-en {
-        @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[min(0.625rem,10px)] md:text-[min(1rem,16px)];
+        @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(13px,2vw,14px)] md:text-[clamp(12px,1.1vw,16px)];
       }
 
       .custom-heading-zh {
-        @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[min(1.75rem,28px)] md:text-[min(2.25rem,36px)] mt-[min(0.625rem,10px)];
+        @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
       }
     }
   </style>
@@ -163,16 +163,16 @@
         style="background-image: url('assets/banner_bg.png');">
         <!-- japanese title phone -->
         <div class="block md:hidden flex flex-col items-center flex-grow mt-[min(1.875rem,30px)]">
-          <p class="font-cactus-classical-serif text-[min(1.5rem,20px)] text-center text-caption">
+          <p class="font-cactus-classical-serif text-[clamp(20px,6.25vw,24px)] sm:text-[clamp(20px,3.2vw,24px)] text-center text-caption">
             「特別な瞬間」<br>を一生の思い出に
           </p>
         </div>
         <!-- japanese title -->
         <p
-          class="hidden md:block font-cactus-classical-serif text-[min(3rem,40px)] text-body md:mt-[min(4.375rem,70px)]">
+          class="hidden md:block font-cactus-classical-serif text-[clamp(24px,2.8vw,40px)] text-body md:mt-[min(4.375rem,70px)]">
           「特別な瞬間」を一生の思い出に
         </p>
-        <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static md:mt-[min(2.5rem,40px)]">
+        <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static mt-[clamp(20px,6.25vw,24px)] md:mt-[min(2.5rem,40px)]">
           將「特別的瞬間」變成一生的回憶
         </p>
         <!-- scroll icon -->
@@ -552,8 +552,8 @@
 
     <!-- appointment -->
     <section
-      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[35px]">
-      <h2 class="custom-heading-en md:">Appointment</h2>
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
+      <h2 class="custom-heading-en md:text-left">Appointment</h2>
       <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
       <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
       <div x-data="gridSlideCarousel({
@@ -585,7 +585,7 @@
                   <template x-for="(item, idx) in page" :key="item.id || idx">
                     <div class="flex flex-col items-start">
                       <div class="w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3">
-                        <img :src="item.img" :alt="item.alt" class="h-full" />
+                        <img :src="item.img" :alt="item.alt" class="h-full transition-transform duration-300 hover:scale-110" />
                       </div>
                       <p x-text="item.alt" class="text-left text-info-size text-caption font-noto-sans-hk"></p>
                     </div>
@@ -612,7 +612,7 @@
 
     <!-- service -->
     <section
-      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[35px]">
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
       <h2 class="custom-heading-en text-center">Service</h2>
       <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
       <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
@@ -673,8 +673,8 @@
             <!-- 圖片 + 文字 -->
             <div class="flex flex-col items-start" :class="index % 2 === 0 ? '' : '-mr-1 md:mr-0'">
               <div
-                class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[31.25vw] sm:h-[27vw] md:h-[min(18.75rem,300px)] overflow-hidden">
-                <img :src="service.img" :alt="service.alt" class="w-full object-cover h-auto" :style="
+                class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[clamp(100px,31.25vw,200px)] sm:h-[clamp(150px,27vw,200px)] md:h-[clamp(150px,20vw,300px)] overflow-hidden">
+                <img :src="service.img" :alt="service.alt" class="w-full h-auto" :style="
                   window.innerWidth < 640
                     ? 'transform: translateY(' + service.translateY + ');'
                     : (window.innerWidth < 768
@@ -683,7 +683,7 @@
                 " />
               </div>
               <div
-                class="mt-[min(0.625rem,10px)] md:mt-4 text-left text-[min(0.75rem,12px)] sm:text-[1.5vw] md:text-[0.89vw] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
+                class="mt-[clamp(10px,3.1vw,24px)] sm:mt-[clamp(8px,1.5vw,12px)] text-left text-[clamp(10px,3.1vw,24px)] sm:text-[clamp(8px,1.5vw,12px)] md:text-[clamp(8px,0.89vw,12px)] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
                 <template x-for="line in service.text" :key="line">
                   <p class="whitespace-nowrap" x-text="line"></p>
                 </template>
