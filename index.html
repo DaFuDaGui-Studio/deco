@@ -58,6 +58,10 @@
       @apply !relative mt-[32px]
     }
 
+    .no-transition {
+      transition: none !important;
+    }
+
     @media screen and (min-width: 768px) {
       :root {
         font-size: 1.11111111vw;
@@ -195,7 +199,8 @@
         style="background-image: url('assets/banner_bg.png');">
         <!-- japanese title phone -->
         <div class="block md:hidden flex flex-col items-center flex-grow mt-[min(1.875rem,30px)]">
-          <p class="font-cactus-classical-serif text-[clamp(20px,6.25vw,24px)] sm:text-[clamp(20px,3.2vw,24px)] text-center text-caption">
+          <p
+            class="font-cactus-classical-serif text-[clamp(20px,6.25vw,24px)] sm:text-[clamp(20px,3.2vw,24px)] text-center text-caption">
             「特別な瞬間」<br>を一生の思い出に
           </p>
         </div>
@@ -203,7 +208,8 @@
         <p class="hidden md:block font-cactus-classical-serif text-[clamp(24px,2.8vw,40px)] text-body md:mt-[min(4.375rem,70px)]">
           「特別な瞬間」を一生の思い出に
         </p>
-        <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static mt-[clamp(20px,6.25vw,24px)] md:mt-[min(2.5rem,40px)]">
+        <p
+          class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static mt-[clamp(20px,6.25vw,24px)] md:mt-[min(2.5rem,40px)]">
           將「特別的瞬間」變成一生的回憶
         </p>
         <!-- scroll icon -->
@@ -228,28 +234,32 @@
       </div>
     </section>
 
-      <!-- appointment  -->
-    <div class="flex flex-col md:flex-row md:items-start max-w-[1440px] mt-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:ml-[min(8.75rem,140px)]">
+    <!-- appointment  -->
+    <div
+      class="flex flex-col md:flex-row md:items-start max-w-[1440px] mt-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:ml-[min(8.75rem,140px)]">
       <div class="w-full md:w-1/2">
         <div class="flex flex-col items-center md:items-start">
           <h2 class="custom-heading-en text-center md:text-left">Appointment</h2>
           <h1 class="custom-heading-zh text-center md:text-left">預約諮詢</h1>
         </div>
-        
+
         <!-- form -->
         <form class="mt-[min(3.125rem,50px)] md:mt-[min(4.375rem,68px)] md:mr[min(7.81rem,125px)]">
           <div class="grid grid-cols-2 gap-x-[min(1.5rem,24px)] md:gap-x-[4.375rem,70px]">
             <div class="order-1 col-span-1 md:w-[min(15.625rem,250px)]  pl-[70px] pr-[3px] md:pl-0 md:pr-0">
-              <input type="text" placeholder="聯絡人" class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0"/>
+              <input type="text" placeholder="聯絡人"
+                class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0" />
               <div class="w-full bg-black mt-1 h-[1.4px]"></div>
             </div>
-            <div class="order-2 col-span-1 md:w-[min(15.625rem,250px)] pl-[3px] pr-[70px] md:pl-0 md:pr-0">            
-              <input type="text" placeholder="連絡電話" class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0"/>
+            <div class="order-2 col-span-1 md:w-[min(15.625rem,250px)] pl-[3px] pr-[70px] md:pl-0 md:pr-0">
+              <input type="text" placeholder="連絡電話"
+                class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0" />
               <div class="w-full bg-black mt-1 h-[1.4px]"></div>
             </div>
             <div class="order-3 col-span-2 md:col-span-1 mt-[min(50px)] md:mt-[min(70px)]">
               <div class="md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] md:pl-0 md:pr-0">
-                <select class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] bg-transparent text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0">
+                <select
+                  class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] bg-transparent text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0">
                   <option>預約時間</option>
                   <option>10:00</option>
                   <option>11:00</option>
@@ -257,13 +267,18 @@
                   <option>13:00</option>
                   <option>14:00</option>
                 </select>
-              <div class="w-full bg-black mt-1 h-[1.4px] md:h-[1px]"></div>
+                <div class="w-full bg-black mt-1 h-[1.4px] md:h-[1px]"></div>
               </div>
             </div>
-            <div class="order-4 md:order-5 flex justify-center col-span-2 md:col-span-1 md:justify-start md:w-[min(15.625rem,250px)] mt-[min(50px)] md:mt-[min(70px)]">
-              <a href="#" class="flex items-center gap-x-3 md:gap-x-2"><p class=" text-[10px] md:text-[15px] font-[900] font-[Noto Sans JP] ">立即預約</p><img src="/assets/icons/arrow-rignt-circle.svg" alt="IG"></a>
+            <div
+              class="order-4 md:order-5 flex justify-center col-span-2 md:col-span-1 md:justify-start md:w-[min(15.625rem,250px)] mt-[min(50px)] md:mt-[min(70px)]">
+              <a href="#" class="flex items-center gap-x-3 md:gap-x-2">
+                <p class=" text-[10px] md:text-[15px] font-[900] font-[Noto Sans JP] ">立即預約</p><img
+                  src="/assets/icons/arrow-rignt-circle.svg" alt="IG">
+              </a>
             </div>
-            <div class="order-5 md:order-4 flex justify-center col-span-2 md:col-span-1 md:justify-start mt-[min(50px)] md:mt-[min(70px)] md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] md:pl-0 md:pr-0 gap-x-[30px]">
+            <div
+              class="order-5 md:order-4 flex justify-center col-span-2 md:col-span-1 md:justify-start mt-[min(50px)] md:mt-[min(70px)] md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] md:pl-0 md:pr-0 gap-x-[30px]">
               <a href="#"><img src="/assets/icons/icon_ig.png" alt="IG"></a>
               <a href="#"><img src="/assets/icons/icon_phone.png" alt="Phone"></a>
               <a href="#"><img src="/assets/icons/icon_fb.png" alt="FB"></a>
@@ -273,9 +288,10 @@
       </div>
       <div class="flex flex-col justify-center items-start w-full md:w-1/2 mt-[min(1.875rem,30px)] md:mt-0">
         <div class="w-full h-[min(6.25rem,100px)] md:w-auto md:h-auto md:aspect-[4/3]">
-          <img src="assets/appointment.png" alt="appointment" class="w-full h-full object-cover object-[center_70%] md:object-center"/>
+          <img src="assets/appointment.png" alt="appointment"
+            class="w-full h-full object-cover object-[center_70%] md:object-center" />
         </div>
-         <p class="w-full text-right mt-2 text-sm">DE&Co.<br>Decollte Photography</p>
+        <p class="w-full text-right mt-2 text-sm">DE&Co.<br>Decollte Photography</p>
       </div>
     </div>
 
@@ -607,7 +623,7 @@
         <!-- 輪播容器 -->
         <div class="overflow-hidden">
           <div x-ref="swiperContainer" class="swiper-container">
-            <div class="flex transition-transform duration-500 swiper-wrapper"
+            <div x-ref="gridSwiperWrapper" class="flex transition-transform duration-500 swiper-wrapper no-transition"
               :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`">
               <template x-for="(page, pageIndex) in pagedImages" :key="pageIndex">
                 <div class="grid sm:gap-x-2 md:gap-x-4 gap-y-4 sm:gap-y-3 md:gap-y-8 swiper-slide" :style="`
@@ -619,7 +635,8 @@
                   <template x-for="(item, idx) in page" :key="item.id || idx">
                     <div class="flex flex-col items-start">
                       <div class="w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3">
-                        <img :src="item.img" :alt="item.alt" class="h-full transition-transform duration-300 hover:scale-110" />
+                        <img :src="item.img" :alt="item.alt"
+                          class="h-full transition-transform duration-300 hover:scale-110" />
                       </div>
                       <p x-text="item.alt" class="text-left text-info-size text-caption font-noto-sans-tc"></p>
                     </div>
@@ -632,13 +649,15 @@
 
         <!-- 點點 -->
         <div class="flex justify-center mt-6 sm:mt-4 space-x-2 md:hidden">
-          <template x-for="(dot, index) in pagedImages.length" :key="index">
-            <button @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer"
-              :style="index === currentPage 
-              ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;' 
-              : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'"
-            >
-            </button>
+          <template x-for="(dot, index) in totalPages" :key="index">
+            <template x-if="index !== 0 && index !== totalPages - 1">
+              <button @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer" :style="(index === currentPage || 
+               (currentPage === 0 && index === totalPages - 2) || 
+               (currentPage === totalPages - 1 && index === 1))
+                ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;'
+                : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'">
+              </button>
+            </template>
           </template>
         </div>
       </div>
@@ -808,7 +827,9 @@
               <div
                 class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-hk font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
                 x-text="service.id"></div>
-              <div class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[clamp(75px,25vw,160px)] sm:h-[clamp(140px,22vw,170px)] md:h-[clamp(130px,17vw,200px)]"></div>
+              <div
+                class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[clamp(75px,25vw,160px)] sm:h-[clamp(140px,22vw,170px)] md:h-[clamp(130px,17vw,200px)]">
+              </div>
             </div>
 
             <!-- 圖片 + 文字 -->
@@ -1064,7 +1085,7 @@
   function gridSlideCarousel(options = {}) {
     return {
       images: options.images || [],
-      currentPage: 0,
+      currentPage: window.innerWidth >= 768 ? 0 : 1,
       startX: 0,
       endX: 0,
       screenWidthReactive: window.innerWidth,
@@ -1078,7 +1099,9 @@
       // 外部可傳入的 columns 和 rows 預設值，用於圖片排版
       defaultColumns: options.columns ?? null,
       defaultRows: options.rows ?? 2,
+
       swiper: null,
+      isFixingLoop: false,
 
       get screenWidth() {
         return this.screenWidthReactive;
@@ -1111,11 +1134,17 @@
       },
 
       get pagedImages() {
-        const pages = [];
+        const realPages = [];
         for (let i = 0; i < this.images.length; i += this.itemsPerPage) {
-          pages.push(this.images.slice(i, i + this.itemsPerPage));
+          realPages.push(this.images.slice(i, i + this.itemsPerPage));
         }
-        return pages;
+
+        if (realPages.length === 0) return [];
+
+        const fakeFirst = realPages[0];
+        const fakeLast = realPages[realPages.length - 1];
+
+        return this.screenWidth >= 768 ? realPages : [fakeLast, ...realPages, fakeFirst];
       },
 
       get totalPages() {
@@ -1133,9 +1162,18 @@
       init(el) {
         if (el) {
           window.addEventListener("resize", () => {
+            const wrapper = this.$refs?.gridSwiperWrapper;
+            wrapper?.classList.add("no-transition");
+
             this.screenWidthReactive = window.innerWidth;
-            this.currentPage = 0;
+            this.currentPage = window.innerWidth >= 768 ? 0 : 1;
+
             if (this.swiper) this.swiper.update();
+
+            setTimeout(() => {
+              const wrapper = this.$refs?.gridSwiperWrapper;
+              wrapper?.classList.remove("no-transition");
+            }, 50);
           });
 
           if (this.touchSwipe) {
@@ -1146,11 +1184,15 @@
                 allowTouchMove: true,
                 resistanceRatio: 0,
                 loop: false,
-                on: {
-                  slideChange: () => {
-                    this.currentPage = this.swiper.activeIndex;
-                  },
-                },
+                speed: 500,
+              });
+
+              this.swiper.on('slideChangeTransitionEnd', () => {
+                this.fixLoopPage();
+              });
+
+              this.swiper.on('slideChange', () => {
+                this.currentPage = this.swiper.activeIndex;
               });
             } else {
               // 手機用自己寫的 touch 滑動
@@ -1158,16 +1200,42 @@
               el.addEventListener("touchend", this.touchEnd.bind(this));
             }
           }
+
+          setTimeout(() => {
+            const wrapper = this.$refs?.gridSwiperWrapper;
+            wrapper?.classList.remove("no-transition");
+          }, 50);
+
+          if (this.autoPlay && this.totalPages > 1) {
+            this.startAutoPlay();
+          }
         }
       },
 
       goToPage(page) {
         if (page < 0) page = 0;
         else if (page >= this.pagedImages.length) page = this.pagedImages.length - 1;
-        this.currentPage = page;
 
         if (this.swiper) {
           this.swiper.slideTo(page);
+        } else {
+          this.currentPage = page;
+        }
+
+        setTimeout(() => this.fixLoopPage(), 300);
+      },
+
+      startAutoPlay() {
+        this.stopAutoPlay();
+        this.interval = setInterval(() => {
+          this.goToPage(this.currentPage + 1);
+        }, 3000);
+      },
+
+      stopAutoPlay() {
+        if (this.interval) {
+          clearInterval(this.interval);
+          this.interval = null;
         }
       },
 
@@ -1179,14 +1247,49 @@
       touchEnd(e) {
         this.endX = e.changedTouches[0].clientX;
         const diff = this.endX - this.startX;
+
         if (Math.abs(diff) > 30) {
           if (diff > 0) this.goToPage(this.currentPage - 1);
           else this.goToPage(this.currentPage + 1);
         }
+
         if (this.autoPlay) {
           setTimeout(() => this.startAutoPlay(), 2000);
         }
       },
+
+      fixLoopPage() {
+        if (this.isFixingLoop) return;
+        this.isFixingLoop = true;
+
+        if (this.currentPage === 0) {
+          setTimeout(() => {
+            this.currentPage = this.totalPages - 2;
+            this.forceTranslate();
+            this.isFixingLoop = false;
+          }, 300);
+
+        } else if (this.currentPage === this.totalPages - 1) {
+          setTimeout(() => {
+            this.currentPage = 1;
+            this.forceTranslate();
+            this.isFixingLoop = false;
+          }, 300);
+        } else {
+          this.isFixingLoop = false;
+        }
+      },
+
+      forceTranslate() {
+        const wrapper = this.$refs?.gridSwiperWrapper;
+        const percent = -(this.currentPage * (100 / this.totalPages));
+        wrapper.classList.add('no-transition');
+        wrapper.style.transform = `translateX(${percent}%)`;
+
+        setTimeout(() => {
+          wrapper.classList.remove('no-transition');
+        }, 50);
+      }
     };
   }
 

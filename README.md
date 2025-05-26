@@ -59,7 +59,8 @@
   <!-- 輪播容器 -->
   <div class="overflow-hidden">
     <div
-      class="flex transition-transform duration-500"
+      x-ref="gridSwiperWrapper" 
+      class="flex transition-transform duration-500 swiper-wrapper no-transition"
       :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`"
     >
       <template x-for="(page, pageIndex) in pagedImages" :key="pageIndex">
@@ -102,12 +103,15 @@
   <!-- 使用 dots 再加，也可以包一層後一起位移 -->
   <div class="flex justify-center mt-2 space-x-2 md:hidden">
     <template x-for="(dot, index) in pagedImages.length" :key="index">
-      <button
-        @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer"
-        :style="index === currentPage 
-          ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;' 
-          : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'"
-      ></button>
+      <template x-if="index !== 0 && index !== totalPages - 1">
+        <button @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer" 
+          :style="(index === currentPage || 
+            (currentPage === 0 && index === totalPages - 2) || 
+            (currentPage === totalPages - 1 && index === 1))
+              ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;'
+              : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'"
+        ></button>
+      </template>
     </template>
   </div>
 </div>
