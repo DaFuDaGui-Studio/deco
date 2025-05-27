@@ -13,53 +13,78 @@
     href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
     rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <!-- Tailwind -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+  <!-- Alpine -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Lottie -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
 
-  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+  <!-- swiper -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 
   <style type="text/tailwindcss">
     @theme {
-        --text-xxs: 0.625rem; /* text 10px */
-        --font-noto-serif-hk: "Noto Serif HK", serif;
-        --font-noto-serif-jp: "Noto Serif JP", serif;
-        --font-noto-sans-jp: "Noto Sans JP", sans-serif;
-        --font-noto-sans-hk: "Noto Sans HK", sans-serif,;
-        --font-noto-sans-tc: "Noto Sans TC", sans-serif,;
-        --font-noto-sans-jp: "Noto Sans JP", sans-serif,;
-        --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
-        --font-cactus-classical-serif: "Cactus Classical Serif", serif;
-        --color-stone-950: #4D403E;
+      --text-xxs: 0.625rem; /* text 10px */
+      --font-noto-serif-hk: "Noto Serif HK", serif;
+      --font-noto-serif-jp: "Noto Serif JP", serif;
+      --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+      --font-noto-sans-hk: "Noto Sans HK", sans-serif;
+      --font-noto-sans-tc: "Noto Sans TC", sans-serif;
+      --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
+      --font-cactus-classical-serif: "Cactus Classical Serif", serif;
+      --color-stone-950: #4D403E;
+    }
+
+
+    html {
+      font-size: 16px;
+      color: #4D403E;
+    }
+
+    .swiper-pagination-bullet {
+      background: white !important;
+      border: 1px solid #4D403E;
+      opacity: 1 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #4D403E !important;
+      transform: scale(1.2);
+    }
+
+    .voc .swiper-pagination {
+      @apply !relative mt-[32px]
+    }
+
+    @media screen and (min-width: 768px) {
+      :root {
+        font-size: 1.11111111vw;
       }
+    } 
 
-
-      html {
+    @media screen and (min-width: 1440px) {
+      :root {
         font-size: 16px;
-        color: #4D403E;
       }
-      
-      @media screen and (min-width: 768px) {
-        :root {
-          font-size: 1.11111111vw;
-        }
-      } 
+    }
 
-      @media screen and (min-width: 1440px) {
-        :root {
-          font-size: 16px;
-        }
+    @media screen and (max-width: 767px) {
+      :root {
+        font-size: 5vw;
+      }
+    }
+
+    @layer components {
+      .text-body {
+        @apply leading-[130%] tracking-[0.2rem]
       }
 
-      @media screen and (max-width: 767px) {
-        :root {
-          font-size: 5vw;
-        }
+      .text-caption {
+        @apply leading-[160%] tracking-[0.2rem]
       }
 
       @layer components {
@@ -72,7 +97,7 @@
         }
 
         .text-info-size {
-          @apply text-[min(0.75rem,12px)] md:text-[min(1.5rem,20px)]
+          @apply text-[clamp(12px,3.75vw,16px)] sm:text-[clamp(14px,2vw,16px)] md:text-[clamp(14px,1.38vw,20px)]
         }
 
         .text-eng {
@@ -80,11 +105,11 @@
         }
 
         .custom-heading-en {
-          @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[min(0.625rem,10px)] md:text-[min(1rem,16px)];
+          @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(13px,2vw,14px)] md:text-[clamp(12px,1.1vw,16px)];
         }
 
         .custom-heading-zh {
-          @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[min(1.75rem,28px)] md:text-[min(2.25rem,36px)] mt-[min(0.625rem,10px)];
+          @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
         }
         
         .swiper-wrapper{ 
@@ -106,40 +131,41 @@
         }
         
       }
-    </style>
-    <style>
-      .swiper-pagination-bullet {
-        background: white !important;
-        border: 1px solid #4D403E;
-        opacity: 1 !important;
+
+      .text-eng {
+        @apply leading-[130%] tracking-[0.1rem]
       }
-  
-      .swiper-pagination-bullet-active {
-        background: #4D403E !important;
-        transform: scale(1.2);
+
+      .custom-heading-en {
+        @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(13px,2vw,14px)] md:text-[clamp(12px,1.1vw,16px)];
       }
-    </style>
+
+      .custom-heading-zh {
+        @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
+      }
+    }
+  </style>
 </head>
 
 <body>
   <header
-    class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 pt-6 pb-5 md:py-7 font-cactus-classical-serif">
-    <div class="w-16 md:w-31.25">
+    class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 py-[min(1.25rem,20px)] md:py-7 font-cactus-classical-serif">
+    <div class="w-[min(4rem,64px)] md:w-31.25">
       <img src="./assets/logo.svg" alt="Arrow Icon" class="w-full">
     </div>
     <div class="hidden md:block text-sm leading-[130%] tracking-[0.5rem]">
       專人為您規劃合適的攝影方案
     </div>
-    <div class="flex items-center gap-x-2.5 text-xs md:text-xl text-body">
+    <div class="flex items-center gap-x-2.5 text-[min(0.75rem,12px)] md:text-xl text-body">
       <span>立即線上諮詢</span>
-      <a href="" class="flex items-center group w-4.25 h-4.25">
+      <a href="" class="flex items-center group w-[min(0.937rem, 15px)] h-[min(0.937rem, 15px)] md:w-4.25 md:h-4.25">
         <img src="./assets/icons/arrow-rignt-circle.svg" class="size-full inline-block group-hover:!hidden" />
         <img src="./assets/icons/arrow-rignt-circle-hover.svg" class="size-full hidden group-hover:!inline-block" />
       </a>
     </div>
   </header>
 
-  <div class="mx-auto max-w-[1440px]">
+  <main>
     <!-- banner -->
     <section>
       <div x-data="carousel({desktopEnabled: true})" x-init="init($el)"
@@ -157,20 +183,20 @@
           <span
             class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[min(0.625rem,10px)] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
           <div x-data x-init="
-                const anim = lottie.loadAnimation({
-                  container: $el,
-                  renderer: 'svg',
-                  loop: true,
-                  autoplay: true,
-                  path: 'assets/lottie/scroll_s.json'
-                });
+            const anim = lottie.loadAnimation({
+              container: $el,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: 'assets/lottie/scroll_s.json'
+            });
 
-                anim.addEventListener('DOMLoaded', () => {
-                  $el.querySelectorAll('path').forEach(p => {
-                    p.setAttribute('stroke-width', '1.5'); // 加粗線條
-                  });
-                });
-              " class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"></div>
+            anim.addEventListener('DOMLoaded', () => {
+              $el.querySelectorAll('path').forEach(p => {
+                p.setAttribute('stroke-width', '1.5'); // 加粗線條
+              });
+            });
+          " class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"></div>
         </div>
       </div>
       <div
@@ -178,42 +204,42 @@
         style="background-image: url('assets/banner_bg.png');">
         <!-- japanese title phone -->
         <div class="block md:hidden flex flex-col items-center flex-grow mt-[min(1.875rem,30px)]">
-          <p class="font-cactus-classical-serif text-[min(1.5rem,20px)] text-center text-caption">
+          <p class="font-cactus-classical-serif text-[clamp(20px,6.25vw,24px)] sm:text-[clamp(20px,3.2vw,24px)] text-center text-caption">
             「特別な瞬間」<br>を一生の思い出に
           </p>
         </div>
         <!-- japanese title -->
         <p
-          class="hidden md:block font-cactus-classical-serif text-[min(3rem,40px)] text-body md:mt-[min(4.375rem,70px)]">
+          class="hidden md:block font-cactus-classical-serif text-[clamp(24px,2.8vw,40px)] text-body md:mt-[min(4.375rem,70px)]">
           「特別な瞬間」を一生の思い出に
         </p>
-        <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static md:mt-[min(2.5rem,40px)]">
+        <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static mt-[clamp(20px,6.25vw,24px)] md:mt-[min(2.5rem,40px)]">
           將「特別的瞬間」變成一生的回憶
         </p>
         <!-- scroll icon -->
         <div class="hidden md:flex md:mt-[min(3.125rem,50px)] items-center h-[min(1rem,16px)]">
           <span class="text-body text-[min(0.75rem,12px)] font-noto-sans-jp font-normal">SCROLL</span>
           <div x-data x-init="
-                const anim = lottie.loadAnimation({
-                  container: $el,
-                  renderer: 'svg',
-                  loop: true,
-                  autoplay: true,
-                  path: 'assets/lottie/scroll_s.json'
-                });
+            const anim = lottie.loadAnimation({
+              container: $el,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: 'assets/lottie/scroll_s.json'
+            });
 
-                anim.addEventListener('DOMLoaded', () => {
-                  $el.querySelectorAll('path').forEach(p => {
-                    p.setAttribute('stroke', '#4D403E'); // 換顏色
-                  });
-                });
-              " class="h-full ml-[0.3125rem]"></div>
+            anim.addEventListener('DOMLoaded', () => {
+              $el.querySelectorAll('path').forEach(p => {
+                p.setAttribute('stroke', '#4D403E'); // 換顏色
+              });
+            });
+          " class="h-full ml-[0.3125rem]"></div>
         </div>
       </div>
     </section>
 
     <!-- flow -->
-    <section>
+    <section class="mx-auto max-w-[1440px]">
       <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
         <h1
           class="mb-2 font-noto-sans-hk font-light leading-[130%] tracking-[0.1rem] text-[0.625rem] text-center md:text-left text-[min(1rem,16px)]">
@@ -281,15 +307,14 @@
                 x-text="items[currentIndex].desc"></p>
             </div>
 
-
-            <div class="flex items-center font-noto-sans-hk font-normal"><!-- 控制按鈕 -->
+            <!-- 控制按鈕 -->
+            <div class="flex items-center font-noto-sans-hk font-normal">
               <button @click="currentIndex = (currentIndex - 1 + items.length) % items.length"
                 class="flex items-center text-xl leading-[130%] tracking-[0.125rem] mr-[30px] group">
                 <img src="./assets/icons/arrow-rignt-circle.svg"
                   class="size-4 transform scale-x-[-1] mr-[8px] group-hover:hidden" />
                 <img src="./assets/icons/arrow-rignt-circle-hover.svg"
                   class="size-4 transform scale-x-[-1] mr-[8px] hidden group-hover:inline-block" />
-
                 PREV
               </button>
               <button @click="currentIndex = (currentIndex + 1) % items.length"
@@ -301,24 +326,25 @@
               </button>
             </div>
           </div>
-          <div class="flex justify-end space-x-4 w-[60%]"> <!-- 圖片列 -->
+
+          <!-- 圖片列 -->
+          <div class="flex justify-end space-x-4 w-[60%]">
             <template x-for="(item, index) in items" :key="index">
               <div class="transition-all duration-300 overflow-hidden justify-items-end"
                 :class="currentIndex === index ? 'w-[25rem]' : 'w-[3.125rem]'">
                 <p class="w-[9.375rem] h-[1.875rem] border-b text-right font-light"
                   :class="currentIndex === index ? 'block' : 'hidden'">FLOW</p>
-
                 <div class="h-[1.875rem]" :class="currentIndex !== index ? 'block' : 'hidden'">
                   <p class="font-noto-serif-hk font-bold
                     text-[1.25rem] leading-[92%] tracking-[0.125rem]" x-text="item.step"></p>
                   <p class="font-noto-sans-jp font-light text-[0.625rem] leading-[130%] tracking-[0.125rem]">Step</p>
-
                 </div>
                 <img :src="item.image" class="h-[18.75rem] object-cover mt-5" alt="">
               </div>
             </template>
           </div>
         </div>
+
         <!-- mobile -->
         <div class="flex md:hidden">
           <!--HTML CODE-->
@@ -447,71 +473,68 @@
       </div>
       <div
         class="ml-[10%] mr-[10%] font-noto-sans-hk font-light leading-[160%] tracking-[0.25rem] text-[0.625rem] text-left md:text-right md:mr-[2.4%] md:ml-0 mt-[2.5rem] md:text-[min(1rem,16px)]">
-
         <p>DE &amp; Co. 秉持「<span class="font-bold">日式服務</span>」的細膩與貼心，從諮詢到成品，全程細心跟進</p>
         <p>我們<span class="font-bold">堅持價格透明，絕不強迫推銷，讓您輕鬆享受愉悅的婚紗拍攝體驗</span></p>
       </div>
     </section>
 
-
     <!-- voc -->
-    <section class="py-25" x-data="{
-          customers: [
-            {
-              'img': './assets/voc_1.png',
-              'name': 'Aさん',
-              'age': '30代女性', 
-              'title': 'ヘアメイクさんの<br>提案力に大満足！',
-              'content': '担当者の提案力と技術力に感動しました。「老けて見えてしまう」「貫禄がある印象を持たれる」という私の悩みに対して、そのような印象を与えないヘアメイクを提案してくださり、人生で一番納得の行く仕上がりでした。とてもうれしかったです。',
-              'office': 'スタジオAQUA 表参道渋谷店'
-            },
-            {
-              'img': './assets/voc_2.png',
-              'name': 'Bさん',
-              'age': '20代女性',
-              'title': 'オンライン相談で<br>不安が解消された！',
-              'content': '申込の前にオンラインでのお打合せをしていただき、納得して申込ができました。当日まではメールでのやり取りでしたが、細かい質問や見積変更も含めスムーズなやり取りをしていただきました。衣装のラインナップは十分で、事前にネットで確認することができました。',
-              'office': 'スタジオSOLA 美瑛店 '
-            },
-            {
-              'img': './assets/voc_3.png',
-              'name': 'Cさん',
-              'age': '30代女性',
-              'title': '自然な笑顔の素敵<br>な写真でした！',
-              'content': '彼がカメラの前で笑うのが苦手なのですが、ふとした瞬間の笑顔をばっちりと撮っていただいていたので、自然な笑顔の素敵な写真になっていました。また、モノクロや物陰からの撮影など少しオリジナリティがあるバージョンも撮っていただき、プロならではの写真に仕上がっていたのも気に入りました。',
-              'office': 'スタジオTVB 梅田店'
-            },
-            {
-              'img': './assets/voc_4.png',
-              'name': 'Stephanie',
-              'age': '30代女性',
-              'title': 'オンライン相談で<br>不安が解消された！',
-              'content': '由查詢到揀衫，影相，成個過程都好暢順。落單之後有whatsapp group follow up，日本當地既工作人服務好好，影相嗰日超時又唔駛收錢，影咗既相都俾晒我哋，唔會影完先知原來仲有其他額外收費，亦唔會hard sell。出黎既成品都好靚，抵讚!!',
-              'office': '香港尖沙嘴 Office '
-            },
-            {
-              'img': './assets/voc_5.png',
-              'name': 'Joyce',
-              'age': '20代女性',
-              'title': '自然な笑顔の素敵<br>な写真でした！',
-              'content': '諮詢員好細心咁了解我哋兩個既想法，再推介適合我哋既拍攝地點，仲列明晒所有收費俾我哋。我哋當時仲未決定去邊度影相，佢都好細心咁講解，仲主動建議我哋不用急於決定， 過程中完全無Hard sell，令哋感到好安心。已經推薦好多朋友搵您哋！',
-              'office': '香港尖沙嘴 Office '
-            }
-          ]
-        }">
+    <section class="voc py-[100px] md:py-25" x-data="{
+      customers: [
+        {
+          'img': './assets/voc_1.png',
+          'name': 'Aさん',
+          'age': '30代女性', 
+          'title': 'ヘアメイクさんの<br>提案力に大満足！',
+          'content': '担当者の提案力と技術力に感動しました。「老けて見えてしまう」「貫禄がある印象を持たれる」という私の悩みに対して、そのような印象を与えないヘアメイクを提案してくださり、人生で一番納得の行く仕上がりでした。とてもうれしかったです。',
+          'office': 'スタジオAQUA 表参道渋谷店'
+        },
+        {
+          'img': './assets/voc_2.png',
+          'name': 'Bさん',
+          'age': '20代女性',
+          'title': 'オンライン相談で<br>不安が解消された！',
+          'content': '申込の前にオンラインでのお打合せをしていただき、納得して申込ができました。当日まではメールでのやり取りでしたが、細かい質問や見積変更も含めスムーズなやり取りをしていただきました。衣装のラインナップは十分で、事前にネットで確認することができました。',
+          'office': 'スタジオSOLA 美瑛店 '
+        },
+        {
+          'img': './assets/voc_3.png',
+          'name': 'Cさん',
+          'age': '30代女性',
+          'title': '自然な笑顔の素敵<br>な写真でした！',
+          'content': '彼がカメラの前で笑うのが苦手なのですが、ふとした瞬間の笑顔をばっちりと撮っていただいていたので、自然な笑顔の素敵な写真になっていました。また、モノクロや物陰からの撮影など少しオリジナリティがあるバージョンも撮っていただき、プロならではの写真に仕上がっていたのも気に入りました。',
+          'office': 'スタジオTVB 梅田店'
+        },
+        {
+          'img': './assets/voc_4.png',
+          'name': 'Stephanie',
+          'age': '30代女性',
+          'title': 'オンライン相談で<br>不安が解消された！',
+          'content': '由查詢到揀衫，影相，成個過程都好暢順。落單之後有whatsapp group follow up，日本當地既工作人服務好好，影相嗰日超時又唔駛收錢，影咗既相都俾晒我哋，唔會影完先知原來仲有其他額外收費，亦唔會hard sell。出黎既成品都好靚，抵讚!!',
+          'office': '香港尖沙嘴 Office '
+        },
+        {
+          'img': './assets/voc_5.png',
+          'name': 'Joyce',
+          'age': '20代女性',
+          'title': '自然な笑顔の素敵<br>な写真でした！',
+          'content': '諮詢員好細心咁了解我哋兩個既想法，再推介適合我哋既拍攝地點，仲列明晒所有收費俾我哋。我哋當時仲未決定去邊度影相，佢都好細心咁講解，仲主動建議我哋不用急於決定， 過程中完全無Hard sell，令哋感到好安心。已經推薦好多朋友搵您哋！',
+          'office': '香港尖沙嘴 Office '
+        }
+      ]
+    }">
       <div class="relative">
-        <div class="absolute top-0 md:top-8 -z-10 md:hidden"><img src="./assets/voc_sm_bg.png" class="w-full h-34" />
-        </div>
-        <div class="absolute top-0 md:top-8 -z-10 hidden md:block"><img src="./assets/banner_bg.png" /></div>
-        <h3 class="font-noto-serif-hk text-[1.75rem] md:text-4xl leading-[130%] tracking-[0.2em] text-center">顧客心聲</h3>
+
+        <div class="absolute top-3 md:top-8 -z-10 w-full"><img src="./assets/banner_bg.png" class="w-full h-[(6.75rem,108px)] md:h-auto object-cover object-[25%_75%] md:object-center" /></div>
+        <h3 class="custom-heading-zh text-center">顧客心聲</h3>
         <p
-          class="font-noto-sans-tc md:font-noto-sans-hk mt-8.25 md:mt-7.5 text-xs md:text-xl font-light text-caption text-center whitespace-pre-line">
-          DE&Co. 婚紗攝影的獨特魅力
-          聽聽喜愛 DE&Co. 的顧客心得分享！</p>
+          class="font-noto-sans-tc md:font-noto-sans-hk mt-[min(2.06rem,33px)] md:mt-7.5 text-[min(0.75rem,12px)] md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co. 婚紗攝影的獨特魅力
+          聽聽喜愛 DE&Co. 的顧客心得分享
+        </p>
       </div>
 
       <!-- desktop -->
-      <div class="hidden md:block mt-20 px-35">
+      <div class="hidden md:block mx-auto max-w-[1440px] mt-20 px-35">
         <div class="grid grid-cols-5 gap-x-0.5 w-full">
           <template x-for="(customer, index) in customers" :key="`voc_${index}`">
             <div class="flex flex-col items-center gap-y-5">
@@ -536,60 +559,58 @@
       </div>
 
       <!-- mobile -->
-      <div x-data="slideIndicatorCarousel()" class="md:hidden mt-14.5">
-        <!-- carousel -->
-        <div class="carousel w-full" x-ref="carousel" @scroll="onScroll">
-          <template x-for="(customer, index) in customers" :key="`voc_${index}`">
-            <div class="carousel-item w-full flex flex-col items-center justify-between gap-y-5"
-              :id="`carousel_voc${index}`">
-              <div class="flex flex-col items-center gap-y-5">
-                <img :src="customer.img" class="rounded-full w-25 h-25" />
-                <p class="flex gap-x-2.5 text-xxs font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
-                  <span x-text="customer.name"></span>
-                  <span x-text="customer.age"></span>
-                </p>
-                <p class="font-cactus-classical-serif text-center text-xs text-caption"
-                  x-text="customer.title.replace('<br>', '')"></p>
-                <p class="px-7.5 text-xxs font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
-              </div>
-              <div class="flex items-end gap-x-2.5">
-                <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
-                <p class="font-noto-sans-hk leading-[130%] text-xxs tracking-[0.2em]" x-text="customer.office"></p>
-              </div>
+      <div class="md:hidden mt-[58px]">
+        <div class="w-full relative">
+          <div class="swiper voc-swiper swiper-container">
+            <div class="swiper-wrapper">
+              <!--items-->
+              <template x-for="(customer, index) in customers" :key="`voc-${index}`">
+                <div class="swiper-slide">             
+                  <div class="w-full flex flex-col items-center justify-between gap-y-[20px]">
+                    <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
+                      <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
+                      <p class="flex gap-x-2.5 text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                        <span x-text="customer.name"></span>
+                        <span x-text="customer.age"></span>
+                      </p>
+                      <p class="font-cactus-classical-serif text-center text-[min(0.75rem,12px)] text-caption"
+                        x-text="customer.title.replace('<br>', '')"></p>
+                      <p class="px-7.5 text-[min(0.625rem,10px)] font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
+                    </div>
+                    <div class="flex items-end gap-x-[min(0.625rem,10px)]">
+                      <img src="./assets/icons/location.svg" class="w-[min(0.937rem,15px)] h-[min(1.25rem,20px)]" />
+                      <p class="font-noto-sans-hk leading-[130%] text-[min(0.625rem,10px)] tracking-[0.2em]" x-text="customer.office"></p>
+                    </div>
+                  </div>
+                </div>
+              </template>
             </div>
-          </template>
-        </div>
-
-        <!-- carousel indicator -->
-        <div class="flex w-full justify-center gap-2.5 py-2 mt-8">
-          <template x-for="(_customer, index) in customers" :key="`voc_dot_${index}`">
-            <button @click="goTo(index)" :class="{'bg-stone-950': current == index}"
-              class="border border-stone-950 size-2.5 rounded-full"></button>
-          </template>
+            <div class="swiper-pagination "></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- appointment -->
     <section
-      class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
-      <h2 class="custom-heading-en md:">Appointment</h2>
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
+      <h2 class="custom-heading-en md:text-left">Appointment</h2>
       <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
       <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
+      <div x-data="gridSlideCarousel({
+        dots: true, touchSwipe: true,
+        images: [
+          { id: '01', img: 'assets/appointment_1.png', alt: '紅葉季拍攝推薦' },
+          { id: '02', img: 'assets/appointment_2.png', alt: '紅葉季拍攝推薦' },
+          { id: '03', img: 'assets/appointment_3.png', alt: '紅葉季拍攝推薦' },
+          { id: '04', img: 'assets/appointment_4.png', alt: '紅葉季拍攝推薦' },
+          { id: '05', img: 'assets/appointment_5.png', alt: '紅葉季拍攝推薦' },
+          { id: '06', img: 'assets/appointment_6.png', alt: '紅葉季拍攝推薦' },
+          { id: '07', img: 'assets/appointment_7.png', alt: '紅葉季拍攝推薦' },
+          { id: '08', img: 'assets/appointment_8.png', alt: '紅葉季拍攝推薦' }
+        ]
+      })" x-init="init($el)" class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
 
-      <div x-data="gridSlideCarousel({ 
-            dots: true, touchSwipe: true,
-            images: [
-              { id: '01', img: 'assets/appointment_1.png', alt: '紅葉季拍攝推薦' },
-              { id: '02', img: 'assets/appointment_2.png', alt: '紅葉季拍攝推薦' },
-              { id: '03', img: 'assets/appointment_3.png', alt: '紅葉季拍攝推薦' },
-              { id: '04', img: 'assets/appointment_4.png', alt: '紅葉季拍攝推薦' },
-              { id: '05', img: 'assets/appointment_5.png', alt: '紅葉季拍攝推薦' },
-              { id: '06', img: 'assets/appointment_6.png', alt: '紅葉季拍攝推薦' },
-              { id: '07', img: 'assets/appointment_7.png', alt: '紅葉季拍攝推薦' },
-              { id: '08', img: 'assets/appointment_8.png', alt: '紅葉季拍攝推薦' }
-            ]
-          })" x-init="init($el)" class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
         <!-- 輪播容器 -->
         <div class="overflow-hidden">
           <div x-ref="swiperContainer" class="swiper-container">
@@ -597,14 +618,15 @@
               :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`">
               <template x-for="(page, pageIndex) in pagedImages" :key="pageIndex">
                 <div class="grid sm:gap-x-2 md:gap-x-4 gap-y-4 sm:gap-y-3 md:gap-y-8 swiper-slide" :style="`
-                      width: ${100 / pagedImages.length}%;
-                      grid-template-columns: repeat(${columns}, 1fr);
-                      grid-template-rows: repeat(${rows}, 1fr);
-                    `">
+                  display: grid !important;
+                  width: ${100 / pagedImages.length}%;
+                  grid-template-columns: repeat(${columns}, 1fr);
+                  grid-template-rows: repeat(${rows}, 1fr);
+                `">
                   <template x-for="(item, idx) in page" :key="item.id || idx">
                     <div class="flex flex-col items-start">
                       <div class="w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3">
-                        <img :src="item.img" :alt="item.alt" class="h-full" />
+                        <img :src="item.img" :alt="item.alt" class="h-full transition-transform duration-300 hover:scale-110" />
                       </div>
                       <p x-text="item.alt" class="text-left text-info-size text-caption font-noto-sans-hk"></p>
                     </div>
@@ -618,8 +640,12 @@
         <!-- 點點 -->
         <div class="flex justify-center mt-6 sm:mt-4 space-x-2 md:hidden">
           <template x-for="(dot, index) in pagedImages.length" :key="index">
-            <button @click="goToPage(index)" :class="index === currentPage ? 'bg-black' : 'bg-gray-400'"
-              class="w-[2.2vw] sm:w-[1.2vw] aspect-square rounded-full"></button>
+            <button @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer"
+              :style="index === currentPage 
+              ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;' 
+              : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'"
+            >
+            </button>
           </template>
         </div>
       </div>
@@ -627,78 +653,78 @@
 
     <!-- service -->
     <section
-      class="mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[9.7vw]">
+      class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
       <h2 class="custom-heading-en text-center">Service</h2>
       <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
       <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
       <div x-data="{
-          services: [
-            {
-              id: '01',
-              img: 'assets/service_1.png',
-              alt: '交通',
-              translateY: '0vw',
-              smTranslateY: '0vw',
-              text: ['全方案皆含完整服務', '（交通、妝髮、翻譯）', '拍攝當天無任何額外隱藏收費']
-            },
-            {
-              id: '02',
-              img: 'assets/service_2.png',
-              alt: '服裝',
-              translateY: '-6vw',
-              smTranslateY: '-2vw',
-              text: ['網上預覽婚紗及和服款式', '日本當地提供超過8000款選擇', '無需攜帶繁重行李，即可出行']
-            },
-            {
-              id: '03',
-              img: 'assets/service_3.png',
-              alt: '場地',
-              translateY: '-13vw',
-              smTranslateY: '-6vw',
-              text: ['拍攝全程合法安心', '超過千個室內外拍攝地點自由選擇', '並協助取得當地合法拍攝許可']
-            },
-            {
-              id: '04',
-              img: 'assets/service_4.png',
-              alt: '全國',
-              translateY: '-45vw',
-              smTranslateY: '-10vw',
-              text: ['遠離人潮的隱世秘景', '全國25間Studio', '小眾城市也可輕鬆抵達拍攝']
-            }
-          ]
-        }"
+        services: [
+          {
+            id: '01',
+            img: 'assets/service_1.png',
+            alt: '交通',
+            translateY: '0vw',
+            smTranslateY: '0vw',
+            text: ['全方案皆含完整服務', '（交通、妝髮、翻譯）', '拍攝當天無任何額外隱藏收費']
+          },
+          {
+            id: '02',
+            img: 'assets/service_2.png',
+            alt: '服裝',
+            translateY: '-6vw',
+            smTranslateY: '-2vw',
+            text: ['網上預覽婚紗及和服款式', '日本當地提供超過8000款選擇', '無需攜帶繁重行李，即可出行']
+          },
+          {
+            id: '03',
+            img: 'assets/service_3.png',
+            alt: '場地',
+            translateY: '-13vw',
+            smTranslateY: '-6vw',
+            text: ['拍攝全程合法安心', '超過千個室內外拍攝地點自由選擇', '並協助取得當地合法拍攝許可']
+          },
+          {
+            id: '04',
+            img: 'assets/service_4.png',
+            alt: '全國',
+            translateY: '-45vw',
+            smTranslateY: '-10vw',
+            text: ['遠離人潮的隱世秘景', '全國25間Studio', '小眾城市也可輕鬆抵達拍攝']
+          }
+        ]}"
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-[min(1.875rem,30px)] md:mt-[min(4.68rem,75px)] md:gap-x-[1vw]">
 
         <template x-for="(service, index) in services" :key="service.id">
           <div :class="[
-                index % 2 === 0 
-                  ? 'flex justify-self-start sm:justify-self-center md:justify-self-start -ml-4 sm:-ml-3 md:ml-0'
-                  : 'flex flex-row-reverse sm:flex-row justify-self-end sm:justify-self-center md:justify-self-start -mr-4 sm:mr-0 sm:-ml-3 md:ml-0',
-                index !== 0 ? 'mt-[min(1.25rem,20px)] md:mt-0' : '',
-                index >= 2 ? 'sm:mt-5' : 'sm:mt-0',
-              ]">
+            index % 2 === 0 
+              ? 'flex justify-self-start sm:justify-self-center md:justify-self-start -ml-4 sm:-ml-3 md:ml-0'
+              : 'flex flex-row-reverse sm:flex-row justify-self-end sm:justify-self-center md:justify-self-start -mr-4 sm:mr-0 sm:-ml-3 md:ml-0',
+            index !== 0 ? 'mt-[min(1.25rem,20px)] md:mt-0' : '',
+            index >= 2 ? 'sm:mt-5' : 'sm:mt-0',
+          ]">
             <!-- 編號 + 垂直線 -->
-            <div class="flex flex-col items-center" :class="[
-                  index % 2 === 0 ? '-mr-1 sm:mr-0.5 md:mr-[0.5vw]' : 'sm:mr-0.5 md:mr-[0.5vw]',
-                ]">
+            <div class="flex flex-col items-center"
+              :class="[index % 2 === 0 ? '-mr-1 sm:mr-2 md:mr-[0.5vw]' : 'sm:mr-2 md:mr-[0.5vw]',]">
               <div
                 class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-hk font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
                 x-text="service.id"></div>
-              <div class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[25vw] sm:h-[22vw] md:h-[17vw]"></div>
+              <div class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[clamp(75px,25vw,160px)] sm:h-[clamp(140px,22vw,170px)] md:h-[clamp(130px,17vw,200px)]"></div>
             </div>
 
             <!-- 圖片 + 文字 -->
             <div class="flex flex-col items-start" :class="index % 2 === 0 ? '' : '-mr-1 md:mr-0'">
               <div
-                class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[31.25vw] sm:h-[27vw] md:h-[min(18.75rem,300px)] overflow-hidden">
-                <img :src="service.img" :alt="service.alt" class="w-full object-cover h-auto" :style="window.innerWidth < 640
-                      ? 'transform: translateY(' + service.translateY + ');'
-                      : (window.innerWidth < 768
-                          ? 'transform: translateY(' + service.smTranslateY + ');'
-                          : '')" />
+                class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[clamp(100px,31.25vw,200px)] sm:h-[clamp(150px,27vw,200px)] md:h-[clamp(150px,20vw,300px)] overflow-hidden">
+                <img :src="service.img" :alt="service.alt" class="w-full h-auto" :style="
+                  window.innerWidth < 640
+                    ? 'transform: translateY(' + service.translateY + ');'
+                    : (window.innerWidth < 768
+                      ? 'transform: translateY(' + service.smTranslateY + ');'
+                      : '')
+                " />
               </div>
               <div
-                class="mt-[min(0.625rem,10px)] md:mt-4 text-left text-[min(0.75rem,12px)] sm:text-[1.5vw] md:text-[0.89vw] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
+                class="mt-[clamp(10px,3.1vw,24px)] sm:mt-[clamp(8px,1.5vw,12px)] text-left text-[clamp(10px,3.1vw,24px)] sm:text-[clamp(8px,1.5vw,12px)] md:text-[clamp(8px,0.89vw,12px)] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
                 <template x-for="line in service.text" :key="line">
                   <p class="whitespace-nowrap" x-text="line"></p>
                 </template>
@@ -903,14 +929,41 @@
     </section>
 
 
-  </div>
-
+  </main>
+  
   <footer
-    class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-xxs md:text-sm text-eng">
+    class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-[min(0.625rem,10px)] md:text-sm text-eng">
     COPYRIGHT ©DECOLLTE PHOTOGRAPHY CO.,LTD ALL RIGHTS RESERVED.
   </footer>
 </body>
 <script defer>
+
+  var swiper = new Swiper(".default-carousel", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  setTimeout(() => {
+    const voc_swiper = new Swiper(".voc-swiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
+    })
+  }, 100);
+
   function carousel() {
     return {
       images: [],
@@ -926,48 +979,6 @@
             this.current = (this.current + 1) % this.images.length
           }, 5000)
         }
-      }
-    }
-  }
-
-  function slideIndicatorCarousel(autoPlay) {
-    return {
-      autoPlay: autoPlay || false,
-      carousel: null,
-      items: [],
-      current: 0,
-      offsetLefts: [],
-      init() {
-        this.carousel = this.$refs.carousel
-        setTimeout(() => {
-          const items = this.carousel.querySelectorAll(".carousel-item")
-          this.items = items
-          this.offsetLefts = Array.from(items).map(item => item.offsetLeft);
-          if (this.autoPlay) {
-            this.autoNextItem(this.items.length)
-          }
-        }, 100);
-      },
-      goTo(index) {
-        const left = this.offsetLefts[index];
-        this.carousel.scrollTo({ left: left })
-      },
-      onScroll(e) {
-        const currentIndex = this.offsetLefts.indexOf(e.target.scrollLeft)
-        if (currentIndex >= 0) {
-          this.current = currentIndex
-        }
-      },
-      autoNextItem(length) {
-        setInterval(() => {
-          if (this.current == length - 1) {
-            this.current = 0
-          } else {
-            this.current += 1
-          }
-          const left = this.offsetLefts[this.current];
-          this.carousel.scrollTo({ left: left })
-        }, 5000)
       }
     }
   }
