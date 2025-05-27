@@ -87,8 +87,49 @@
         @apply leading-[160%] tracking-[0.2rem]
       }
 
-      .text-info-size {
-        @apply text-[clamp(12px,3.75vw,16px)] sm:text-[clamp(14px,2vw,16px)] md:text-[clamp(14px,1.38vw,20px)]
+      @layer components {
+        .text-body {
+          @apply leading-[130%] tracking-[0.2rem]
+        }
+
+        .text-caption {
+          @apply leading-[160%] tracking-[0.2rem]
+        }
+
+        .text-info-size {
+          @apply text-[clamp(12px,3.75vw,16px)] sm:text-[clamp(14px,2vw,16px)] md:text-[clamp(14px,1.38vw,20px)]
+        }
+
+        .text-eng {
+          @apply leading-[130%] tracking-[0.1rem]
+        }
+
+        .custom-heading-en {
+          @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(13px,2vw,14px)] md:text-[clamp(12px,1.1vw,16px)];
+        }
+
+        .custom-heading-zh {
+          @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
+        }
+        
+        .swiper-wrapper{ 
+          -webkit-transition-timing-function:linear!important;    
+          transition-timing-function:linear!important; 
+          /* position: relative; */
+        }
+
+        .swiper-button-next::after,
+        .swiper-rtl .swiper-button-prev::after {
+          content: none !important;
+        }
+
+        .swiper-button-prev:after{
+          content: none !important;
+        }
+        .writing-vertical-lr {
+          writing-mode: vertical-lr;
+        }
+        
       }
 
       .text-eng {
@@ -694,8 +735,202 @@
       </div>
     </section>
 
-  </main>
+    <!-- style -->
+    <section>
+      <div class="flex flex-col md:flex-row justify-items-center   my-[3.125rem] md: mt-[9.375rem] md:mb-[8.7rem]">
+        <div class="flex flex-col md:justify-between md:w-[34%] md:h-[50rem] md:ml-[10%]">
+          <div>
+            <h2 class="font-noto-sans-hk font-light text-center md:text-left leading-[130%] tracking-[0.1rem] text-[min(0.625rem,10px)] md:text-[min(1rem,16px)]">Style</h2>
+            <h1 class="font-noto-serif-hk font-normal text-center md:text-left leading-[130%] tracking-[0.2rem] text-[min(1.75rem,28px)] md:text-[min(2.25rem,36px)] ml-[10%] mr-[10%] md:ml-0 md:mr-0 mt-[min(0.625rem,10px)]">
+              拍攝風格
+            </h1>
+            <div class="text-center  mt-[1.25rem] md:mt-[3.125rem]">
+    
+              <span class="writing-vertical-lr leading-[130%] tracking-[0.2em] font-noto-sans-hk font-light text-[min(0.75rem,12px)] hidden md:block">SCROLL</span>
+              <div class="mt-[0.625rem] h-[min(0.875rem,14px)] w-[min(0.875rem,14px)] hidden md:block">
+                <div x-data x-init="
+                    const anim = lottie.loadAnimation({
+                      container: $el,
+                      renderer: 'svg',
+                      loop: true,
+                      autoplay: true,
+                      path: 'assets/lottie/scroll_s.json'
+                    });
 
+                    anim.addEventListener('DOMLoaded', () => {
+                      $el.querySelectorAll('path').forEach(p => {
+                        p.setAttribute('stroke-width', '1.5'); // 加粗線條
+                        p.setAttribute('stroke', '#4D403E');   // 改顏色
+                      });
+                    });
+                  " class="h-full ml-[0.3125rem] ">
+                </div>
+              </div>
+
+              <div class="md:hidden flex justify-center">
+                <span class="leading-[130%] tracking-[0.2em] font-noto-sans-hk font-light text-[min(0.625rem,10px)] ">SCROLL</span>
+                <div class=" h-[min(0.875rem,14px)] w-[min(0.875rem,14px)] md:hidden">
+                  <div x-data x-init="
+                      const anim = lottie.loadAnimation({
+                        container: $el,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'assets/lottie/scroll_s.json'
+                      });
+  
+                      anim.addEventListener('DOMLoaded', () => {
+                        $el.querySelectorAll('path').forEach(p => {
+                          p.setAttribute('stroke-width', '1.5'); // 加粗線條
+                          p.setAttribute('stroke', '#4D403E');   // 改顏色
+                        });
+                      });
+                    " class="h-full ml-[0.3125rem] -rotate-90 origin-center">
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="leading-[130%] tracking-[0.2em] font-noto-serif-hk font-light text-[min(0.75rem,12px)] hidden md:block">
+            <p >ＤＥ＆Ｃo.</p>
+            <p>Decollte Photography</p>
+          </div>
+        </div>
+
+        <div class="mt-0 h-[50rem] w-full overflow-hidden hidden md:block">
+          <div class="style_swiper vertical-slide-carousel swiper-container w-auto h-[117.8rem]">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/style_1.png" class="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/style_1.png" class="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-[1.25rem] w-full overflow-hidden md:hidden bg-red-50">
+          <div class="hair_swiper hairSwiper w-[116.24rem] h-[25rem]">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/style_2.png" class="w-[116.24rem] h-[25rem]" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/style_2.png" class="w-[116.24rem] h-[25rem]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- hair and makeup -->
+    <section class="my-[3.125rem] md:my-[6.25rem]">
+      <h2 class="custom-heading-en text-center ">Hair & Make up</h2>
+      <h1 class="custom-heading-zh text-center">妝髮造型</h1>
+      <p class="mx-[10%] font-noto-sans-hk md:font-noto-sans-tc mt-8.25 md:mt-7.5 text-[min(0.625rem,10px)] md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co.的化妝及髮型師皆為正式員工，
+        並定期接受技術考核與專業培訓，致力於提供您最優質且多元的造型服務。</p>
+      <div class="flex flex-col md:flex-row my-[1.25rem] md:mt-[5.5rem] md:mb-[1.875rem]">
+        <img src="assets/hair_1.png" class="w-full md:w-1/2 object-cover" alt="">
+        <img src="assets/hair_2.png" class="w-full md:w-1/2 object-cover" alt="">
+      </div>
+      <p class="mx-[10%] font-noto-sans-hk md:font-noto-sans-tc mt-8.25 md:mt-7.5 text-[min(0.625rem,10px)] md:text-xl font-light text-caption text-center whitespace-pre-line">豐富多樣的髮飾選擇，讓您自由搭配，展現獨特風格。</p>
+
+      <div class="w-full overflow-hidden">
+        <div class="w-[53rem] md:w-[198.56rem] h-[12.5rem] md:h-[46.875rem] hair_swiper hairSwiper my-[1.875rem] md:my-25">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="assets/hair_3.png" class="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="assets/hair_3.png" class="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="assets/hair_3.png" class="" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="flex justify-center items-center gap-x-2.5 text-[min(0.75rem,12px)] md:text-[min(1.25rem,20px)] md:text-xl font-cactus-classical-serif leading-[130%] tracking-[0.2rem] text-center">
+        <span>化妝及髮型師一覽</span>
+        <a 
+          href="https://www.decollte-photography.hk/index.php?m=home&c=Staffs&a=index&category=hair_makeup" 
+          class="flex items-center group w-[min(1rem,16px)] md:w-[min(1.56rem,25px)] h-[min(1rem,16px)] md:h-[min(1.56rem,25px)] "
+          target="_blank" rel="noopener noreferrer"
+        >
+          <img src="./assets/icons/arrow-rignt-circle.svg" class="size-full inline-block group-hover:!hidden" />
+          <img src="./assets/icons/arrow-rignt-circle-hover.svg" class="size-full hidden group-hover:!inline-block" />
+        </a>
+      </div>
+
+      
+      
+    </section>
+
+    <!-- album -->
+    <section class="my-25">
+      <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
+        <h1
+          class="mb-2 font-noto-sans-hk font-light leading-[130%] tracking-[0.1rem] text-[0.625rem] text-center md:text-left text-[min(1rem,16px)]">
+          Album</h1>
+        <h1
+          class="font-noto-serif-hk font-normal leading-[130%] tracking-[0.2rem] text-[1.75rem] text-center ml-[10%] mr-[10%] md:ml-0 md:mr-0  md:text-left md:text-[2.25rem] md:mt-[0.625rem]">
+          相冊款式</h1>
+      </div>
+      <!--HTML CODE -->
+      <div class="w-full relative overflow-hidden">
+        <div class="album_swiper album_multiple-slide-carousel swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="flex justify-center items-center">
+                <img src="assets/album_1.png" class="h-[31.25rem] w-[31.25rem] object-cover" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="flex justify-center items-center">
+                <img src="assets/album_2.png" class="h-[31.25rem] w-[31.25rem]" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="flex justify-center items-center">
+                <img src="assets/album_3.png" class="h-[31.25rem] w-[31.25rem]" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="flex justify-center items-center">
+                <img src="assets/album_4.png" class="h-[31.25rem] w-[31.25rem]" />
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute items-center m-auto left-0 right-0 w-fit bottom-12">
+            <button  class="swiper-button-prev group !p-2 flex justify-center items-center  !w-12 !h-12 transition-all duration-500 rounded-full !-translate-x-16" data-carousel-prev>
+              <span class="">PREV</span>
+            </button>
+            <button class="swiper-button-next group !p-2 flex justify-center items-center !w-12 !h-12 transition-all duration-500 rounded-full !translate-x-16" data-carousel-next>
+              <span class="">NEXT</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+       
+
+      
+
+
+      
+  
+
+
+    </section>
+
+
+  </main>
+  
   <footer
     class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-[min(0.625rem,10px)] md:text-sm text-eng">
     COPYRIGHT ©DECOLLTE PHOTOGRAPHY CO.,LTD ALL RIGHTS RESERVED.
@@ -878,5 +1113,65 @@
   }
 
 </script>
+<script>
+  var swiper = new Swiper(".default-carousel", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  const hair_swiper = new Swiper(".hairSwiper", {
+    resistanceRatio:0,
+    loop: true,
+    slidesPerView: 'auto',       // 根據內容自動調整
+    spaceBetween: 0,
+    speed: 30000,                 // 整個滑動動畫時間
+    freeMode: true,              // 啟用自由模式（非強制一頁）
+    autoplay: {
+      delay: 0,                  // 沒有間隔時間
+      disableOnInteraction: false,
+    },
+  });
+
+  var album_swiper = new Swiper(".album_multiple-slide-carousel", {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".album_multiple-slide-carousel .swiper-button-next",
+      prevEl: ".album_multiple-slide-carousel .swiper-button-prev",
+    },
+    breakpoints: {
+      768: {
+          slidesPerView: 2,
+          spaceBetween: 10
+      }
+    }
+  });
+
+  var style_swiper = new Swiper(".vertical-slide-carousel", {
+    loop: true,
+    direction: 'vertical',
+    slidesPerView: 'auto',       // 根據內容自動調整
+    spaceBetween: 0,
+    speed: 30000,                 // 整個滑動動畫時間
+    freeMode: true,              // 啟用自由模式（非強制一頁）
+    autoplay: {
+      delay: 0,                  // 沒有間隔時間
+      disableOnInteraction: false,
+    },
+  });
+
+
+
+</script>
+
+
 
 </html>
