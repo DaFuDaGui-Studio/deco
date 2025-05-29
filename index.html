@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Sans+HK:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
     rel="stylesheet">
 
   <!-- Tailwind -->
@@ -31,7 +31,6 @@
       --font-noto-serif-hk: "Noto Serif HK", serif;
       --font-noto-serif-jp: "Noto Serif JP", serif;
       --font-noto-sans-jp: "Noto Sans JP", sans-serif;
-      --font-noto-sans-hk: "Noto Sans HK", sans-serif;
       --font-noto-sans-tc: "Noto Sans TC", sans-serif;
       --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
       --font-cactus-classical-serif: "Cactus Classical Serif", serif;
@@ -86,56 +85,8 @@
         @apply leading-[160%] tracking-[0.2rem]
       }
 
-      @layer components {
-        .text-body {
-          @apply leading-[130%] tracking-[0.2rem]
-        }
-
-        .text-caption {
-          @apply leading-[160%] tracking-[0.2rem]
-        }
-
-        .text-info-size {
-          @apply text-[clamp(12px,3.75vw,16px)] sm:text-[clamp(14px,2vw,16px)] md:text-[clamp(14px,1.38vw,20px)]
-        }
-
-        .text-eng {
-          @apply leading-[130%] tracking-[0.1rem]
-        }
-
-        .custom-heading-en {
-          @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(13px,2vw,14px)] md:text-[clamp(12px,1.1vw,16px)];
-        }
-
-        .custom-heading-zh {
-          @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
-        }
-        
-        .swiper-wrapper{ 
-          -webkit-transition-timing-function:linear!important;    
-          transition-timing-function:linear!important; 
-          /* position: relative; */
-        }
-
-        .swiper-button-next::after,
-        .swiper-rtl .swiper-button-prev::after {
-          content: none !important;
-        }
-
-        .swiper-button-prev:after{
-          content: none !important;
-        }
-        .writing-vertical-lr {
-          writing-mode: vertical-lr;
-        }
-
-        .works-carousel .swiper-wrapper {
-          width: 100%;
-          height: max-content !important;
-          -webkit-transition-timing-function: linear !important;
-          transition-timing-function: linear !important;
-          position: relative;
-        }
+      .text-info-size {
+        @apply text-[clamp(12px,3.75vw,16px)] sm:text-[clamp(14px,2vw,16px)] md:text-[clamp(14px,1.38vw,20px)]
       }
 
       .text-eng {
@@ -143,19 +94,49 @@
       }
 
       .custom-heading-en {
-        @apply font-noto-sans-hk font-light text-center leading-[130%] tracking-[0.1rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(13px,2vw,14px)] md:text-[clamp(12px,1.1vw,16px)];
+        @apply font-noto-sans-tc font-light text-center leading-[130%] tracking-[0.1rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(13px,2vw,14px)] md:text-[clamp(12px,1.1vw,16px)];
       }
 
       .custom-heading-zh {
         @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
+      }
+
+      .custom-heading-info {
+        @apply font-noto-sans-tc font-light text-center leading-[160%] tracking-[0.2rem] text-[min(0.75rem,12px)] md:text-xl mt-[min(2.06rem,33px)] md:mt-7.5 whitespace-pre-line;
+      }
+
+      .swiper-wrapper{ 
+        -webkit-transition-timing-function:linear!important;    
+        transition-timing-function:linear!important; 
+        /* position: relative; */
+      }
+
+      .swiper-button-next::after,
+      .swiper-rtl .swiper-button-prev::after {
+        content: none !important;
+      }
+
+      .swiper-button-prev:after{
+        content: none !important;
+      }
+
+      .writing-vertical-lr {
+        writing-mode: vertical-lr;
+      }
+
+      .works-carousel .swiper-wrapper {
+        width: 100%;
+        height: max-content !important;
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+        position: relative;
       }
     }
   </style>
 </head>
 
 <body>
-  <header
-    class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 py-[min(1.25rem,20px)] md:py-7 font-cactus-classical-serif">
+  <header class="flex justify-between items-center px-5 md:pl-12.5 md:pr-15 py-[min(1.25rem,20px)] md:py-7 font-cactus-classical-serif">
     <div class="w-[min(4rem,64px)] md:w-31.25">
       <img src="./assets/logo.svg" alt="Arrow Icon" class="w-full">
     </div>
@@ -195,10 +176,8 @@
             alt="" />
         </template>
         <!-- scroll icon phone -->
-        <div
-          class="flex md:hidden items-center h-[min(0.875rem,14px)] absolute left-1/2 bottom-[0] transform -translate-x-1/2 translate-y-[-0.625rem] z-20 ">
-          <span
-            class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[min(0.625rem,10px)] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
+        <div class="flex md:hidden items-center h-[min(0.875rem,14px)] absolute left-1/2 bottom-[0] transform -translate-x-1/2 translate-y-[-0.625rem] z-20 ">
+          <span class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[min(0.625rem,10px)] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
           <div x-data x-init="
             const anim = lottie.loadAnimation({
               container: $el,
@@ -206,10 +185,9 @@
               loop: true,
               autoplay: true,
               path: 'assets/lottie/scroll_s.json'
-            });
-
-            
-          " class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"></div>
+            });"
+            class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]">
+          </div>
         </div>
       </div>
       <div
@@ -222,8 +200,7 @@
           </p>
         </div>
         <!-- japanese title -->
-        <p
-          class="hidden md:block font-cactus-classical-serif text-[clamp(24px,2.8vw,40px)] text-body md:mt-[min(4.375rem,70px)]">
+        <p class="hidden md:block font-cactus-classical-serif text-[clamp(24px,2.8vw,40px)] text-body md:mt-[min(4.375rem,70px)]">
           「特別な瞬間」を一生の思い出に
         </p>
         <p class="font-cactus-classical-serif text-info-size text-body bottom-4 md:static mt-[clamp(20px,6.25vw,24px)] md:mt-[min(2.5rem,40px)]">
@@ -240,13 +217,13 @@
               autoplay: true,
               path: 'assets/lottie/scroll_s.json'
             });
-
             anim.addEventListener('DOMLoaded', () => {
               $el.querySelectorAll('path').forEach(p => {
                 p.setAttribute('stroke', '#4D403E'); // 換顏色
               });
-            });
-          " class="h-full ml-[0.3125rem]"></div>
+            });"
+            class="h-full ml-[0.3125rem]">
+          </div>
         </div>
       </div>
     </section>
@@ -254,13 +231,8 @@
     <!-- flow -->
     <section class="mx-auto max-w-[1440px] pb-[min(3.125rem,50px)] md:pb-25">
       <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
-        <h1    
-          class="custom-heading-en text-center md:text-left">
-          Flow</h1>
-          
-        <h3
-          class="custom-heading-zh text-center md:text-left">
-          拍攝服務流程<br class="sm:hidden">說明</h3>
+        <h3 class="custom-heading-en md:text-left">Flow</h3>
+        <h2 class="custom-heading-zh md:text-left">拍攝服務流程<br class="sm:hidden">說明</h2>
       </div>
       <div x-data="{
         currentIndex: 0,
@@ -309,20 +281,18 @@
             <!-- 文字敘述 -->
             <div class="flex-col">
               <h2 class="text-4xl font-serif mb-[1.875rem] flex items-center">
-                <span class="font-noto-serif-hk font-bold
-                    text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]"
+                <span class="font-noto-serif-hk font-bold text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]"
                   x-text="items[currentIndex].step"></span>&nbsp;
-                <span class="font-monsieur-la-doulaise font-normal
-                    text-[3.75rem] leading-[74%] tracking-[0.125rem]">step.</span>
+                <span class="font-monsieur-la-doulaise font-normal text-[3.75rem] leading-[74%] tracking-[0.125rem]">step.</span>
               </h2>    
-              <p class="text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(20px,2vw,30px)] mb-[1.25rem] font-noto-serif-hk font-normal leading-[130%] tracking-[0.2rem]"
+              <p class="text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(20px,2vw,30px)] mb-[1.25rem] font-noto-serif-hk font-normal text-body"
                 x-text="items[currentIndex].title"></p>
               <p class="text-[1.25rem] h-[9.375rem] font-noto-sans-tc font-light mb-6 leading-[160%] tracking-[0.125rem]"
                 x-text="items[currentIndex].desc"></p>
             </div>
 
             <!-- 控制按鈕 -->
-            <div class="flex items-center font-noto-sans-hk font-normal">
+            <div class="flex items-center font-noto-sans-tc font-normal">
               <button @click="currentIndex = (currentIndex - 1 + items.length) % items.length"
                 class="flex items-center text-xl leading-[130%] tracking-[0.125rem] mr-[30px] group">
                 <img src="./assets/icons/arrow-rignt-circle.svg"
@@ -334,7 +304,8 @@
               <button @click="currentIndex = (currentIndex + 1) % items.length"
                 class="flex items-center text-xl leading-[130%] tracking-[0.125rem] group">
                 NEXT
-                <img src="./assets/icons/arrow-rignt-circle.svg" class="size-4 ml-[8px] group-hover:hidden" />
+                <img src="./assets/icons/arrow-rignt-circle.svg"
+                  class="size-4 ml-[8px] group-hover:hidden" />
                 <img src="./assets/icons/arrow-rignt-circle-hover.svg"
                   class="size-4 ml-[8px] hidden group-hover:inline-block" />
               </button>
@@ -348,11 +319,11 @@
                 :class="currentIndex === index ? 'w-[25rem]' : 'w-[3.125rem]'">
                 <div class="h-[1.875rem]">
                   <p class="w-[9.375rem] border-b text-right font-light"
-                  :class="currentIndex === index ? 'block' : 'hidden'">FLOW</p>
+                    :class="currentIndex === index ? 'block' : 'hidden'">FLOW</p>
                   <button class="" @click="currentIndex = index">
                     <div class="" :class="currentIndex !== index ? 'block' : 'hidden'">
-                      <p class="font-noto-serif-hk font-bold
-                        text-[1.25rem] leading-[92%] tracking-[0.125rem] hover:opacity-70" x-text="item.step"></p>
+                      <p class="font-noto-serif-hk font-bold text-[1.25rem] leading-[92%] tracking-[0.125rem] hover:opacity-70"
+                        x-text="item.step"></p>
                       <p class="font-noto-sans-jp font-light text-[0.625rem] leading-[130%] tracking-[0.125rem] hover:opacity-70">Step</p>
                     </div>
                   </button>
@@ -374,7 +345,8 @@
                     <div class="flex flex-col gap-y-[min(1.875rem,30px)] sm:gap-y-[min(3.125rem,50px)]">
                       <div class="flex flex-col gap-y-[min(1.25rem,20px)] px-[min(1.875rem,30px)] sm:px-[min(6.25rem,100px)]">
                         <h2 class="text-[min(1.25rem,20px)] sm:text-[min(2.5rem,40px)] flex items-center justify-center">
-                          <span x-text="item.step" class="font-noto-serif-hk font-bold leading-[92%] tracking-[0.125rem] mr-[min(0.625rem,10px)]"></span>
+                          <span class="font-noto-serif-hk font-bold leading-[92%] tracking-[0.125rem] mr-[min(0.625rem,10px)]"
+                            x-text="item.step"></span>
                           <span class="font-monsieur-la-doulaise font-normal leading-[74%] tracking-[0.125rem]">step.</span>
                         </h2>
                         <p class="text-center text-[min(1.25rem,20px)] sm:text-[min(1.625rem,26px)] font-noto-serif-hk font-normal leading-[130%] tracking-[0.25rem]"
@@ -393,7 +365,7 @@
         </div>
       </div>
       <div class="flex justify-center md:justify-end mt-[min(1.25rem,20px)] md:mt-10 md:pr-8.75 px-[min(1.875rem,30px)] sm:px-0">
-        <div class="font-noto-sans-hk font-light leading-[160%] tracking-[0.25em] text-left md:text-right text-[min(0.625rem,10px)] sm:text-[min(0.75rem,12px)] md:text-base">
+        <div class="font-noto-sans-tc font-light leading-[160%] tracking-[0.25em] text-left md:text-right text-[min(0.625rem,10px)] sm:text-[min(0.75rem,12px)] md:text-base">
           <p>DE &amp; Co. 秉持「<span class="font-bold">日式服務</span>」的細膩與貼心，從諮詢到成品，全程細心跟進</p>
           <p>我們<span class="font-bold">堅持價格透明，絕不強迫推銷，讓您輕鬆享受愉悅的婚紗拍攝體驗</span></p>
         </div>
@@ -446,11 +418,10 @@
       ]
     }">
       <div class="relative">
-
         <div class="absolute top-3 md:top-8 -z-10 w-full"><img src="./assets/banner_bg.png" class="w-full h-[(6.75rem,108px)] md:h-auto object-cover object-[25%_75%] md:object-center" /></div>
-        <h1 class="custom-heading-zh text-center">顧客心聲</h1>
-        <p
-          class="font-noto-sans-tc md:font-noto-sans-hk mt-[min(2.06rem,33px)] md:mt-7.5 text-[min(0.75rem,12px)] md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co. 婚紗攝影的獨特魅力
+        <h2 class="custom-heading-zh">顧客心聲</h2>
+        <p class="custom-heading-info">
+          DE&Co. 婚紗攝影的獨特魅力
           聽聽喜愛 DE&Co. 的顧客心得分享
         </p>
       </div>
@@ -461,16 +432,16 @@
           <template x-for="(customer, index) in customers" :key="`voc_${index}`">
             <div class="flex flex-col items-center gap-y-5">
               <img :src="customer.img" class="rounded-full w-37.5 h-37.5" />
-              <p class="flex gap-x-2.5 text-sm font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+              <p class="flex gap-x-2.5 text-sm font-noto-sans-tc leading-[130%] tracking-[0.1em] text-center">
                 <span x-text="customer.name"></span>
                 <span x-text="customer.age"></span>
               </p>
               <p class="font-cactus-classical-serif text-center text-xl text-caption" x-html="customer.title"></p>
-              <p class="px-3 text-sm font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
+              <p class="px-3 text-sm font-noto-sans-tc text-caption text-center" x-text="customer.content"></p>
             </div>
             <div class="flex items-end justify-center gap-x-2.5">
               <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
-              <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-xs" x-text="customer.office"></p>
+              <p class="font-noto-sans-tc leading-[130%] tracking-[0.2em] text-xs" x-text="customer.office"></p>
             </div>
           </template>
         </div>
@@ -487,16 +458,16 @@
                     <div class="flex flex-col items-center justify-between gap-y-[min(1.25rem,20px)]">
                       <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
                         <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
-                        <p class="flex gap-x-[min(0.625rem,10px)] text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                        <p class="flex gap-x-[min(0.625rem,10px)] text-[min(0.625rem,10px)] font-noto-sans-tc leading-[130%] tracking-[0.1em] text-center">
                           <span x-text="customer.name"></span>
                           <span x-text="customer.age"></span>
                         </p>
                         <p class="w-full font-cactus-classical-serif text-center text-[min(1rem,16px)] tracking-[0.1em] break-keep" x-html="customer.title"></p>
-                        <p class="w-full text-[min(0.625rem,10px)] font-noto-sans-hk tracking-[0.1em] text-center" x-text="customer.content"></p>
+                        <p class="w-full text-[min(0.625rem,10px)] font-noto-sans-tc tracking-[0.1em] text-center" x-text="customer.content"></p>
                       </div>
                       <div class="flex items-center justify-center gap-x-[min(0.625rem,10px)]">
                         <img src="./assets/icons/location.svg" class="w-[min(0.625rem,10px)] h-[min(0.875rem,14px)]" />
-                        <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-[min(0.625rem,10px)]" x-text="customer.office"></p>
+                        <p class="font-noto-sans-tc leading-[130%] tracking-[0.2em] text-[min(0.625rem,10px)]" x-text="customer.office"></p>
                       </div>
                     </div>
                   </template>
@@ -509,16 +480,16 @@
                     <div class="flex flex-col items-center justify-between gap-y-[min(1.25rem,20px)] w-1/3">
                       <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
                         <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
-                        <p class="flex gap-x-[min(0.625rem,10px)] text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                        <p class="flex gap-x-[min(0.625rem,10px)] text-[min(0.625rem,10px)] font-noto-sans-tc leading-[130%] tracking-[0.1em] text-center">
                           <span x-text="customer.name"></span>
                           <span x-text="customer.age"></span>
                         </p>
                         <p class="w-full font-cactus-classical-serif text-center text-[min(1rem,16px)] tracking-[0.1em] break-keep" x-html="customer.title"></p>
-                        <p class="w-full text-[min(0.625rem,10px)] font-noto-sans-hk tracking-[0.1em] text-center" x-text="customer.content"></p>
+                        <p class="w-full text-[min(0.625rem,10px)] font-noto-sans-tc tracking-[0.1em] text-center" x-text="customer.content"></p>
                       </div>
                       <div class="flex items-center justify-center gap-x-[min(0.625rem,10px)]">
                         <img src="./assets/icons/location.svg" class="w-[min(0.625rem,10px)] h-[min(0.875rem,14px)]" />
-                        <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-[min(0.625rem,10px)]" x-text="customer.office"></p>
+                        <p class="font-noto-sans-tc leading-[130%] tracking-[0.2em] text-[min(0.625rem,10px)]" x-text="customer.office"></p>
                       </div>
                     </div>
                   </template>
@@ -541,17 +512,17 @@
                   <div class="w-full flex flex-col items-center justify-between gap-y-[min(1.25rem,20px)]">
                     <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
                       <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
-                      <p class="flex gap-x-2.5 text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                      <p class="flex gap-x-2.5 text-[min(0.625rem,10px)] font-noto-sans-tc leading-[130%] tracking-[0.1em] text-center">
                         <span x-text="customer.name"></span>
                         <span x-text="customer.age"></span>
                       </p>
                       <p class="font-cactus-classical-serif text-center text-[min(0.75rem,12px)] text-caption"
                         x-text="customer.title.replace('<br>', '')"></p>
-                      <p class="px-7.5 text-[min(0.625rem,10px)] font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
+                      <p class="px-7.5 text-[min(0.625rem,10px)] font-noto-sans-tc text-caption text-center" x-text="customer.content"></p>
                     </div>
                     <div class="flex items-end gap-x-[min(0.625rem,10px)]">
                       <img src="./assets/icons/location.svg" class="w-[min(0.937rem,15px)] h-[min(1.25rem,20px)]" />
-                      <p class="font-noto-sans-hk leading-[130%] text-[min(0.625rem,10px)] tracking-[0.2em]" x-text="customer.office"></p>
+                      <p class="font-noto-sans-tc leading-[130%] tracking-[0.2em] text-[min(0.625rem,10px)]" x-text="customer.office"></p>
                     </div>
                   </div>
                 </div>
@@ -566,9 +537,8 @@
     <!-- appointment -->
     <section
       class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
-      <h2 class="custom-heading-en md:text-left">Appointment</h2>
-      <h1 class="hidden sm:block custom-heading-zh md:text-left">提供多樣方案預約諮詢</h1>
-      <h1 class="block sm:hidden custom-heading-zh md:text-left">提供多樣方案<br>預約諮詢</h1>
+      <h3 class="custom-heading-en md:text-left">Appointment</h3>
+      <h2 class="custom-heading-zh md:text-left">提供多樣方案<br class="sm:hidden">預約諮詢</h2>
       <div x-data="gridSlideCarousel({
         dots: true, touchSwipe: true,
         images: [
@@ -600,7 +570,7 @@
                       <div class="w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3">
                         <img :src="item.img" :alt="item.alt" class="h-full transition-transform duration-300 hover:scale-110" />
                       </div>
-                      <p x-text="item.alt" class="text-left text-info-size text-caption font-noto-sans-hk"></p>
+                      <p x-text="item.alt" class="text-left text-info-size text-caption font-noto-sans-tc"></p>
                     </div>
                   </template>
                 </div>
@@ -626,8 +596,8 @@
     <!-- works -->
     <section class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] md:mt-25"
       x-data="fecthBranchWorks()">
-      <h2 class="custom-heading-en">Ｇallery</h2>
-      <h1 class="custom-heading-zh">作品欣賞</h1>
+      <h3 class="custom-heading-en">Gallery</h3>
+      <h2 class="custom-heading-zh">作品欣賞</h2>
       
       <div class="hidden sm:block sm:mt-[min(2.375rem,38px)] md:mt-22">
         <div class="max-w-[1440px] mx-auto sm:px-[min(3.125rem,50px)] md:px-0 relative overflow-hidden whitespace-nowrap">
@@ -734,9 +704,8 @@
     <!-- service -->
     <section
       class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
-      <h2 class="custom-heading-en text-center">Service</h2>
-      <h1 class="hidden md:block custom-heading-zh text-center">DE&Co.服務特色</h1>
-      <h1 class="block md:hidden custom-heading-zh text-center">DE&Co.<br>服務特色</h1>
+      <h3 class="custom-heading-en">Service</h3>
+      <h2 class="custom-heading-zh">DE&Co.<br class="sm:hidden">服務特色</h2>
       <div x-data="{
         services: [
           {
@@ -804,7 +773,7 @@
                 " />
               </div>
               <div
-                class="mt-[clamp(10px,3.1vw,24px)] sm:mt-[clamp(8px,1.5vw,12px)] text-left text-[clamp(10px,3.1vw,24px)] sm:text-[clamp(8px,1.5vw,12px)] md:text-[clamp(8px,0.89vw,12px)] font-noto-sans-hk tracking-[0.2em] leading-[1.6]">
+                class="mt-[clamp(10px,3.1vw,24px)] sm:mt-[clamp(8px,1.5vw,12px)] text-left text-[clamp(10px,3.1vw,24px)] sm:text-[clamp(8px,1.5vw,12px)] md:text-[clamp(8px,0.89vw,12px)] font-noto-sans-tc tracking-[0.2em] leading-[1.6]">
                 <template x-for="line in service.text" :key="line">
                   <p class="whitespace-nowrap" x-text="line"></p>
                 </template>
@@ -820,50 +789,46 @@
       <div class="flex flex-col md:flex-row justify-items-center   my-[3.125rem] md: mt-[9.375rem] md:mb-[8.7rem]">
         <div class="flex flex-col md:justify-between md:w-[34%] md:h-[50rem] md:ml-[10%]">
           <div>
-            <h2 class="font-noto-sans-hk font-light text-center md:text-left leading-[130%] tracking-[0.1rem] text-[min(0.625rem,10px)] md:text-[min(1rem,16px)]">Style</h2>
-            <h1 class="font-noto-serif-hk font-normal text-center md:text-left leading-[130%] tracking-[0.2rem] text-[min(1.75rem,28px)] md:text-[min(2.25rem,36px)] ml-[10%] mr-[10%] md:ml-0 md:mr-0 mt-[min(0.625rem,10px)]">
-              拍攝風格
-            </h1>
+            <h3 class="custom-heading-en md:text-left">Style</h3>
+            <h2 class="custom-heading-zh md:text-left">拍攝風格</h2>
             <div class="text-center  mt-[1.25rem] md:mt-[3.125rem]">
     
-              <span class="writing-vertical-lr leading-[130%] tracking-[0.2em] font-noto-sans-hk font-light text-[min(0.75rem,12px)] hidden md:block">SCROLL</span>
+              <span class="writing-vertical-lr leading-[130%] tracking-[0.2em] font-noto-sans-tc font-light text-[min(0.75rem,12px)] hidden md:block">SCROLL</span>
               <div class="mt-[0.625rem] h-[min(3.75rem,60px)] w-[min(1rem,16px)] hidden md:block">
                 <div x-data x-init="
+                  const anim = lottie.loadAnimation({
+                    container: $el,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'assets/lottie/scroll_l.json'
+                  });
+                  anim.addEventListener('DOMLoaded', () => {
+                    $el.querySelectorAll('path').forEach(p => {
+                      p.setAttribute('stroke', '#4D403E');   // 改顏色
+                    });
+                  });"
+                  class="h-full">
+                </div>
+              </div>
+
+              <div class="md:hidden flex justify-center">
+                <span class="leading-[130%] tracking-[0.2em] font-noto-sans-tc font-light text-[min(0.625rem,10px)] ">SCROLL</span>
+                <div class=" h-[15px] w-[30px] ml-[0.3125rem] md:hidden">
+                  <div x-data x-init="
                     const anim = lottie.loadAnimation({
                       container: $el,
                       renderer: 'svg',
                       loop: true,
                       autoplay: true,
-                      path: 'assets/lottie/scroll_l.json'
+                      path: 'assets/lottie/scroll_m.json'
                     });
-
                     anim.addEventListener('DOMLoaded', () => {
                       $el.querySelectorAll('path').forEach(p => {
                         p.setAttribute('stroke', '#4D403E');   // 改顏色
                       });
-                    });
-                  " class="h-full">
-                </div>
-              </div>
-
-              <div class="md:hidden flex justify-center">
-                <span class="leading-[130%] tracking-[0.2em] font-noto-sans-hk font-light text-[min(0.625rem,10px)] ">SCROLL</span>
-                <div class=" h-[15px] w-[30px] ml-[0.3125rem] md:hidden">
-                  <div x-data x-init="
-                      const anim = lottie.loadAnimation({
-                        container: $el,
-                        renderer: 'svg',
-                        loop: true,
-                        autoplay: true,
-                        path: 'assets/lottie/scroll_m.json'
-                      });
-  
-                      anim.addEventListener('DOMLoaded', () => {
-                        $el.querySelectorAll('path').forEach(p => {
-                          p.setAttribute('stroke', '#4D403E');   // 改顏色
-                        });
-                      });
-                    " class="h-full origin-center">
+                    });"
+                    class="h-full origin-center">
                   </div>
                 </div>
               </div>
@@ -871,7 +836,7 @@
             </div>
           </div>
           <div class="leading-[130%] tracking-[0.2em] font-noto-serif-hk font-light text-[min(0.75rem,12px)] hidden md:block">
-            <p >ＤＥ＆Ｃo.</p>
+            <p>DE&Co.</p>
             <p>Decollte Photography</p>
           </div>
         </div>
@@ -903,17 +868,30 @@
       </div>
     </section>
 
+    <!-- Dress & Kimono options -->
+    <section class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] md:px-[min(5.9vw,85px)]">
+      <h3 class="custom-heading-en">Dress & Kimono options</h3>
+      <h2 class="custom-heading-zh">服裝選擇</h2>
+      <p class="custom-heading-info">
+        新娘和新郎的禮服及和服
+        我們有多款不同種類提供挑選！
+      </p>
+
+    </section>
+
     <!-- hair and makeup -->
     <section class="my-[3.125rem] md:my-[6.25rem]">
-      <h2 class="custom-heading-en text-center ">Hair & Make up</h2>
-      <h1 class="custom-heading-zh text-center">妝髮造型</h1>
-      <p class="mx-[10%] font-noto-sans-hk md:font-noto-sans-tc mt-8.25 md:mt-7.5 text-[min(0.625rem,10px)] md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co.的化妝及髮型師皆為正式員工，
-        並定期接受技術考核與專業培訓，致力於提供您最優質且多元的造型服務。</p>
+      <h3 class="custom-heading-en">Hair & Make up</h3>
+      <h2 class="custom-heading-zh">妝髮造型</h2>
+      <p class="custom-heading-info">
+        DE&Co.的化妝及髮型師皆為正式員工，
+        並定期接受技術考核與專業培訓，致力於提供您最優質且多元的造型服務。
+      </p>
       <div class="flex flex-col md:flex-row my-[1.25rem] md:mt-[5.5rem] md:mb-[1.875rem]">
         <img src="assets/hair_1.png" class="w-full md:w-1/2 object-cover" alt="">
         <img src="assets/hair_2.png" class="w-full md:w-1/2 object-cover" alt="">
       </div>
-      <p class="mx-[10%] font-noto-sans-hk md:font-noto-sans-tc mt-8.25 md:mt-7.5 text-[min(0.625rem,10px)] md:text-xl font-light text-caption text-center whitespace-pre-line">豐富多樣的髮飾選擇，讓您自由搭配，展現獨特風格。</p>
+      <p class="custom-heading-info">豐富多樣的髮飾選擇，讓您自由搭配，展現獨特風格。</p>
 
       <div class="w-full overflow-hidden">
         <div class="w-[53rem] md:w-[198.56rem] h-[12.5rem] md:h-[46.875rem] hair_swiper hairSwiper my-[1.875rem] md:my-25">
@@ -929,10 +907,9 @@
             </div>
           </div>
         </div>
-
       </div>
       
-      <div class="flex justify-center items-center gap-x-2.5 text-[min(0.75rem,12px)] md:text-[min(1.25rem,20px)] md:text-xl font-cactus-classical-serif leading-[130%] tracking-[0.2rem] text-center">
+      <div class="flex justify-center items-center gap-x-2.5 text-[min(0.75rem,12px)] md:text-[min(1.25rem,20px)] md:text-xl font-cactus-classical-serif text-body text-center">
         <span>化妝及髮型師一覽</span>
         <a 
           href="https://www.decollte-photography.hk/index.php?m=home&c=Staffs&a=index&category=hair_makeup" 
@@ -943,20 +920,13 @@
           <img src="./assets/icons/arrow-rignt-circle-hover.svg" class="size-full hidden group-hover:!inline-block" />
         </a>
       </div>
-
-      
-      
     </section>
 
     <!-- album -->
     <section class="my-25">
       <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
-        <h1
-          class="mb-2 font-noto-sans-hk font-light leading-[130%] tracking-[0.1rem] text-[0.625rem] text-center md:text-left text-[min(1rem,16px)]">
-          Album</h1>
-        <h1
-          class="font-noto-serif-hk font-normal leading-[130%] tracking-[0.2rem] text-[1.75rem] text-center ml-[10%] mr-[10%] md:ml-0 md:mr-0  md:text-left md:text-[2.25rem] md:mt-[0.625rem]">
-          相冊款式</h1>
+        <h3 class="custom-heading-en md:text-left">Album</h3>
+        <h2 class="custom-heading-zh md:text-left">相冊款式</h2>
       </div>
       <!--HTML CODE -->
       <div class="w-full relative overflow-hidden">
