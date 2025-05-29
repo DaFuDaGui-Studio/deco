@@ -685,14 +685,14 @@
 
               <div class="md:hidden flex justify-center">
                 <span class="leading-[130%] tracking-[0.2em] font-noto-sans-hk font-light text-[min(0.625rem,10px)] ">SCROLL</span>
-                <div class=" h-[min(0.9375rem,15px)] w-[min(1.875rem,30px)] ml-[0.3125rem] md:hidden">
+                <div class=" h-[15px] w-[30px] ml-[0.3125rem] md:hidden">
                   <div x-data x-init="
                       const anim = lottie.loadAnimation({
                         container: $el,
                         renderer: 'svg',
                         loop: true,
                         autoplay: true,
-                        path: 'assets/lottie/scroll_s.json'
+                        path: 'assets/lottie/scroll_m.json'
                       });
   
                       anim.addEventListener('DOMLoaded', () => {
@@ -700,7 +700,7 @@
                           p.setAttribute('stroke', '#4D403E');   // 改顏色
                         });
                       });
-                    " class="h-full -rotate-90 origin-center">
+                    " class="h-full origin-center">
                   </div>
                 </div>
               </div>
