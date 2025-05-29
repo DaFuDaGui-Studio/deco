@@ -664,29 +664,28 @@
             <div class="text-center  mt-[1.25rem] md:mt-[3.125rem]">
     
               <span class="writing-vertical-lr leading-[130%] tracking-[0.2em] font-noto-sans-hk font-light text-[min(0.75rem,12px)] hidden md:block">SCROLL</span>
-              <div class="mt-[0.625rem] h-[min(0.875rem,14px)] w-[min(0.875rem,14px)] hidden md:block">
+              <div class="mt-[0.625rem] h-[min(3.75rem,60px)] w-[min(1rem,16px)] hidden md:block">
                 <div x-data x-init="
                     const anim = lottie.loadAnimation({
                       container: $el,
                       renderer: 'svg',
                       loop: true,
                       autoplay: true,
-                      path: 'assets/lottie/scroll_s.json'
+                      path: 'assets/lottie/scroll_l.json'
                     });
 
                     anim.addEventListener('DOMLoaded', () => {
                       $el.querySelectorAll('path').forEach(p => {
-                        p.setAttribute('stroke-width', '1.5'); // 加粗線條
                         p.setAttribute('stroke', '#4D403E');   // 改顏色
                       });
                     });
-                  " class="h-full ml-[0.3125rem] ">
+                  " class="h-full">
                 </div>
               </div>
 
               <div class="md:hidden flex justify-center">
                 <span class="leading-[130%] tracking-[0.2em] font-noto-sans-hk font-light text-[min(0.625rem,10px)] ">SCROLL</span>
-                <div class=" h-[min(0.875rem,14px)] w-[min(0.875rem,14px)] md:hidden">
+                <div class=" h-[min(0.9375rem,15px)] w-[min(1.875rem,30px)] ml-[0.3125rem] md:hidden">
                   <div x-data x-init="
                       const anim = lottie.loadAnimation({
                         container: $el,
@@ -698,11 +697,10 @@
   
                       anim.addEventListener('DOMLoaded', () => {
                         $el.querySelectorAll('path').forEach(p => {
-                          p.setAttribute('stroke-width', '1.5'); // 加粗線條
                           p.setAttribute('stroke', '#4D403E');   // 改顏色
                         });
                       });
-                    " class="h-full ml-[0.3125rem] -rotate-90 origin-center">
+                    " class="h-full -rotate-90 origin-center">
                   </div>
                 </div>
               </div>
