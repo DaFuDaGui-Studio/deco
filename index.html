@@ -128,7 +128,14 @@
         .writing-vertical-lr {
           writing-mode: vertical-lr;
         }
-        
+
+        .works-carousel .swiper-wrapper {
+          width: 100%;
+          height: max-content !important;
+          -webkit-transition-timing-function: linear !important;
+          transition-timing-function: linear !important;
+          position: relative;
+        }
       }
 
       .text-eng {
@@ -443,7 +450,7 @@
       <div class="relative">
 
         <div class="absolute top-3 md:top-8 -z-10 w-full"><img src="./assets/banner_bg.png" class="w-full h-[(6.75rem,108px)] md:h-auto object-cover object-[25%_75%] md:object-center" /></div>
-        <h3 class="custom-heading-zh text-center">顧客心聲</h3>
+        <h1 class="custom-heading-zh text-center">顧客心聲</h1>
         <p
           class="font-noto-sans-tc md:font-noto-sans-hk mt-[min(2.06rem,33px)] md:mt-7.5 text-[min(0.75rem,12px)] md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co. 婚紗攝影的獨特魅力
           聽聽喜愛 DE&Co. 的顧客心得分享
@@ -474,6 +481,7 @@
           </template>
         </div>
       </div>
+    </div>
 
       <!-- mobile -->
       <div class="md:hidden mt-[58px]">
@@ -564,6 +572,114 @@
             >
             </button>
           </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- works -->
+    <section class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] md:mt-25"
+      x-data="fecthBranchWorks()">
+      <h2 class="custom-heading-en">Ｇallery</h2>
+      <h1 class="custom-heading-zh">作品欣賞</h1>
+      
+      <div class="hidden sm:block sm:mt-[min(2.375rem,38px)] md:mt-22">
+        <div class="max-w-[1440px] mx-auto sm:px-[min(3.125rem,50px)] md:px-0 relative overflow-hidden whitespace-nowrap">
+          <div 
+            class="flex items-end justify-center w-full" 
+            x-ref="branchCarousel" 
+            x-show="isVisible" 
+            x-transition:enter="transition-opacity ease-in-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition-opacity ease-in-out duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+          >
+            <div class="flex-1 flex justify-end items-center overflow-hidden whitespace-nowrap text-right " x-show="beforeBranch != []">
+              <template x-for="(branch, index) in beforeBranch" :key="`before${index}`">
+                <div x-text="branch" class="border-r-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
+              </template>
+            </div>
+            <div x-text="currentBranch" class="w-fit sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-center break-keep text-[min(1.875rem,30px)] leading-[min(1.875rem,30px)] md:text-3xl leading-7.5 tracking-[0.2em]"></div>
+            <div class="flex-1 flex items-center overflow-hidden whitespace-nowrap text-left ">
+              <template x-for="branch in afterBranch" :key="`after${index}`">
+                <div x-text="branch" class="border-l-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-x-[min(1.875rem,30px)] md:gap-x-12.5 md:px-17.5 sm:mt-[min(3.125rem,50px)]  md:mt-12.5"> 
+          <div class="w-full sm:w-[min(20.25rem,324px)] md:w-137.5"
+              x-show="isVisible"
+              x-transition:enter="transition-opacity ease-in-out duration-300"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+              x-transition:leave="transition-opacity ease-in-out duration-300"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0">
+            <template x-for="branch in branches" :key="branch.key">
+              <div x-show="current == branch.key"
+                  class="w-full"
+                  x-cloak>
+                <div class="flex w-full h-[min(14.25rem,228px)] md:h-96.5">
+                  <img :src="branch.img_1" alt="img1" class="w-1/2 h-full object-cover object-center" />
+                  <img :src="branch.img_2" alt="img2" class="w-1/2 h-full object-cover object-center" />
+                </div>
+                <div class="sm:px-[min(1.5rem,24px)] md:px-10 sm:my-[min(1.875rem,30px)] md:mb-0 md:mt-12.75">
+                  <p class="font-noto-serif-hk font-bold text-[min(0.75rem,12px)] md:text-xl text-body" x-text="branch.name"></p>
+                  <p class="mt-[min(0.375rem,6px)] md:mt-2.5 font-light font-noto-sans-tc text-caption text-[min(0.625rem,10px)] md:text-base" x-text="branch.description"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div x-ref="map" class="flex-1 sm:h-[min(20.25rem,324px)] md:h-137.5"></div>
+        </div>
+      </div>
+
+      <div class="sm:hidden mt-12.5">
+        <div class="flex items-center px-7.5">
+          <div id="prev-branch" class="flex-1 border-s border-stone-950 pr-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-right 
+            [direction:rtl] [mask-image:linear-gradient(to_right,transparent,black_20%)] 
+            [-webkit-mask-image:linear-gradient(to_right,transparent,black_20%)]">
+            札幌店
+          </div>
+          <div id="current-branch" class="flex items-center mx-5 text-[min(1.5rem,24px)] tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-center">
+            新宿店
+          </div>
+          <div id="next-branch" class="flex-1 border-s border-stone-950 pl-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-left
+            [mask-image:linear-gradient(to_right,black_80%,transparent)] 
+            [-webkit-mask-image:linear-gradient(to_right,black_80%,transparent)]">
+            表參道渋谷店
+          </div>
+        </div>
+
+        <div class="w-full mt-[min(1.875rem,30px)] relative">
+          <div class="flex items"></div>
+          <div class="swiper works-carousel swiper-container">
+            <div class="swiper-wrapper">
+              <template x-for="(branch, index) in branches" :key="branch.key">
+                <div class="swiper-slide" :data-pagy="index + 1" :data-branch="branch.branch" :data-prevbranch="prevBranch(index)" :data-nextbranch="nextBranch(index)">
+                  <div class="h-87.5 sm:h-75" >
+                    <div class="flex w-full h-62.5">
+                      <img :src="branch.img_1" alt="img1" class="w-1/2 h-full object-cover object-center" />
+                      <img :src="branch.img_2" alt="img2" class="w-1/2 h-full object-cover object-center" />
+                    </div>
+                    <div class="px-10 mb-5 mt-5">
+                      <p class="font-noto-serif-hk font-bold text-[min(0.875rem,14px)] text-body" x-text="branch.name"></p>
+                      <p class="mt-2.5 font-light font-noto-sans-tc text-caption text-[min(0.625rem,10px)] md:text-base" x-text="branch.description"></p>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-x-5 mt-7.5">
+            <div id="dot-left" class="font-light text-[min(0.625rem,10px)] leading-[99%] tracking-[0.2em] font-noto-sans-tc">–</div>
+            <div id="dot-current" class="font-light text-[min(0.875rem,14px)] leading-[99%] tracking-[0.2em] font-noto-sans-tc">–</div>
+            <div id="dot-right" class="font-light text-[min(0.625rem,10px)] leading-[99%] tracking-[0.2em] font-noto-sans-tc">–</div>
+          </div>
         </div>
       </div>
     </section>
@@ -831,16 +947,6 @@
           </div>
         </div>
       </div>
-
-       
-
-      
-
-
-      
-  
-
-
     </section>
 
 
@@ -1029,6 +1135,7 @@
   }
 
 </script>
+
 <script>
   // var swiper = new Swiper(".default-carousel", {
   //   loop: true,
@@ -1084,10 +1191,134 @@
     },
   });
 
-
-
 </script>
 
+<script>
+  let worksSwiper;
+  worksSwiper = new Swiper('.works-carousel', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    }
+  });
 
+  worksSwiper.on('transitionEnd', () => {
+    updateActiveBranchWorks()
+  });
 
+  const dotLeft = document.getElementById('dot-left');
+  const dotCurrent = document.getElementById('dot-current');
+  const dotRight = document.getElementById('dot-right');
+
+  function updateBranchDots() {
+    if (worksSwiper) {
+      const active = document.querySelector('.works-carousel .swiper-slide-active')
+      const pagy = active ? active.dataset.pagy : "1"
+      const current = Number(pagy)
+      const total = 23
+      const prev = current == 1 ? total : current - 1
+      const next = current == total ? 1 : current + 1
+
+      dotLeft.textContent = String(prev).padStart(2, '0');
+      dotCurrent.textContent =  String(current).padStart(2, '0');
+      dotRight.textContent = String(next).padStart(2, '0');
+    }
+  }
+
+  const prevBranch = document.getElementById('prev-branch');
+  const currentBranch = document.getElementById('current-branch');
+  const nextBranch = document.getElementById('next-branch');
+
+  function updateBranchWorks() {
+    if (worksSwiper) {
+      const active = document.querySelector('.works-carousel .swiper-slide-active')
+      if(active) {
+        prevBranch.textContent = active.dataset.prevbranch
+        nextBranch.textContent = active.dataset.nextbranch
+        currentBranch.textContent = active.dataset.branch
+      }
+    }
+  }
+
+  function updateActiveBranchWorks(){
+    updateBranchDots()
+    updateBranchWorks()
+  }
+
+  updateActiveBranchWorks();
+</script>
+
+<script>
+  function fecthBranchWorks() {
+    return {
+      current: "shinjuku",
+      branches: [],
+      stores: [],
+      isVisible: true,
+      currentBranch: '',
+      beforeBranch: [],
+      afterBranch: [], 
+      changeBranch(key) {
+        this.current = key
+      },
+      prevBranch(index){
+        const prevIndex = index == 0 ? this.branches.length - 1 : index - 1
+        return this.branches[prevIndex].branch
+      },
+      nextBranch(index){
+        const nextIndex = index == this.branches.length - 1 ? 0 : index + 1
+        return this.branches[nextIndex].branch
+      },
+      init() {
+      // 載入地圖
+        fetch('./assets/map.svg')
+        .then(res => res.text())
+        .then(svg => {
+          this.$refs.map.innerHTML = svg;
+          const gBranches = document.querySelectorAll('#g-branch')
+          .forEach(el => {
+            el.addEventListener('click', (event) => {
+              this.selectBranch(el.getAttribute('data-branch'))
+            });
+          });
+        })
+        
+        // 載入 24 間店資料
+        fetch('./data/branches.json')
+        .then(res => res.json())
+        .then(data => {
+          this.branches = data.branches
+          this.current = data.branches[0].key
+          if(window.innerWidth >= 640 ){
+            this.selectBranch(data.branches[0].key)
+          }
+        })
+      },
+      selectBranch(key) {
+        this.isVisible = false;
+        
+        setTimeout(() => {
+          this.current = key;
+          this.reorderBranches(key)
+          const selectedIndex = this.branches.findIndex(branch => branch.key === this.current);
+          this.currentBranch = this.branches[selectedIndex].branch;
+          this.beforeBranch = this.branches.slice(0, selectedIndex).map(branch => branch.branch);
+          this.afterBranch = this.branches.slice(selectedIndex + 1).map(branch => branch.branch);
+          this.isVisible = true;
+        }, 300); // 匹配過渡時間
+      },
+      reorderBranches(key) {
+        const selectedIndex = this.branches.findIndex(branch => branch.key === key);
+        const centerIndex = Math.floor(this.branches.length / 2);
+        const reordered = [];
+        for (let i = 0; i < this.branches.length; i++) {
+          const newIndex = (i + selectedIndex - centerIndex + this.branches.length) % this.branches.length;
+          reordered[i] = this.branches[newIndex];
+        }
+        this.branches = reordered;
+      }
+    }
+  }
+</script>
 </html>
