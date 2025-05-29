@@ -1,0 +1,188 @@
+{
+  "branches": [
+    {
+      "name": "Shinjuku 新宿店",
+      "branch": "新宿店",
+      "key": "shinjuku",
+      "img_1": "./assets/branches/shinjuku_1.jpg",
+      "img_2": "./assets/branches/shinjuku_2.webp",
+      "description": "一次實現 日式庭園的和服拍攝與新宿周邊街頭輕婚紗"
+    },
+    {
+      "name": "Shibuya 表參道渋谷店",
+      "branch": "表參道渋谷店",
+      "key": "shibuya",
+      "img_1": "./assets/branches/shibuya_1.jpg",
+      "img_2": "./assets/branches/shibuya_2.webp",
+      "description": "在時尚中心的渋谷表參道 用婚紗展現街頭潮流"
+    },
+    {
+      "name": "Asakusa 淺草店",
+      "branch": "淺草店",
+      "key": "asakusa",
+      "img_1": "./assets/branches/asakusa_1.webp",
+      "img_2": "./assets/branches/asakusa_2.jpg",
+      "description": "以和服及西式婚紗展現淺草和洋混和的街頭風景"
+    },
+    {
+      "name": "Tachikawa 立川店",
+      "branch": "立川店",
+      "key": "tachikawa",
+      "img_1": "./assets/branches/tachikawa_1.jpg",
+      "img_2": "./assets/branches/tachikawa_2.webp",
+      "description": "在奧多摩四季變化的壯麗瀑布前拍攝西式輕婚紗"
+    },
+    {
+      "name": "Yokohama Minatomirai 橫濱未來港店",
+      "branch": "橫濱未來港店",
+      "key": "minatomirai",
+      "img_1": "./assets/branches/minatomirai_1.jpg",
+      "img_2": "./assets/branches/minatomirai_2.webp",
+      "description": "在日夜皆宜的橫濱未來港留下浪漫的西式婚紗寫真"
+    },
+    {
+      "name": "Yokohama Ekimae 橫濱站前店",
+      "branch": "橫濱站前店",
+      "key": "ekimae",
+      "img_1": "./assets/branches/ekimae_1.webp",
+      "img_2": "./assets/branches/ekimae_2.webp",
+      "description": "復古風采婚紗寫真 彷彿置身明治時期的繁華橫濱"
+    },
+    {
+      "name": "Kamakura Salon 鎌倉沙龍",
+      "branch": "鎌倉沙龍",
+      "key": "kamakura",
+      "img_1": "./assets/branches/kamakura_1.webp",
+      "img_2": "./assets/branches/kamakura_2.webp",
+      "description": "不只有海灘 綠地也適合拍攝婚紗照的湘南海岸"
+    },
+    {
+      "name": "Omiya 大宮店",
+      "branch": "大宮店",
+      "key": "omiya",
+      "img_1": "./assets/branches/omiya_1.webp",
+      "img_2": "./assets/branches/omiya_2.jpg",
+      "description": "通過玻璃屋頂的藝廊展現非日常的西式婚紗"
+    },
+    {
+      "name": "Karuizawa 輕井澤店",
+      "branch": "輕井澤店",
+      "key": "karuizawa",
+      "img_1": "./assets/branches/karuizawa_1.webp",
+      "img_2": "./assets/branches/karuizawa_2.webp",
+      "description": "西洋教堂+日式庭園 家人寵物也能一起的婚紗攝影"
+    },
+    {
+      "name": "Fuji 富士店",
+      "branch": "富士店",
+      "key": "fuji",
+      "img_1": "./assets/branches/fuji_1.webp",
+      "img_2": "./assets/branches/fuji_2.jpg",
+      "description": "在四季皆宜的富士山周圍名勝拍攝和服婚紗"
+    },
+    {
+      "name": "Chiba 千葉船橋店",
+      "branch": "千葉船橋店",
+      "key": "chiba",
+      "img_1": "./assets/branches/chiba_1.webp",
+      "img_2": "./assets/branches/chiba_2.webp",
+      "description": "遼闊海平線 沐浴在陽光下的浪漫輕婚紗寫真"
+    },
+    {
+      "name": "Umeda 梅田店",
+      "branch": "梅田店",
+      "key": "umeda",
+      "img_1": "./assets/branches/umeda_1.webp",
+      "img_2": "./assets/branches/umeda_2.webp",
+      "description": "在熱情洋溢的大阪街頭拍攝活潑的和式、西式婚紗"
+    },
+    {
+      "name": "Namba Parks 難波店",
+      "branch": "難波店",
+      "key": "namba",
+      "img_1": "./assets/branches/namba_1.webp",
+      "img_2": "./assets/branches/namba_2.webp",
+      "description": "在難波都會中的綠地公園一次拍下都市與自然的魅力"
+    },
+    {
+      "name": "Kyoto 京都店",
+      "branch": "京都店",
+      "key": "kyoto",
+      "img_1": "./assets/branches/kyoto_1.png",
+      "img_2": "./assets/branches/kyoto_2.png",
+      "description": "一次滿足 京都嵐山日式和服+經典西式攝影棚婚紗寫真"
+    },
+    {
+      "name": "Kobe Harborland 神戶店",
+      "branch": "神戶店",
+      "key": "kobe",
+      "img_1": "./assets/branches/kobe_1.webp",
+      "img_2": "./assets/branches/kobe_2.webp",
+      "description": "彷彿置身繪本的世界 在德式木屋旁拍攝西式婚紗"
+    },
+    {
+      "name": "Nara 奈良店",
+      "branch": "奈良店",
+      "key": "nara",
+      "img_1": "./assets/branches/nara_1.webp",
+      "img_2": "./assets/branches/nara_2.webp",
+      "description": "展現奈良特色 春櫻秋紅都合適的婚紗拍攝地"
+    },
+    {
+      "name": "Hiroshima 廣島店",
+      "branch": "廣島店",
+      "key": "hiroshima",
+      "img_1": "./assets/branches/hiroshima_1.webp",
+      "img_2": "./assets/branches/hiroshima_2.webp",
+      "description": "融合傳統與現代的街景 岡山・倉敷美觀地區婚紗寫真"
+    },
+    {
+      "name": "Sakae 名古屋栄店",
+      "branch": "名古屋栄店",
+      "key": "sakae",
+      "img_1": "./assets/branches/sakae_1.webp",
+      "img_2": "./assets/branches/sakae_2.webp",
+      "description": "西洋花園+日式庭園 日式和服和西式婚紗都上鏡的鶴舞公園"
+    },
+    {
+      "name": "Nagoya Ekimae 名古屋站前店",
+      "branch": "名古屋站前店",
+      "key": "nagoya_ekimae",
+      "img_1": "./assets/branches/nagoya_ekimae_1.webp",
+      "img_2": "./assets/branches/nagoya_ekimae_2.webp",
+      "description": "大正時期誕生的繁華商店街 拍攝復古風情的西式輕婚紗"
+    },
+    {
+      "name": "STUDIO AN 福岡店",
+      "branch": "福岡店",
+      "key": "studio_an",
+      "img_1": "./assets/branches/studio_an_1.jpg",
+      "img_2": "./assets/branches/studio_an_2.webp",
+      "description": "福岡近郊「糸島」 在海灘與花海中進行婚紗攝影"
+    },
+    {
+      "name": "STUDIO SUNS 沖繩店",
+      "branch": "沖繩店",
+      "key": "studio_suns",
+      "img_1": "./assets/branches/studio_suns_1.png",
+      "img_2": "./assets/branches/studio_suns_2.png",
+      "description": "南國風情 在沖繩的海邊拍攝渡假風輕婚紗寫真"
+    },
+    {
+      "name": "Biei 美瑛店",
+      "branch": "美瑛店",
+      "key": "biei",
+      "img_1": "./assets/branches/biei_1.jpg",
+      "img_2": "./assets/branches/biei_2.webp",
+      "description": "向日葵愛好者絕對不能錯過 花朵簇擁的輕婚紗拍攝"
+    },
+    {
+      "name": "Sapporo 札幌店",
+      "branch": "札幌店",
+      "key": "sapporo",
+      "img_1": "./assets/branches/sapporo_1.jpg",
+      "img_2": "./assets/branches/sapporo_2.webp",
+      "description": "鬱金香、薰衣草 搭配不同季節的北海道風景拍攝婚紗照"
+    }
+  ]
+}
