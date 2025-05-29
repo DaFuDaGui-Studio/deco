@@ -128,7 +128,14 @@
         .writing-vertical-lr {
           writing-mode: vertical-lr;
         }
-        
+
+        .works-carousel .swiper-wrapper {
+          width: 100%;
+          height: max-content !important;
+          -webkit-transition-timing-function: linear !important;
+          transition-timing-function: linear !important;
+          position: relative;
+        }
       }
 
       .text-eng {
@@ -157,7 +164,7 @@
     </div>
     <div class="flex items-center gap-x-2.5 text-[min(0.75rem,12px)] md:text-xl text-body">
       <span>立即線上諮詢</span>
-      <a href="" class="flex items-center group w-[min(0.937rem, 15px)] h-[min(0.937rem, 15px)] md:w-4.25 md:h-4.25">
+      <a href="https://wa.me/85257444856?text=我想查詢Decollte的日本婚紗攝影服務" target="_blank" class="flex items-center group w-[min(0.937rem,15px)] h-[min(0.937rem,15px)] md:w-4.25 md:h-4.25">
         <img src="./assets/icons/arrow-rignt-circle.svg" class="size-full inline-block group-hover:!hidden" />
         <img src="./assets/icons/arrow-rignt-circle-hover.svg" class="size-full hidden group-hover:!inline-block" />
       </a>
@@ -245,7 +252,7 @@
     </section>
 
     <!-- flow -->
-    <section class="mx-auto max-w-[1440px]">
+    <section class="mx-auto max-w-[1440px] pb-[min(3.125rem,50px)] md:pb-25">
       <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
         <h1    
           class="custom-heading-en text-center md:text-left">
@@ -253,7 +260,7 @@
           
         <h3
           class="custom-heading-zh text-center md:text-left">
-          拍攝服務流程說明</h3>
+          拍攝服務流程<br class="sm:hidden">說明</h3>
       </div>
       <div x-data="{
         currentIndex: 0,
@@ -364,39 +371,37 @@
               <div class="swiper-wrapper">
                 <template x-for="(item, index) in items" :key="index">
                   <div class="swiper-slide">
-                    <div class="flex justify-center items-center">
-                      <div class="flex-col">
-                        <h2 class="text-4xl font-serif mb-[1.25rem] flex items-center justify-center">
-                          <span class="font-noto-serif-hk font-bold
-                              text-[1.25rem] leading-[92%] tracking-[0.125rem] mr-[0.625rem]"
-                            x-text="item.step"></span>&nbsp;
-                          <span class="font-monsieur-la-doulaise font-normal
-                              text-[1.25rem] leading-[74%] tracking-[0.125rem]">step.</span>
+                    <div class="flex flex-col gap-y-[min(1.875rem,30px)] sm:gap-y-[min(3.125rem,50px)]">
+                      <div class="flex flex-col gap-y-[min(1.25rem,20px)] px-[min(1.875rem,30px)] sm:px-[min(6.25rem,100px)]">
+                        <h2 class="text-[min(1.25rem,20px)] sm:text-[min(2.5rem,40px)] flex items-center justify-center">
+                          <span x-text="item.step" class="font-noto-serif-hk font-bold leading-[92%] tracking-[0.125rem] mr-[min(0.625rem,10px)]"></span>
+                          <span class="font-monsieur-la-doulaise font-normal leading-[74%] tracking-[0.125rem]">step.</span>
                         </h2>
-                        <p class="mx-[10%] text-center text-[1.25rem] mb-[1.25rem] font-noto-serif-hk font-normal leading-[130%] tracking-[0.25rem]"
+                        <p class="text-center text-[min(1.25rem,20px)] sm:text-[min(1.625rem,26px)] font-noto-serif-hk font-normal leading-[130%] tracking-[0.25rem]"
                           x-text="item.title"></p>
-                        <p class="h-[5rem] mx-[10%] text-center text-[min(0.75rem,12px)] mb-[1.875rem] font-noto-sans-tc font-light leading-[160%] tracking-[0.125rem]"
+                        <p class="text-center text-[min(0.75rem,12px)] sm:text-[min(1rem,16px)] font-noto-sans-tc font-light leading-[160%] tracking-[0.125rem]"
                           x-text="item.desc"></p>
-                        <img :src="item.image" class="mb-[3.375rem] w-full h-[6.25rem] object-cover" alt="">
                       </div>
+                      <img :src="item.image" class="w-full h-25 sm:h-[min(12.5rem,200px)] object-cover" alt="">
                     </div>
                   </div>
                 </template>
               </div>
-              <div class="swiper-pagination"></div>
+              <div class="swiper-pagination !relative  mt-[min(1.875rem,30px)] sm:mt-[min(3.125rem,50px)] "></div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="ml-[10%] mr-[10%] font-noto-sans-hk font-light leading-[160%] tracking-[0.25rem] text-[0.625rem] text-left md:text-right md:mr-[2.4%] md:ml-0 mt-[2.5rem] md:text-[min(1rem,16px)]">
-        <p>DE &amp; Co. 秉持「<span class="font-bold">日式服務</span>」的細膩與貼心，從諮詢到成品，全程細心跟進</p>
-        <p>我們<span class="font-bold">堅持價格透明，絕不強迫推銷，讓您輕鬆享受愉悅的婚紗拍攝體驗</span></p>
+      <div class="flex justify-center md:justify-end mt-[min(1.25rem,20px)] md:mt-10 md:pr-8.75 px-[min(1.875rem,30px)] sm:px-0">
+        <div class="font-noto-sans-hk font-light leading-[160%] tracking-[0.25em] text-left md:text-right text-[min(0.625rem,10px)] sm:text-[min(0.75rem,12px)] md:text-base">
+          <p>DE &amp; Co. 秉持「<span class="font-bold">日式服務</span>」的細膩與貼心，從諮詢到成品，全程細心跟進</p>
+          <p>我們<span class="font-bold">堅持價格透明，絕不強迫推銷，讓您輕鬆享受愉悅的婚紗拍攝體驗</span></p>
+        </div>
       </div>
     </section>
 
     <!-- voc -->
-    <section class="voc py-[100px] md:py-25" x-data="{
+    <section class="voc py-[min(3.125rem,50px)] md:py-25" x-data="{
       customers: [
         {
           'img': './assets/voc_1.png',
@@ -443,7 +448,7 @@
       <div class="relative">
 
         <div class="absolute top-3 md:top-8 -z-10 w-full"><img src="./assets/banner_bg.png" class="w-full h-[(6.75rem,108px)] md:h-auto object-cover object-[25%_75%] md:object-center" /></div>
-        <h3 class="custom-heading-zh text-center">顧客心聲</h3>
+        <h1 class="custom-heading-zh text-center">顧客心聲</h1>
         <p
           class="font-noto-sans-tc md:font-noto-sans-hk mt-[min(2.06rem,33px)] md:mt-7.5 text-[min(0.75rem,12px)] md:text-xl font-light text-caption text-center whitespace-pre-line">DE&Co. 婚紗攝影的獨特魅力
           聽聽喜愛 DE&Co. 的顧客心得分享
@@ -463,10 +468,6 @@
               <p class="font-cactus-classical-serif text-center text-xl text-caption" x-html="customer.title"></p>
               <p class="px-3 text-sm font-noto-sans-hk text-caption text-center" x-text="customer.content"></p>
             </div>
-          </template>
-        </div>
-        <div class="grid grid-cols-5 w-full mt-5">
-          <template x-for="(customer, index) in customers" :key="`voc_${index}`">
             <div class="flex items-end justify-center gap-x-2.5">
               <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
               <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-xs" x-text="customer.office"></p>
@@ -475,15 +476,69 @@
         </div>
       </div>
 
-      <!-- mobile -->
-      <div class="md:hidden mt-[58px]">
+      <!-- pad -->
+      <div class="hidden sm:block md:hidden px-[min(6.25rem,100px)] mt-[min(5rem,80px)]">
         <div class="w-full relative">
-          <div class="swiper voc-swiper swiper-container">
+          <div class="swiper voc-pad-swiper swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="grid grid-cols-3 gap-x-[min(1.8125rem,29px)]">
+                  <template x-for="(customer, index) in customers.slice(0,3)" :key="`voc_1_${index}`">
+                    <div class="flex flex-col items-center justify-between gap-y-[min(1.25rem,20px)]">
+                      <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
+                        <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
+                        <p class="flex gap-x-[min(0.625rem,10px)] text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                          <span x-text="customer.name"></span>
+                          <span x-text="customer.age"></span>
+                        </p>
+                        <p class="w-full font-cactus-classical-serif text-center text-[min(1rem,16px)] tracking-[0.1em] break-keep" x-html="customer.title"></p>
+                        <p class="w-full text-[min(0.625rem,10px)] font-noto-sans-hk tracking-[0.1em] text-center" x-text="customer.content"></p>
+                      </div>
+                      <div class="flex items-center justify-center gap-x-[min(0.625rem,10px)]">
+                        <img src="./assets/icons/location.svg" class="w-[min(0.625rem,10px)] h-[min(0.875rem,14px)]" />
+                        <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-[min(0.625rem,10px)]" x-text="customer.office"></p>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="flex justify-center gap-x-[min(1.8125rem,29px)]">
+                  <template x-for="(customer, index) in customers.slice(3,5)" :key="`voc_1_${index}`">
+                    <div class="flex flex-col items-center justify-between gap-y-[min(1.25rem,20px)] w-1/3">
+                      <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
+                        <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
+                        <p class="flex gap-x-[min(0.625rem,10px)] text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
+                          <span x-text="customer.name"></span>
+                          <span x-text="customer.age"></span>
+                        </p>
+                        <p class="w-full font-cactus-classical-serif text-center text-[min(1rem,16px)] tracking-[0.1em] break-keep" x-html="customer.title"></p>
+                        <p class="w-full text-[min(0.625rem,10px)] font-noto-sans-hk tracking-[0.1em] text-center" x-text="customer.content"></p>
+                      </div>
+                      <div class="flex items-center justify-center gap-x-[min(0.625rem,10px)]">
+                        <img src="./assets/icons/location.svg" class="w-[min(0.625rem,10px)] h-[min(0.875rem,14px)]" />
+                        <p class="font-noto-sans-hk leading-[130%] tracking-[0.2em] text-[min(0.625rem,10px)]" x-text="customer.office"></p>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile -->
+      <div class="sm:hidden mt-[58px]">
+        <div class="w-full relative">
+          <div class="swiper voc-mobile-swiper swiper-container">
             <div class="swiper-wrapper">
               <!--items-->
               <template x-for="(customer, index) in customers" :key="`voc-${index}`">
                 <div class="swiper-slide">             
-                  <div class="w-full flex flex-col items-center justify-between gap-y-[20px]">
+                  <div class="w-full flex flex-col items-center justify-between gap-y-[min(1.25rem,20px)]">
                     <div class="flex flex-col items-center gap-y-[min(1.25rem,20px)]">
                       <img :src="customer.img" class="rounded-full size-[min(6.25rem,100px)]" />
                       <p class="flex gap-x-2.5 text-[min(0.625rem,10px)] font-noto-sans-hk leading-[130%] tracking-[0.1em] text-center">
@@ -502,7 +557,7 @@
                 </div>
               </template>
             </div>
-            <div class="swiper-pagination "></div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -564,6 +619,114 @@
             >
             </button>
           </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- works -->
+    <section class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] md:mt-25"
+      x-data="fecthBranchWorks()">
+      <h2 class="custom-heading-en">Ｇallery</h2>
+      <h1 class="custom-heading-zh">作品欣賞</h1>
+      
+      <div class="hidden sm:block sm:mt-[min(2.375rem,38px)] md:mt-22">
+        <div class="max-w-[1440px] mx-auto sm:px-[min(3.125rem,50px)] md:px-0 relative overflow-hidden whitespace-nowrap">
+          <div 
+            class="flex items-end justify-center w-full" 
+            x-ref="branchCarousel" 
+            x-show="isVisible" 
+            x-transition:enter="transition-opacity ease-in-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition-opacity ease-in-out duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+          >
+            <div class="flex-1 flex justify-end items-center overflow-hidden whitespace-nowrap text-right " x-show="beforeBranch != []">
+              <template x-for="(branch, index) in beforeBranch" :key="`before${index}`">
+                <div x-text="branch" class="border-r-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
+              </template>
+            </div>
+            <div x-text="currentBranch" class="w-fit sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-center break-keep text-[min(1.875rem,30px)] leading-[min(1.875rem,30px)] md:text-3xl leading-7.5 tracking-[0.2em]"></div>
+            <div class="flex-1 flex items-center overflow-hidden whitespace-nowrap text-left ">
+              <template x-for="branch in afterBranch" :key="`after${index}`">
+                <div x-text="branch" class="border-l-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-x-[min(1.875rem,30px)] md:gap-x-12.5 md:px-17.5 sm:mt-[min(3.125rem,50px)]  md:mt-12.5"> 
+          <div class="w-full sm:w-[min(20.25rem,324px)] md:w-137.5"
+              x-show="isVisible"
+              x-transition:enter="transition-opacity ease-in-out duration-300"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+              x-transition:leave="transition-opacity ease-in-out duration-300"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0">
+            <template x-for="branch in branches" :key="branch.key">
+              <div x-show="current == branch.key"
+                  class="w-full"
+                  x-cloak>
+                <div class="flex w-full h-[min(14.25rem,228px)] md:h-96.5">
+                  <img :src="branch.img_1" alt="img1" class="w-1/2 h-full object-cover object-center" />
+                  <img :src="branch.img_2" alt="img2" class="w-1/2 h-full object-cover object-center" />
+                </div>
+                <div class="sm:px-[min(1.5rem,24px)] md:px-10 sm:my-[min(1.875rem,30px)] md:mb-0 md:mt-12.75">
+                  <p class="font-noto-serif-hk font-bold text-[min(0.75rem,12px)] md:text-xl text-body" x-text="branch.name"></p>
+                  <p class="mt-[min(0.375rem,6px)] md:mt-2.5 font-light font-noto-sans-tc text-caption text-[min(0.625rem,10px)] md:text-base" x-text="branch.description"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div x-ref="map" class="flex-1 sm:h-[min(20.25rem,324px)] md:h-137.5"></div>
+        </div>
+      </div>
+
+      <div class="sm:hidden mt-[min(3.125rem,50px)]">
+        <div class="flex items-center px-7.5">
+          <div id="prev-branch" class="flex-1 border-s border-stone-950 pr-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-right 
+            [direction:rtl] [mask-image:linear-gradient(to_right,transparent,black_20%)] 
+            [-webkit-mask-image:linear-gradient(to_right,transparent,black_20%)]">
+            札幌店
+          </div>
+          <div id="current-branch" class="flex items-center mx-5 text-[min(1.5rem,24px)] tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-center">
+            新宿店
+          </div>
+          <div id="next-branch" class="flex-1 border-s border-stone-950 pl-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-left
+            [mask-image:linear-gradient(to_right,black_80%,transparent)] 
+            [-webkit-mask-image:linear-gradient(to_right,black_80%,transparent)]">
+            表參道渋谷店
+          </div>
+        </div>
+
+        <div class="w-full mt-[min(1.875rem,30px)] relative">
+          <div class="flex items"></div>
+          <div class="swiper works-carousel swiper-container">
+            <div class="swiper-wrapper">
+              <template x-for="(branch, index) in branches" :key="branch.key">
+                <div class="swiper-slide" :data-pagy="index + 1" :data-branch="branch.branch" :data-prevbranch="prevBranch(index)" :data-nextbranch="nextBranch(index)">
+                  <div class="h-[min(21.875rem,350px)] sm:h-75" >
+                    <div class="flex w-full h-[min(15.625rem,250px)]">
+                      <img :src="branch.img_1" alt="img1" class="w-1/2 h-full object-cover object-center" />
+                      <img :src="branch.img_2" alt="img2" class="w-1/2 h-full object-cover object-center" />
+                    </div>
+                    <div class="px-10 mb-5 mt-5">
+                      <p class="font-noto-serif-hk font-bold text-[min(0.875rem,14px)] text-body" x-text="branch.name"></p>
+                      <p class="mt-2.5 font-light font-noto-sans-tc text-caption text-[min(0.625rem,10px)] md:text-base" x-text="branch.description"></p>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-x-5 mt-7.5">
+            <div id="dot-left" class="font-light text-[min(0.625rem,10px)] leading-[99%] tracking-[0.2em] font-noto-sans-tc">–</div>
+            <div id="dot-current" class="font-light text-[min(0.875rem,14px)] leading-[99%] tracking-[0.2em] font-noto-sans-tc">–</div>
+            <div id="dot-right" class="font-light text-[min(0.625rem,10px)] leading-[99%] tracking-[0.2em] font-noto-sans-tc">–</div>
+          </div>
         </div>
       </div>
     </section>
@@ -726,13 +889,13 @@
           </div>
         </div>
         <div class="mt-[1.25rem] w-full overflow-hidden md:hidden bg-red-50">
-          <div class="hair_swiper hairSwiper w-[116.24rem] h-[25rem]">
+          <div class="hair_swiper hairSwiper w-[min(116.24rem,1859px)] h-[min(25rem,400px)]">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="assets/style_2.png" class="w-[116.24rem] h-[25rem]" />
+                <img src="assets/style_2.png" class="w-[min(116.24rem,1859px)] h-[min(25rem,400px)]" />
               </div>
               <div class="swiper-slide">
-                <img src="assets/style_2.png" class="w-[116.24rem] h-[25rem]" />
+                <img src="assets/style_2.png" class="w-[min(116.24rem,1859px)] h-[min(25rem,400px)]" />
               </div>
             </div>
           </div>
@@ -831,16 +994,6 @@
           </div>
         </div>
       </div>
-
-       
-
-      
-
-
-      
-  
-
-
     </section>
 
 
@@ -854,20 +1007,8 @@
 </body>
 <script defer>
 
-  var swiper = new Swiper(".default-carousel", {
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-
   setTimeout(() => {
-    const voc_swiper = new Swiper(".voc-swiper", {
+    var swiper = new Swiper(".default-carousel", {
       loop: true,
       pagination: {
         el: ".swiper-pagination",
@@ -876,9 +1017,9 @@
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-      }
-    })
-  }, 100);
+      },
+    });
+  }, 100)
 
   function carousel() {
     return {
@@ -1029,6 +1170,7 @@
   }
 
 </script>
+
 <script>
   // var swiper = new Swiper(".default-carousel", {
   //   loop: true,
@@ -1084,10 +1226,159 @@
     },
   });
 
-
-
 </script>
 
+<!-- voc swiper -->
+<script> 
+  setTimeout(() => {
+    const voc_swiper = new Swiper(".voc-mobile-swiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      }
+    })
+  }, 100);
 
+  setTimeout(() => {
+    const voc_swiper = new Swiper(".voc-pad-swiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      }
+    })
+  }, 100);
+</script>
 
+<!-- mobile works gallery -->
+<script>
+  let worksSwiper;
+  worksSwiper = new Swiper('.works-carousel', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    }
+  });
+
+  worksSwiper.on('transitionEnd', () => {
+    updateActiveBranchWorks()
+  });
+
+  const dotLeft = document.getElementById('dot-left');
+  const dotCurrent = document.getElementById('dot-current');
+  const dotRight = document.getElementById('dot-right');
+
+  function updateBranchDots() {
+    if (worksSwiper) {
+      const active = document.querySelector('.works-carousel .swiper-slide-active')
+      const pagy = active ? active.dataset.pagy : "1"
+      const current = Number(pagy)
+      const total = 23
+      const prev = current == 1 ? total : current - 1
+      const next = current == total ? 1 : current + 1
+
+      dotLeft.textContent = String(prev).padStart(2, '0');
+      dotCurrent.textContent =  String(current).padStart(2, '0');
+      dotRight.textContent = String(next).padStart(2, '0');
+    }
+  }
+
+  const prevBranch = document.getElementById('prev-branch');
+  const currentBranch = document.getElementById('current-branch');
+  const nextBranch = document.getElementById('next-branch');
+
+  function updateBranchWorks() {
+    if (worksSwiper) {
+      const active = document.querySelector('.works-carousel .swiper-slide-active')
+      if(active) {
+        prevBranch.textContent = active.dataset.prevbranch
+        nextBranch.textContent = active.dataset.nextbranch
+        currentBranch.textContent = active.dataset.branch
+      }
+    }
+  }
+
+  function updateActiveBranchWorks(){
+    updateBranchDots()
+    updateBranchWorks()
+  }
+
+  updateActiveBranchWorks();
+</script>
+
+<!-- desktop works gallery -->
+<script>
+  function fecthBranchWorks() {
+    return {
+      current: "shinjuku",
+      branches: [],
+      stores: [],
+      isVisible: true,
+      currentBranch: '',
+      beforeBranch: [],
+      afterBranch: [], 
+      changeBranch(key) {
+        this.current = key
+      },
+      prevBranch(index){
+        const prevIndex = index == 0 ? this.branches.length - 1 : index - 1
+        return this.branches[prevIndex].branch
+      },
+      nextBranch(index){
+        const nextIndex = index == this.branches.length - 1 ? 0 : index + 1
+        return this.branches[nextIndex].branch
+      },
+      init() {
+      // 載入地圖
+        fetch('./assets/map.svg')
+        .then(res => res.text())
+        .then(svg => {
+          this.$refs.map.innerHTML = svg;
+          const gBranches = document.querySelectorAll('#g-branch')
+          .forEach(el => {
+            el.addEventListener('click', (event) => {
+              this.selectBranch(el.getAttribute('data-branch'))
+            });
+          });
+        })
+        
+        // 載入 24 間店資料
+        fetch('./data/branches.json')
+        .then(res => res.json())
+        .then(data => {
+          this.branches = data.branches
+          this.current = data.branches[0].key
+          if(window.innerWidth >= 640 ){
+            this.selectBranch(data.branches[0].key)
+          }
+        })
+      },
+      selectBranch(key) {
+        this.isVisible = false;
+        
+        setTimeout(() => {
+          this.current = key;
+          this.reorderBranches(key)
+          const selectedIndex = this.branches.findIndex(branch => branch.key === this.current);
+          this.currentBranch = this.branches[selectedIndex].branch;
+          this.beforeBranch = this.branches.slice(0, selectedIndex).map(branch => branch.branch);
+          this.afterBranch = this.branches.slice(selectedIndex + 1).map(branch => branch.branch);
+          this.isVisible = true;
+        }, 300); // 匹配過渡時間
+      },
+      reorderBranches(key) {
+        const selectedIndex = this.branches.findIndex(branch => branch.key === key);
+        const centerIndex = Math.floor(this.branches.length / 2);
+        const reordered = [];
+        for (let i = 0; i < this.branches.length; i++) {
+          const newIndex = (i + selectedIndex - centerIndex + this.branches.length) % this.branches.length;
+          reordered[i] = this.branches[newIndex];
+        }
+        this.branches = reordered;
+      }
+    }
+  }
+</script>
 </html>
