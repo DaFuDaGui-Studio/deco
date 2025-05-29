@@ -169,11 +169,22 @@
     <!-- banner -->
     <section>
       <div x-data="carousel({desktopEnabled: true})" x-init="init($el)"
-        data-images='["assets/banner_1.png","assets/banner_2.png","assets/banner_3.png","assets/banner_4.png"]'
+        data-images='[
+          "assets/banner_1.png",
+          "assets/banner_2.png",
+          "assets/banner_3.png",
+          "assets/banner_4.png",
+          "assets/banner_5.png",
+          "assets/banner_6.png",
+          "assets/banner_7.png",
+          "assets/banner_8.png",
+          "assets/banner_9.png",
+          "assets/banner_10.png"
+        ]'
         class="relative h-[400px] md:h-auto overflow-hidden md:aspect-[1440/600]">
         <template x-for="(img, index) in images" :key="index">
           <img :src="img"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-auto max-w-none md:w-full transition-opacity duration-1000"
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full md:h-auto w-auto md:w-full max-w-none transition-opacity duration-1000"
             :class="current === index ? 'opacity-100 z-10' : 'opacity-0 z-0'" style="transition-property: opacity;"
             alt="" />
         </template>
@@ -191,11 +202,7 @@
               path: 'assets/lottie/scroll_s.json'
             });
 
-            anim.addEventListener('DOMLoaded', () => {
-              $el.querySelectorAll('path').forEach(p => {
-                p.setAttribute('stroke-width', '1.5'); // 加粗線條
-              });
-            });
+            
           " class="h-full ml-[0.3125rem] drop-shadow-[0_0_0.3125rem_black]"></div>
         </div>
       </div>
