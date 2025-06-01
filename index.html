@@ -270,7 +270,7 @@
                 <div class="order-3 col-span-2 sm:col-span-1 md:col-span-1 mt-[50px] md:mt-[70px]">
                   <div class="md:w-[15.625rem] pl-[70px] pr-[70px] md:pl-0 md:pr-0">
                     <div x-data x-init=" flatpickr($refs.dateInput, { enableTime: false, noCalendar: false, dateFormat: 'Y-m-d', 
-                    minDate: 'today', locale: 'zh_tw', onReady: (selectedDates, dateStr, instance) => {instance._input.placeholder = '預約時間';}});">
+                    minDate: 'today', onReady: (selectedDates, dateStr, instance) => {instance._input.placeholder = '預約時間';}});">
                       <div class="flex flex-row">
                         <input type="text" name="date" x-ref="dateInput" placeholder="預約時間" class="w-full text-[clamp(10px,3.08vw,15px)]  
                         tracking-[0.1rem] md:tracking-[0.2rem] font-[800] font-noto-serif-hk font-[500] 
