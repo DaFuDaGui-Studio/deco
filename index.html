@@ -40,6 +40,7 @@
       --font-noto-serif-jp: "Noto Serif JP", serif;
       --font-noto-sans-jp: "Noto Sans JP", sans-serif;
       --font-noto-sans-tc: "Noto Sans TC", sans-serif;
+      --font-noto-serif-tc: "Noto Sans TC, serif;
       --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
       --font-cactus-classical-serif: "Cactus Classical Serif", serif;
       --color-stone-950: #4D403E;
@@ -244,40 +245,56 @@
 
     <!-- appointment  -->
     <section>
-      <div class="flex flex-col md:flex-row md:items-start max-w-[1440px] mt-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:ml-[min(8.75rem,140px)]">
-        <div class="w-full md:w-1/2">
+      <div class="flex flex-col md:flex-row md:items-start max-w-[1440px] mt-[3.125rem] md:mt-[6.25rem] md:ml-[8.75rem]">
+        <div class="w-full sm:w-full md:w-1/2">
           <div class="flex flex-col items-center md:items-start">
             <h2 class="custom-heading-en text-center md:text-left">Appointment</h2>
             <h1 class="custom-heading-zh text-center md:text-left">預約諮詢</h1>
           </div>
 
           <!-- form -->
-          <form class="mt-[min(3.125rem,50px)] md:mt-[min(4.375rem,68px)] md:mr[min(7.81rem,125px)]">
-            <div class="grid grid-cols-2 gap-x-[min(1.5rem,24px)] md:gap-x-[4.375rem,70px]">
-                <div class="order-1 col-span-1 md:w-[min(15.625rem,250px)]  pl-[70px] pr-[3px] md:pl-0 md:pr-0">
-                  <input type="text" placeholder="聯絡人" class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0" />
-                  <div class="w-full bg-black mt-1 h-[1.4px]"></div>
+          <form class="mt-[3.125rem] md:mt-[15.625rem] md:mr[7.81rem]">
+            <div class="grid grid-cols-2 gap-x-[1.5rem] md:gap-x-[4.375rem,70px]">
+                <div class="order-1 col-span-1 md:w-[15.625rem]  pl-[70px] pr-[3px] md:pl-0 md:pr-0">
+                  <input type="text" name="contantName" placeholder="聯絡人" class="w-full text-[clamp(10px,3.08vw,15px)]  tracking-[0.1rem] md:tracking-[0.2rem] 
+                  font-[800] font-noto-serif-hk font-[500] placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-hk 
+                  focus:outline-none border-none ring-0 focus:ring-0" />
+                  <div class="w-full bg-black mt-1 h-[1.5px]"></div>
                 </div>
-                <div class="order-2 col-span-1 md:w-[min(15.625rem,250px)] pl-[3px] pr-[70px] md:pl-0 md:pr-0">
-                  <input type="text" placeholder="連絡電話" class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0" />
-                  <div class="w-full bg-black mt-1 h-[1.4px]"></div>
+                <div class="order-2 col-span-1 md:w-[15.625rem] pl-[3px] pr-[70px] md:pl-0 md:pr-0">
+                  <input type="text" name="contantPhone" placeholder="聯繫電話" class="w-full text-[clamp(10px,3.08vw,15px)]  tracking-[0.1rem] 
+                  md:tracking-[0.2rem] font-[800] font-noto-serif-hk font-[500] 
+                  placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-hk  focus:outline-none border-none ring-0 focus:ring-0" />
+                  <div class="w-full bg-black mt-1 h-[1.5px]"></div>
                 </div>
-                <div class="order-3 col-span-2 md:col-span-1 mt-[min(50px)] md:mt-[min(70px)]">
-                  <div class="md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] md:pl-0 md:pr-0">
-                    <div x-data x-init="flatpickr($refs.dateInput, {enableTime: false, noCalendar: false, dateFormat: 'Y-m-d', minDate: 'today', locale: 'zh_tw'});">
-                      <input x-ref="dateInput" type="text" placeholder="選擇預約日期" class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] bg-transparent focus:outline-none border-none ring-0 focus:ring-0"/>
-                      <div class="w-full bg-black mt-1 h-[1.4px] md:h-[1px]"></div></div>
+                <div class="order-3 col-span-2 sm:col-span-1 md:col-span-1 mt-[50px] md:mt-[70px]">
+                  <div class="md:w-[15.625rem] pl-[70px] pr-[70px] md:pl-0 md:pr-0">
+                    <div x-data x-init=" flatpickr($refs.dateInput, { enableTime: false, noCalendar: false, dateFormat: 'Y-m-d', 
+                    minDate: 'today', locale: 'zh_tw', onReady: (selectedDates, dateStr, instance) => {instance._input.placeholder = '預約時間';}});">
+                      <div class="flex flex-row">
+                        <input type="text" name="date" x-ref="dateInput" placeholder="預約時間" class="w-full text-[clamp(10px,3.08vw,15px)]  
+                        tracking-[0.1rem] md:tracking-[0.2rem] font-[800] font-noto-serif-hk font-[500] 
+                        placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-hk g-transparent 
+                        focus:outline-none border-none ring-0 focus:ring-0 appearance-none "/>
+                        <img src="/assets/icons/arrow_down.svg"/>
+                      </div>
+                      <div class="w-full bg-black mt-1 h-[1.5px]"></div>
+                    </div>
                   </div>
                 </div>
                 <div
-                  class="order-4 md:order-5 flex justify-center col-span-2 md:col-span-1 md:justify-start md:w-[min(15.625rem,250px)] mt-[min(50px)] md:mt-[min(70px)]">
-                  <a href="#" class="flex items-center gap-x-3 md:gap-x-2">
-                    <p class=" text-[10px] md:text-[15px] font-[900] font-[Noto Sans JP] ">立即預約</p><img
-                    src="/assets/icons/arrow-rignt-circle.svg" alt="IG">
-                  </a>
+                  class="order-4 md:order-5 flex justify-center col-span-2 md:col-span-1 md:justify-start md:w-[28.625rem] mt-[min(50px)] md:mt-[min(70px)]">
+                   <div class="flex flex-col md:flex-row items-center md:gap-x-2">
+                  <button type="submit" class="flex items-center gap-x-3 md:gap-x-2 cursor-pointer hover:opacity-80 transition duration-200">
+                    <p class="tracking-[0.1rem] text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(10px,3.08vw,15px)] font-[800] font-noto-serif-hk md:tracking-[0.3rem]">立即預約</p>
+                    <img class="w-auto h-[1rem] md:h-[1.5rem] " src="/assets/icons/arrow-rignt-circle.svg" alt="icon">
+                  </button>
+                  <p id="submitResult" class="hidden bg-[#4D403E] text-white rounded-lg px-5 py-1 tracking-[0.2rem] text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(10px,3.08vw,15px)] mt-3 md:mt-0 md:ml-3 font-[600] font-noto-serif-hk md:tracking-[0.3rem]">送出成功!</p>
               </div>
+               </div>
               <div
-                class="order-5 md:order-4 flex justify-center col-span-2 md:col-span-1 md:justify-start mt-[min(50px)] md:mt-[min(70px)] md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] md:pl-0 md:pr-0 gap-x-[30px]">
+                class="order-5 sm:order-3 md:order-3 flex justify-center col-span-2 sm:col-span-1 sm:justify-start md:col-span-1 md:justify-start mt-[min(50px)] 
+                md:mt-[min(70px)] md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] sm:pl-0 sm:pr-0 md:pl-0 md:pr-0 gap-x-[30px]">
                 <a href="https://www.instagram.com/d_weddingphoto_hk"><img src="/assets/icons/icon_ig.png" alt="IG"></a>
                 <a href="https://wa.me/85257444856?text=我想查詢Decollte的日本婚紗攝影服務"><img src="/assets/icons/icon_phone.png" alt="Phone"></a>
                 <a href="https://www.facebook.com/decollte.hk"><img src="/assets/icons/icon_fb.png" alt="FB"></a>
@@ -285,66 +302,16 @@
             </div>
           </form>
         </div>
-        <div class="flex flex-col justify-center items-start w-full md:w-1/2 mt-[min(1.875rem,30px)] md:mt-0">
-          <div class="w-full h-[min(6.25rem,100px)] md:w-auto md:h-auto md:aspect-[4/3]">
+        <div class="flex flex-col justify-center items-end w-full sm:w-full md:w-1/2 mt-[min(1.875rem,30px)] md:mt-0">
+          <div class="w-full h-[6.25rem] md:w-auto md:h-auto md:aspect-[4/3]">
             <img src="assets/appointment.png" alt="appointment"
             class="w-full h-full object-cover object-[center_70%] md:object-center" />
           </div>
-          <p class="w-full text-right mt-2 text-sm">DE&Co.<br>Decollte Photography</p>
+          <p class="md:inline-block mt-8 mr-6 text-sm text-right font-noto-serif-hk tracking-[0.3rem] 
+          leading-[1.8]">DE&Co.<br>Decollte Photography</p>
         </div>
       </div>
     </section>
-
-      <!-- appointment  -->
-    <div class="flex flex-col md:flex-row md:items-start max-w-[1440px] mt-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:ml-[min(8.75rem,140px)]">
-      <div class="w-full md:w-1/2">
-        <div class="flex flex-col items-center md:items-start">
-          <h2 class="custom-heading-en text-center md:text-left">Appointment</h2>
-          <h1 class="custom-heading-zh text-center md:text-left">預約諮詢</h1>
-        </div>
-        
-        <!-- form -->
-        <form class="mt-[min(3.125rem,50px)] md:mt-[min(4.375rem,68px)] md:mr[min(7.81rem,125px)]">
-          <div class="grid grid-cols-2 gap-x-[min(1.5rem,24px)] md:gap-x-[4.375rem,70px]">
-            <div class="order-1 col-span-1 md:w-[min(15.625rem,250px)]  pl-[70px] pr-[3px] md:pl-0 md:pr-0">
-              <input type="text" placeholder="聯絡人" class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0"/>
-              <div class="w-full bg-black mt-1 h-[1.4px]"></div>
-            </div>
-            <div class="order-2 col-span-1 md:w-[min(15.625rem,250px)] pl-[3px] pr-[70px] md:pl-0 md:pr-0">            
-              <input type="text" placeholder="連絡電話" class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] placeholder:text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0"/>
-              <div class="w-full bg-black mt-1 h-[1.4px]"></div>
-            </div>
-            <div class="order-3 col-span-2 md:col-span-1 mt-[min(50px)] md:mt-[min(70px)]">
-              <div class="md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] md:pl-0 md:pr-0">
-                <select class="w-full text-[10px] md:text-[15px] font-[900] font-[Noto Sans TC] bg-transparent text-[#A1A1AA] focus:outline-none border-none ring-0 focus:ring-0">
-                  <option>預約時間</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                </select>
-              <div class="w-full bg-black mt-1 h-[1.4px] md:h-[1px]"></div>
-              </div>
-            </div>
-            <div class="order-4 md:order-5 flex justify-center col-span-2 md:col-span-1 md:justify-start md:w-[min(15.625rem,250px)] mt-[min(50px)] md:mt-[min(70px)]">
-              <a href="#" class="flex items-center gap-x-3 md:gap-x-2"><p class=" text-[10px] md:text-[15px] font-[900] font-[Noto Sans JP] ">立即預約</p><img src="/assets/icons/arrow-rignt-circle.svg" alt="IG"></a>
-            </div>
-            <div class="order-5 md:order-4 flex justify-center col-span-2 md:col-span-1 md:justify-start mt-[min(50px)] md:mt-[min(70px)] md:w-[min(15.625rem,250px)] pl-[70px] pr-[70px] md:pl-0 md:pr-0 gap-x-[30px]">
-              <a href="#"><img src="/assets/icons/icon_ig.png" alt="IG"></a>
-              <a href="#"><img src="/assets/icons/icon_phone.png" alt="Phone"></a>
-              <a href="#"><img src="/assets/icons/icon_fb.png" alt="FB"></a>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="flex flex-col justify-center items-start w-full md:w-1/2 mt-[min(1.875rem,30px)] md:mt-0">
-        <div class="w-full h-[min(6.25rem,100px)] md:w-auto md:h-auto md:aspect-[4/3]">
-          <img src="assets/appointment.png" alt="appointment" class="w-full h-full object-cover object-[center_70%] md:object-center"/>
-        </div>
-         <p class="w-full text-right mt-2 text-sm">DE&Co.<br>Decollte Photography</p>
-      </div>
-    </div>
 
     <!-- flow -->
     <section class="mx-auto max-w-[1440px] pb-[min(3.125rem,50px)] md:pb-25">
@@ -1556,4 +1523,69 @@
     }
   }
 </script>
+
+<!-- from sumbut js -->
+<script>
+  async function submitToGoogleSheet(e) {
+    e.preventDefault();
+
+    const name = document.querySelector('input[name="contantName"]').value.trim();
+    const phone = document.querySelector('input[name="contantPhone"]').value.trim();
+    const date = document.querySelector('input[name="date"]').value.trim();
+
+    const resultMsg = document.getElementById("submitResult");
+    resultMsg.classList.add('hidden');
+    resultMsg.textContent = "";
+
+    if (!name && !phone && !date) {
+      resultMsg.textContent = "請填入預約資料";
+      resultMsg.classList.remove("hidden");
+      return;
+    } else if (!name) {
+      resultMsg.textContent = "請填入聯絡名字";
+      resultMsg.classList.remove("hidden");
+      return;
+    } else if (!phone) {
+      resultMsg.textContent = "請填入連絡電話";
+      resultMsg.classList.remove("hidden");
+      return;
+    } else if (!date) {
+      resultMsg.textContent = "請選擇預約時間";
+      resultMsg.classList.remove("hidden");
+      return;
+    }
+
+    const data = { name, phone, date };
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbz24SVYxNuxSeAo-h8v7BUWdhYl3aITBAOnQZoHHlxIRNHTEqYSGWwOiTVa_zmiqGI2Ow/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      resultMsg.textContent = "送出成功!";
+      resultMsg.classList.remove("hidden");
+
+      document.querySelector('input[placeholder="聯絡人"]').value = "";
+      document.querySelector('input[placeholder="聯繫電話"]').value = "";
+      document.querySelector('input[placeholder="預約時間"]').value = "";
+
+    } catch (err) {
+      resultMsg.textContent = "送出失敗";
+      resultMsg.classList.remove("hidden");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    if (form) {
+      form.addEventListener("submit", submitToGoogleSheet);
+    }
+  });
+</script>
+
 </html>
