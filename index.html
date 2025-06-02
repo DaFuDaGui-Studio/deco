@@ -10,11 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
     rel="stylesheet">
 
-  <!-- DaisyUI -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <!-- Tailwind -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -36,11 +34,10 @@
   <style type="text/tailwindcss">
     @theme {
       --text-xxs: 0.625rem; /* text 10px */
-      --font-noto-serif-hk: "Noto Serif HK", serif;
       --font-noto-serif-jp: "Noto Serif JP", serif;
+      --font-noto-serif-tc: "Noto Serif TC", serif;
       --font-noto-sans-jp: "Noto Sans JP", sans-serif;
       --font-noto-sans-tc: "Noto Sans TC", sans-serif;
-      --font-noto-serif-tc: "Noto Sans TC, serif;
       --font-monsieur-la-doulaise: "Monsieur La Doulaise", cursive;
       --font-cactus-classical-serif: "Cactus Classical Serif", serif;
       --color-stone-950: #4D403E;
@@ -111,7 +108,7 @@
       }
 
       .custom-heading-zh {
-        @apply font-noto-serif-hk font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
+        @apply font-noto-serif-tc font-normal text-center leading-[130%] tracking-[0.2rem] text-[clamp(28px,5.5vw,35px)] sm:text-[clamp(24px,4vw,35.5px)] md:text-[clamp(20px,2.5vw,36px)] mt-[min(0.625rem,10px)];
       }
 
       .custom-heading-info {
@@ -248,8 +245,8 @@
       <div class="flex flex-col md:flex-row md:items-start max-w-[1440px] mt-[3.125rem] md:mt-[6.25rem] md:ml-[8.75rem]">
         <div class="w-full sm:w-full md:w-1/2">
           <div class="flex flex-col items-center md:items-start">
-            <h2 class="custom-heading-en text-center md:text-left">Appointment</h2>
-            <h1 class="custom-heading-zh text-center md:text-left">預約諮詢</h1>
+            <h3 class="custom-heading-en text-center md:!text-left">Appointment</h2>
+            <h2 class="custom-heading-zh text-center md:!text-left">預約諮詢</h1>
           </div>
 
           <!-- form -->
@@ -257,14 +254,14 @@
             <div class="grid grid-cols-2 gap-x-[1.5rem] md:gap-x-[4.375rem,70px]">
                 <div class="order-1 col-span-1 md:w-[15.625rem]  pl-[70px] pr-[3px] md:pl-0 md:pr-0">
                   <input type="text" name="contantName" placeholder="聯絡人" class="w-full text-[clamp(10px,3.08vw,15px)]  tracking-[0.1rem] md:tracking-[0.2rem] 
-                  font-[800] font-noto-serif-hk font-[500] placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-hk 
+                  font-[800] font-noto-serif-tc font-[500] placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-tc 
                   focus:outline-none border-none ring-0 focus:ring-0" />
                   <div class="w-full bg-black mt-1 h-[1.5px]"></div>
                 </div>
                 <div class="order-2 col-span-1 md:w-[15.625rem] pl-[3px] pr-[70px] md:pl-0 md:pr-0">
                   <input type="text" name="contantPhone" placeholder="聯繫電話" class="w-full text-[clamp(10px,3.08vw,15px)]  tracking-[0.1rem] 
-                  md:tracking-[0.2rem] font-[800] font-noto-serif-hk font-[500] 
-                  placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-hk  focus:outline-none border-none ring-0 focus:ring-0" />
+                  md:tracking-[0.2rem] font-[800] font-noto-serif-tc font-[500] 
+                  placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-tc  focus:outline-none border-none ring-0 focus:ring-0" />
                   <div class="w-full bg-black mt-1 h-[1.5px]"></div>
                 </div>
                 <div class="order-3 col-span-2 sm:col-span-1 md:col-span-1 mt-[50px] md:mt-[70px]">
@@ -273,8 +270,8 @@
                     minDate: 'today', onReady: (selectedDates, dateStr, instance) => {instance._input.placeholder = '預約時間';}});">
                       <div class="flex flex-row">
                         <input type="text" name="date" x-ref="dateInput" placeholder="預約時間" class="w-full text-[clamp(10px,3.08vw,15px)]  
-                        tracking-[0.1rem] md:tracking-[0.2rem] font-[800] font-noto-serif-hk font-[500] 
-                        placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-hk g-transparent 
+                        tracking-[0.1rem] md:tracking-[0.2rem] font-[800] font-noto-serif-tc font-[500] 
+                        placeholder:text-[#A1A1AA] placeholder:font-[600] placeholder:font-noto-serif-tc g-transparent 
                         focus:outline-none border-none ring-0 focus:ring-0 appearance-none "/>
                         <img src="./assets/icons/arrow_down.svg"/>
                       </div>
@@ -286,10 +283,10 @@
                   class="order-4 md:order-5 flex justify-center col-span-2 md:col-span-1 md:justify-start md:w-[28.625rem] mt-[min(50px)] md:mt-[min(70px)]">
                    <div class="flex flex-col md:flex-row items-center md:gap-x-2">
                   <button type="submit" class="flex items-center gap-x-3 md:gap-x-2 cursor-pointer hover:opacity-80 transition duration-200">
-                    <p class="tracking-[0.1rem] text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(10px,3.08vw,15px)] font-[800] font-noto-serif-hk md:tracking-[0.3rem]">立即預約</p>
+                    <p class="tracking-[0.1rem] text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(10px,3.08vw,15px)] font-[800] font-noto-serif-tc md:tracking-[0.3rem]">立即預約</p>
                     <img class="w-auto h-[1rem] md:h-[1.5rem] " src="./assets/icons/arrow-rignt-circle.svg" alt="icon">
                   </button>
-                  <p id="submitResult" class="hidden bg-[#4D403E] text-white rounded-lg px-5 py-1 tracking-[0.2rem] text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(10px,3.08vw,15px)] mt-3 md:mt-0 md:ml-3 font-[600] font-noto-serif-hk md:tracking-[0.3rem]">送出成功!</p>
+                  <p id="submitResult" class="hidden bg-[#4D403E] text-white rounded-lg px-5 py-1 tracking-[0.2rem] text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(10px,3.08vw,15px)] mt-3 md:mt-0 md:ml-3 font-[600] font-noto-serif-tc md:tracking-[0.3rem]">送出成功!</p>
               </div>
                </div>
               <div
@@ -307,7 +304,7 @@
             <img src="./assets/appointment.png" alt="appointment"
             class="w-full h-full object-cover object-[center_70%] md:object-center" />
           </div>
-          <p class="hidden md:inline-block mt-8 mr-6 text-sm text-right font-noto-serif-hk tracking-[0.3rem] 
+          <p class="hidden md:inline-block mt-8 mr-6 text-sm text-right font-noto-serif-tc tracking-[0.3rem] 
           leading-[1.8]">DE&Co.<br>Decollte Photography</p>
         </div>
       </div>
@@ -316,8 +313,8 @@
     <!-- flow -->
     <section class="mx-auto max-w-[1440px] pb-[min(3.125rem,50px)] md:pb-25">
       <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
-        <h3 class="custom-heading-en md:text-left">Flow</h3>
-        <h2 class="custom-heading-zh md:text-left">拍攝服務流程<br class="sm:hidden">說明</h2>
+        <h3 class="custom-heading-en md:!text-left">Flow</h3>
+        <h2 class="custom-heading-zh md:!text-left">拍攝服務流程<br class="sm:hidden">說明</h2>
       </div>
       <div x-data="{
         currentIndex: 0,
@@ -366,11 +363,11 @@
             <!-- 文字敘述 -->
             <div class="flex-col">
               <h2 class="text-4xl font-serif mb-[1.875rem] flex items-center">
-                <span class="font-noto-serif-hk font-bold text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]"
+                <span class="font-noto-serif-tc font-bold text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]"
                   x-text="items[currentIndex].step"></span>&nbsp;
                 <span class="font-monsieur-la-doulaise font-normal text-[3.75rem] leading-[74%] tracking-[0.125rem]">step.</span>
               </h2>    
-              <p class="text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(20px,2vw,30px)] mb-[1.25rem] font-noto-serif-hk font-normal text-body"
+              <p class="text-[clamp(20px,5.5vw,30px)] sm:text-[clamp(20px,3.5vw,30px)] md:text-[clamp(20px,2vw,30px)] mb-[1.25rem] font-noto-serif-tc font-normal text-body"
                 x-text="items[currentIndex].title"></p>
               <p class="text-[1.25rem] h-[9.375rem] font-noto-sans-tc font-light mb-6 leading-[160%] tracking-[0.125rem]"
                 x-text="items[currentIndex].desc"></p>
@@ -407,7 +404,7 @@
                     :class="currentIndex === index ? 'block' : 'hidden'">FLOW</p>
                   <button class="" @click="currentIndex = index">
                     <div class="" :class="currentIndex !== index ? 'block' : 'hidden'">
-                      <p class="font-noto-serif-hk font-bold text-[1.25rem] leading-[92%] tracking-[0.125rem] hover:opacity-70"
+                      <p class="font-noto-serif-tc font-bold text-[1.25rem] leading-[92%] tracking-[0.125rem] hover:opacity-70"
                         x-text="item.step"></p>
                       <p class="font-noto-sans-jp font-light text-[0.625rem] leading-[130%] tracking-[0.125rem] hover:opacity-70">Step</p>
                     </div>
@@ -430,11 +427,11 @@
                     <div class="flex flex-col gap-y-[min(1.875rem,30px)] sm:gap-y-[min(3.125rem,50px)]">
                       <div class="flex flex-col gap-y-[min(1.25rem,20px)] px-[min(1.875rem,30px)] sm:px-[min(6.25rem,100px)]">
                         <h2 class="text-[min(1.25rem,20px)] sm:text-[min(2.5rem,40px)] flex items-center justify-center">
-                          <span class="font-noto-serif-hk font-bold leading-[92%] tracking-[0.125rem] mr-[min(0.625rem,10px)]"
+                          <span class="font-noto-serif-tc font-bold leading-[92%] tracking-[0.125rem] mr-[min(0.625rem,10px)]"
                             x-text="item.step"></span>
                           <span class="font-monsieur-la-doulaise font-normal leading-[74%] tracking-[0.125rem]">step.</span>
                         </h2>
-                        <p class="text-center text-[min(1.25rem,20px)] sm:text-[min(1.625rem,26px)] font-noto-serif-hk font-normal leading-[130%] tracking-[0.25rem]"
+                        <p class="text-center text-[min(1.25rem,20px)] sm:text-[min(1.625rem,26px)] font-noto-serif-tc font-normal leading-[130%] tracking-[0.25rem]"
                           x-text="item.title"></p>
                         <p class="text-center text-[min(0.75rem,12px)] sm:text-[min(1rem,16px)] font-noto-sans-tc font-light leading-[160%] tracking-[0.125rem]"
                           x-text="item.desc"></p>
@@ -622,8 +619,8 @@
     <!-- appointment -->
     <section
       class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
-      <h3 class="custom-heading-en md:text-left">Appointment</h3>
-      <h2 class="custom-heading-zh md:text-left">提供多樣方案<br class="sm:hidden">預約諮詢</h2>
+      <h3 class="custom-heading-en md:!text-left">Appointment</h3>
+      <h2 class="custom-heading-zh md:!text-left">提供多樣方案<br class="sm:hidden">預約諮詢</h2>
       <div x-data="gridSlideCarousel({
         dots: true, touchSwipe: true,
         images: [
@@ -702,13 +699,13 @@
           >
             <div class="flex-1 flex justify-end items-center overflow-hidden whitespace-nowrap text-right " x-show="beforeBranch != []">
               <template x-for="(branch, index) in beforeBranch" :key="`before${index}`">
-                <div x-text="branch" class="border-r-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
+                <div x-text="branch" class="border-r-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-tc text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
               </template>
             </div>
-            <div x-text="currentBranch" class="w-fit sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-center break-keep text-[min(1.875rem,30px)] leading-[min(1.875rem,30px)] md:text-3xl leading-7.5 tracking-[0.2em]"></div>
+            <div x-text="currentBranch" class="w-fit sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-tc text-center break-keep text-[min(1.875rem,30px)] leading-[min(1.875rem,30px)] md:text-3xl leading-7.5 tracking-[0.2em]"></div>
             <div class="flex-1 flex items-center overflow-hidden whitespace-nowrap text-left ">
               <template x-for="branch in afterBranch" :key="`after${index}`">
-                <div x-text="branch" class="border-l-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-hk text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
+                <div x-text="branch" class="border-l-[0.25px] border-stone-950 sm:px-[min(1.25rem,20px)] md:px-5 font-noto-serif-tc text-[min(1rem,16px)] md:text-base tracking-[0.2em] text-center break-keep"></div>
               </template>
             </div>
           </div>
@@ -732,7 +729,7 @@
                   <img :src="branch.img_2" alt="img2" class="w-1/2 h-full object-cover object-center" />
                 </div>
                 <div class="sm:px-[min(1.5rem,24px)] md:px-10 sm:my-[min(1.875rem,30px)] md:mb-0 md:mt-12.75">
-                  <p class="font-noto-serif-hk font-bold text-[min(0.75rem,12px)] md:text-xl text-body" x-text="branch.name"></p>
+                  <p class="font-noto-serif-tc font-bold text-[min(0.75rem,12px)] md:text-xl text-body" x-text="branch.name"></p>
                   <p class="mt-[min(0.375rem,6px)] md:mt-2.5 font-light font-noto-sans-tc text-caption text-[min(0.625rem,10px)] md:text-base" x-text="branch.description"></p>
                 </div>
               </div>
@@ -744,15 +741,15 @@
 
       <div class="sm:hidden mt-[min(3.125rem,50px)]">
         <div class="flex items-center px-7.5">
-          <div id="prev-branch" class="flex-1 border-s border-stone-950 pr-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-right 
+          <div id="prev-branch" class="flex-1 border-s border-stone-950 pr-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-tc overflow-hidden whitespace-nowrap text-right 
             [direction:rtl] [mask-image:linear-gradient(to_right,transparent,black_20%)] 
             [-webkit-mask-image:linear-gradient(to_right,transparent,black_20%)]">
             札幌店
           </div>
-          <div id="current-branch" class="flex items-center mx-5 text-[min(1.5rem,24px)] tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-center">
+          <div id="current-branch" class="flex items-center mx-5 text-[min(1.5rem,24px)] tracking-[0.2em] font-noto-serif-tc overflow-hidden whitespace-nowrap text-center">
             新宿店
           </div>
-          <div id="next-branch" class="flex-1 border-s border-stone-950 pl-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-hk overflow-hidden whitespace-nowrap text-left
+          <div id="next-branch" class="flex-1 border-s border-stone-950 pl-5 text-[min(0.625rem,10px)] leading-3.75 tracking-[0.2em] font-noto-serif-tc overflow-hidden whitespace-nowrap text-left
             [mask-image:linear-gradient(to_right,black_80%,transparent)] 
             [-webkit-mask-image:linear-gradient(to_right,black_80%,transparent)]">
             表參道渋谷店
@@ -771,7 +768,7 @@
                       <img :src="branch.img_2" alt="img2" class="w-1/2 h-full object-cover object-center" />
                     </div>
                     <div class="px-10 mb-5 mt-5">
-                      <p class="font-noto-serif-hk font-bold text-[min(0.875rem,14px)] text-body" x-text="branch.name"></p>
+                      <p class="font-noto-serif-tc font-bold text-[min(0.875rem,14px)] text-body" x-text="branch.name"></p>
                       <p class="mt-2.5 font-light font-noto-sans-tc text-caption text-[min(0.625rem,10px)] md:text-base" x-text="branch.description"></p>
                     </div>
                   </div>
@@ -843,7 +840,7 @@
             <div class="flex flex-col items-center"
               :class="[index % 2 === 0 ? '-mr-1 sm:mr-2 md:mr-[0.5vw]' : 'sm:mr-2 md:mr-[0.5vw]',]">
               <div
-                class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-hk font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
+                class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-tc font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
                 x-text="service.id"></div>
               <div
                 class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[clamp(75px,25vw,160px)] sm:h-[clamp(140px,22vw,170px)] md:h-[clamp(130px,17vw,200px)]">
@@ -879,8 +876,8 @@
       <div class="flex flex-col md:flex-row justify-items-center my-[3.125rem] md: mt-[9.375rem] md:mb-[8.7rem]">
         <div class="flex flex-col md:justify-between md:w-[34%] md:h-[50rem] md:ml-[10%]">
           <div>
-            <h3 class="custom-heading-en md:text-left">Style</h3>
-            <h2 class="custom-heading-zh md:text-left">拍攝風格</h2>
+            <h3 class="custom-heading-en md:!text-left">Style</h3>
+            <h2 class="custom-heading-zh md:!text-left">拍攝風格</h2>
             <div class="text-center  mt-[1.25rem] md:mt-[3.125rem]">
     
               <span class="writing-vertical-lr leading-[130%] tracking-[0.2em] font-noto-sans-tc font-light text-[min(0.75rem,12px)] hidden md:block">SCROLL</span>
@@ -925,7 +922,7 @@
               
             </div>
           </div>
-          <div class="leading-[130%] tracking-[0.2em] font-noto-serif-hk font-light text-[min(0.75rem,12px)] hidden md:block">
+          <div class="leading-[130%] tracking-[0.2em] font-noto-serif-tc font-light text-[min(0.75rem,12px)] hidden md:block">
             <p>DE&Co.</p>
             <p>Decollte Photography</p>
           </div>
@@ -958,7 +955,7 @@
       </div>
     </section>
 
-    <!-- Dress & Kimono options -->
+    <!-- dress -->
     <section class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] md:px-[min(5.9vw,85px)]">
       <h3 class="custom-heading-en">Dress & Kimono options</h3>
       <h2 class="custom-heading-zh">服裝選擇</h2>
@@ -966,7 +963,81 @@
         新娘和新郎的禮服及和服
         我們有多款不同種類提供挑選！
       </p>
-
+      <div
+        x-data
+        x-init="
+          const isMobile = window.innerWidth < 640;
+          console.log(isMobile);
+          const imgs = JSON.parse($refs.carousel.dataset.images);
+          const container = $refs.carousel.querySelector('.swiper-container');
+          const wrapper = container.querySelector('.swiper-wrapper');
+          // 動態創建 slides
+          imgs.forEach(src => {
+            const slide = document.createElement('div');
+            slide.className = isMobile ? 'swiper-slide ' : '';
+            slide.style.setProperty('aspect-ratio', '230/600', 'important');
+            const img = document.createElement('img');
+            img.src = src;
+            img.className = 'h-full w-auto';
+            slide.appendChild(img);
+            wrapper.appendChild(slide);
+          });
+          
+          const widthPx = (window.innerWidth * 0.475) * 2
+          const heightPx = (window.innerWidth * 1.25)
+          if (isMobile) {
+            $nextTick(() => {
+              new Swiper(container, {
+                slidesPerView: 2,
+                spaceBetween: 10,
+                width: widthPx,
+                centeredSlides: true,
+                loop: true,
+              });
+            });
+          } else {
+            wrapper.classList.remove('swiper-wrapper');
+            container.classList.remove('swiper-container');
+          }
+        "
+        x-ref="carousel"
+        data-images='[
+          "assets/dress_1.png",
+          "assets/dress_2.png",
+          "assets/dress_3.png",
+          "assets/dress_4.png",
+          "assets/dress_5.png"
+        ]'
+        class="mt-[min(1.875rem,30px)] md:mt-[50px]"
+      >
+        <div class="swiper-container overflow-hidden w-auto h-[125vw] sm:h-[clamp(333px,52.1vw,400px)] md:h-[clamp(340px,41.6vw,600px)]">
+          <div class="swiper-wrapper h-full flex justify-between sm:max-width-[20%]"></div>
+        </div>
+      </div>
+      <div class="sm:hidden flex justify-center mt-[20px]">
+        <span class="leading-[130%] tracking-[0.2em] font-noto-sans-tc font-light text-[min(0.625rem,10px)] ">SCROLL</span>
+        <div class=" h-[15px] w-[30px] ml-[0.3125rem] md:hidden">
+          <div x-data x-init="
+            const anim = lottie.loadAnimation({
+              container: $el,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: 'assets/lottie/scroll_m.json'
+            });
+            anim.addEventListener('DOMLoaded', () => {
+              $el.querySelectorAll('path').forEach(p => {
+                p.setAttribute('stroke', '#4D403E');   // 改顏色
+              });
+            });"
+            class="h-full origin-center">
+          </div>
+        </div>
+      </div>
+      <p class="custom-heading-info !text-left sm:!text-right sm:border-l-[1.5px] sm:mt-[50px] mx-[35px] sm:mx-[100px] md:mx-0">和服、禮服，一次滿足
+        推薦擁有眾多服裝可供選擇的攝影棚
+        親身體驗各式精緻服裝，感受服裝的質感與魅力
+      </p>
     </section>
 
     <!-- hair and makeup -->
@@ -1015,8 +1086,8 @@
     <!-- album -->
     <section class="my-25">
       <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
-        <h3 class="custom-heading-en md:text-left">Album</h3>
-        <h2 class="custom-heading-zh md:text-left">相冊款式</h2>
+        <h3 class="custom-heading-en md:!text-left">Album</h3>
+        <h2 class="custom-heading-zh md:!text-left">相冊款式</h2>
       </div>
       <!--HTML CODE -->
       <div class="w-full relative overflow-hidden">
@@ -1063,7 +1134,7 @@
     class="w-full px-7.5 md:px-0 py-5.5 md:py-10.25 text-center bg-stone-950 text-white font-cactus-classical-serif text-[min(0.625rem,10px)] md:text-sm text-eng">
     COPYRIGHT ©DECOLLTE PHOTOGRAPHY CO.,LTD ALL RIGHTS RESERVED.
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </body>
 <script defer>
 
