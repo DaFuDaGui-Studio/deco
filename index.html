@@ -241,6 +241,7 @@
     </section>
 
     <!-- appointment  -->
+    <template id="appointment-template">
     <section class="mx-auto max-w-[1440px]">
       <div class="flex flex-col md:flex-row md:items-start  mt-[3.125rem] md:mt-[6.25rem] md:ml-[8.75rem]">
         <div class="w-full sm:w-full md:w-1/2">
@@ -309,6 +310,7 @@
         </div>
       </div>
     </section>
+    </template>
 
     <!-- flow -->
     <section class="mx-auto max-w-[1440px] pb-[min(3.125rem,50px)] md:pb-25">
@@ -1127,6 +1129,8 @@
       </div>
     </section>
 
+    <!-- appointment clone -->>
+    <section id="appointment-clone"></section>
 
   </main>
   
@@ -1659,4 +1663,11 @@
   });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const template = document.getElementById("appointment-template");
+    const clone = template.content.cloneNode(true);
+    document.getElementById("appointment-clone").appendChild(clone);
+  });
+</script>
 </html>
