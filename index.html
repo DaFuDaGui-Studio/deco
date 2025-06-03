@@ -240,7 +240,7 @@
       </div>
     </section>
 
-    <!-- appointment  -->
+    <!-- appointment -->
     <template id="appointment-template">
     <section class="mx-auto max-w-[1440px]">
       <div class="flex flex-col md:flex-row md:items-start  mt-[3.125rem] md:mt-[6.25rem] md:ml-[8.75rem]">
@@ -624,61 +624,106 @@
       class="mx-auto max-w-[1440px] mt-[min(3.125rem,50px)] mb-[min(3.125rem,50px)] md:mt-[min(6.25rem,100px)] md:mb-[min(6.25rem,100px)] px-[9.3vw] sm:px-[10vw] md:px-[min(9.7vw,140px)]">
       <h3 class="custom-heading-en md:!text-left">Appointment</h3>
       <h2 class="custom-heading-zh md:!text-left">提供多樣方案<br class="sm:hidden">預約諮詢</h2>
-      <div x-data="gridSlideCarousel({
-        dots: true, touchSwipe: true,
-        images: [
-          { id: '01', img: 'assets/appointment_1.png', alt: '紅葉季拍攝推薦' },
-          { id: '02', img: 'assets/appointment_2.png', alt: '紅葉季拍攝推薦' },
-          { id: '03', img: 'assets/appointment_3.png', alt: '紅葉季拍攝推薦' },
-          { id: '04', img: 'assets/appointment_4.png', alt: '紅葉季拍攝推薦' },
-          { id: '05', img: 'assets/appointment_5.png', alt: '紅葉季拍攝推薦' },
-          { id: '06', img: 'assets/appointment_6.png', alt: '紅葉季拍攝推薦' },
-          { id: '07', img: 'assets/appointment_7.png', alt: '紅葉季拍攝推薦' },
-          { id: '08', img: 'assets/appointment_8.png', alt: '紅葉季拍攝推薦' }
-        ]
-      })" x-init="init($el)" class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
+      <div
+      x-data
+      x-init="
+        const imgs = JSON.parse($refs.carousel.dataset.images);
+        const container = $refs.carousel.querySelector('.swiper-container');
+        const wrapper = container.querySelector('.swiper-wrapper');
 
-        <!-- 輪播容器 -->
-        <div class="overflow-hidden">
-          <div x-ref="swiperContainer" class="swiper-container">
-            <div x-ref="gridSwiperWrapper" class="flex transition-transform duration-300 swiper-wrapper no-transition"
-              :style="`width: ${pagedImages.length * 100}%; transform: translateX(-${currentPage * (100 / pagedImages.length)}%)`">
-              <template x-for="(page, pageIndex) in pagedImages" :key="pageIndex">
-                <div class="grid sm:gap-x-2 md:gap-x-4 gap-y-4 sm:gap-y-3 md:gap-y-8 swiper-slide" :style="`
-                  display: grid !important;
-                  width: ${100 / pagedImages.length}%;
-                  grid-template-columns: repeat(${columns}, 1fr);
-                  grid-template-rows: repeat(${rows}, 1fr);
-                `">
-                  <template x-for="(item, idx) in page" :key="item.id || idx">
-                    <div class="flex flex-col items-start">
-                      <div class="w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3">
-                        <img :src="item.img" :alt="item.alt"
-                          class="h-full transition-transform duration-300 hover:scale-110" />
-                      </div>
-                      <p x-text="item.alt" class="text-left text-info-size text-caption font-noto-sans-tc"></p>
-                    </div>
-                  </template>
-                </div>
-              </template>
-            </div>
-          </div>
-        </div>
+        const width = window.innerWidth;
+        let groupSize = 8; // 預設每張圖一個 slide
 
-        <!-- 點點 -->
-        <div class="flex justify-center mt-6 sm:mt-4 space-x-2 md:hidden">
-          <template x-for="(dot, index) in totalPages" :key="index">
-            <template x-if="index !== 0 && index !== totalPages - 1">
-              <button @click="goToPage(index)" class="swiper-pagination-bullet cursor-pointer" :style="(index === currentPage || 
-               (currentPage === 0 && index === totalPages - 2) || 
-               (currentPage === totalPages - 1 && index === 1))
-                ? 'background: #4D403E !important; transform: scale(1.2); margin: 4px !important;'
-                : 'background: white !important; border: 1px solid #4D403E !important; margin: 4px !important;'">
-              </button>
-            </template>
-          </template>
+        if (width < 640) {
+          groupSize = 2;
+        } else if (width < 768) {
+          groupSize = 4;
+        }
+
+        for (let i = 0; i < imgs.length; i += groupSize) {
+          const group = imgs.slice(i, i + groupSize);
+
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+
+          // 排版用容器
+          const grid = document.createElement('div');
+          grid.className =
+            groupSize === 8 ? 'grid grid-cols-4 gap-x-4 gap-y-8' :
+            groupSize === 4 ? 'grid grid-cols-2 gap-x-2 gap-y-3' :
+            'grid grid-cols-1 gap-y-4';
+
+          group.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'flex flex-col items-start';
+
+            const div = document.createElement('div');
+            div.className = 'w-full aspect-[26/15] md:aspect-[28/15] overflow-hidden mb-2 sm:mb-1.5 md:mb-3';
+            const img = document.createElement('img');
+            img.src = item.img;
+            img.alt = item.alt;
+            img.className = 'h-full transition-transform duration-300 hover:scale-110';
+            div.appendChild(img);
+
+            const caption = document.createElement('p');
+            caption.textContent = item.alt;
+            caption.className = 'text-left text-info-size text-caption font-noto-sans-tc';
+
+            card.appendChild(div);
+            card.appendChild(caption);
+            grid.appendChild(card);
+          });
+
+          slide.appendChild(grid);
+          wrapper.appendChild(slide);
+        }
+
+        const pagination = $refs.carousel.querySelector('.swiper-pagination');
+        // 初始化 Swiper 並使用 breakpoints
+        $nextTick(() => {
+          new Swiper(container, {
+            loop: true,
+            pagination: {
+              el: pagination,
+              clickable: true,
+            },
+            on: {
+              init: function() {
+                setTimeout(() => {
+                  const widthPx = window.innerWidth
+                  container.style.width = '100%';
+                  if (widthPx >= 768) {
+                    container.style.height = `clamp(230px, ${widthPx * 0.3}px, 377px)`;
+                  } else if(widthPx >= 640) {
+                    container.style.height = `clamp(370px, ${widthPx * 0.6}px, 423px)`;
+                  } else {
+                    container.style.height = `clamp(370px, ${widthPx * 1.12}px, 715px)`;
+                  }
+                }, 100); // 延遲100ms後再移除height
+              }
+            }
+          });
+        });
+      "
+        x-ref="carousel"
+        data-images='[
+          { "img": "assets/appointment_1.png", "alt": "紅葉季拍攝推薦" },
+          { "img": "assets/appointment_2.png", "alt": "紅葉季拍攝推薦" },
+          { "img": "assets/appointment_3.png", "alt": "紅葉季拍攝推薦" },
+          { "img": "assets/appointment_4.png", "alt": "紅葉季拍攝推薦" },
+          { "img": "assets/appointment_5.png", "alt": "紅葉季拍攝推薦" },
+          { "img": "assets/appointment_6.png", "alt": "紅葉季拍攝推薦" },
+          { "img": "assets/appointment_7.png", "alt": "紅葉季拍攝推薦" },
+          { "img": "assets/appointment_8.png", "alt": "紅葉季拍攝推薦" }
+        ]'
+        class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
+
+        <div class="swiper-container overflow-hidden w-auto aspect-[280/192]">
+          <div class="swiper-wrapper"></div>
         </div>
+        <div class="swiper-pagination !relative mt-2 sm:mt-0 md:hidden"></div>
       </div>
+
     </section>
 
     <!-- works -->
@@ -970,7 +1015,6 @@
         x-data
         x-init="
           const isMobile = window.innerWidth < 640;
-          console.log(isMobile);
           const imgs = JSON.parse($refs.carousel.dataset.images);
           const container = $refs.carousel.querySelector('.swiper-container');
           const wrapper = container.querySelector('.swiper-wrapper');
@@ -1174,217 +1218,6 @@
         }
       }
     }
-  }
-
-  function gridSlideCarousel(options = {}) {
-    return {
-      images: options.images || [],
-      currentPage: window.innerWidth >= 768 ? 0 : 1,
-      startX: 0,
-      endX: 0,
-      screenWidthReactive: window.innerWidth,
-
-      dots: options.dots ?? false,
-      arrows: options.arrows ?? false,
-      touchSwipe: options.touchSwipe ?? false,
-      pauseOnHover: options.pauseOnHover ?? false,
-      autoPlay: options.autoPlay ?? false,
-
-      // 外部可傳入的 columns 和 rows 預設值，用於圖片排版
-      defaultColumns: options.columns ?? null,
-      defaultRows: options.rows ?? 2,
-
-      swiper: null,
-      isFixingLoop: false,
-
-      get screenWidth() {
-        return this.screenWidthReactive;
-      },
-
-      get columns() {
-        if (this.defaultColumns !== null) {
-          if (typeof this.defaultColumns === "number") {
-            return this.defaultColumns; // 固定欄數
-          }
-          if (typeof this.defaultColumns === "object") {
-            if (this.screenWidth >= 768) return this.defaultColumns.desktop ?? 4;
-            else if (this.screenWidth >= 640) return this.defaultColumns.tablet ?? 2;
-            else return this.defaultColumns.mobile ?? 1;
-          }
-        }
-
-        // 預設行為（沒傳 columns）
-        if (this.screenWidth >= 768) return 4;
-        else if (this.screenWidth >= 640) return 2;
-        else return 1;
-      },
-
-      get rows() {
-        return this.defaultRows;
-      },
-
-      get itemsPerPage() {
-        return this.columns * this.rows;
-      },
-
-      get pagedImages() {
-        const realPages = [];
-        for (let i = 0; i < this.images.length; i += this.itemsPerPage) {
-          realPages.push(this.images.slice(i, i + this.itemsPerPage));
-        }
-
-        if (realPages.length === 0) return [];
-
-        const fakeFirst = realPages[0];
-        const fakeLast = realPages[realPages.length - 1];
-
-        return this.screenWidth >= 768 ? realPages : [fakeLast, ...realPages, fakeFirst];
-      },
-
-      get totalPages() {
-        return this.pagedImages.length;
-      },
-
-      get isTouchDevice() {
-        return (
-          'ontouchstart' in window ||          // 傳統判斷方式
-          navigator.maxTouchPoints > 0 ||      // 新式觸控裝置判斷（Windows觸控筆記型電腦等）
-          navigator.msMaxTouchPoints > 0       // 舊IE判斷
-        );
-      },
-
-      init(el) {
-        if (el) {
-          window.addEventListener("resize", () => {
-            const wrapper = this.$refs?.gridSwiperWrapper;
-            wrapper?.classList.add("no-transition");
-
-            this.screenWidthReactive = window.innerWidth;
-            this.currentPage = window.innerWidth >= 768 ? 0 : 1;
-
-            if (this.swiper) this.swiper.update();
-
-            setTimeout(() => {
-              const wrapper = this.$refs?.gridSwiperWrapper;
-              wrapper?.classList.remove("no-transition");
-            }, 50);
-          });
-
-          if (this.touchSwipe) {
-            if (!this.isTouchDevice) {
-              // 桌機用 Swiper
-              this.swiper = new Swiper(el.querySelector(".swiper-container"), {
-                slidesPerView: 1,
-                allowTouchMove: true,
-                resistanceRatio: 0,
-                loop: false,
-                speed: 500,
-              });
-
-              this.swiper.on('slideChangeTransitionEnd', () => {
-                this.fixLoopPage();
-              });
-
-              this.swiper.on('slideChange', () => {
-                this.currentPage = this.swiper.activeIndex;
-              });
-            } else {
-              // 手機用自己寫的 touch 滑動
-              el.addEventListener("touchstart", this.touchStart.bind(this));
-              el.addEventListener("touchend", this.touchEnd.bind(this));
-            }
-          }
-
-          setTimeout(() => {
-            const wrapper = this.$refs?.gridSwiperWrapper;
-            wrapper?.classList.remove("no-transition");
-          }, 50);
-
-          if (this.autoPlay && this.totalPages > 1) {
-            this.startAutoPlay();
-          }
-        }
-      },
-
-      goToPage(page) {
-        if (page < 0) page = 0;
-        else if (page >= this.pagedImages.length) page = this.pagedImages.length - 1;
-
-        if (this.swiper) {
-          this.swiper.slideTo(page);
-        } else {
-          this.currentPage = page;
-        }
-
-        setTimeout(() => this.fixLoopPage(), 300);
-      },
-
-      startAutoPlay() {
-        this.stopAutoPlay();
-        this.interval = setInterval(() => {
-          this.goToPage(this.currentPage + 1);
-        }, 3000);
-      },
-
-      stopAutoPlay() {
-        if (this.interval) {
-          clearInterval(this.interval);
-          this.interval = null;
-        }
-      },
-
-      touchStart(e) {
-        if (this.autoPlay) this.stopAutoPlay();
-        this.startX = e.touches[0].clientX;
-      },
-
-      touchEnd(e) {
-        this.endX = e.changedTouches[0].clientX;
-        const diff = this.endX - this.startX;
-
-        if (Math.abs(diff) > 30) {
-          if (diff > 0) this.goToPage(this.currentPage - 1);
-          else this.goToPage(this.currentPage + 1);
-        }
-
-        if (this.autoPlay) {
-          setTimeout(() => this.startAutoPlay(), 2000);
-        }
-      },
-
-      fixLoopPage() {
-        if (this.isFixingLoop) return;
-        this.isFixingLoop = true;
-
-        if (this.currentPage === 0) {
-          setTimeout(() => {
-            this.currentPage = this.totalPages - 2;
-            this.forceTranslate();
-            this.isFixingLoop = false;
-          }, 300);
-
-        } else if (this.currentPage === this.totalPages - 1) {
-          setTimeout(() => {
-            this.currentPage = 1;
-            this.forceTranslate();
-            this.isFixingLoop = false;
-          }, 300);
-        } else {
-          this.isFixingLoop = false;
-        }
-      },
-
-      forceTranslate() {
-        const wrapper = this.$refs?.gridSwiperWrapper;
-        const percent = -(this.currentPage * (100 / this.totalPages));
-        wrapper.classList.add('no-transition');
-        wrapper.style.transform = `translateX(${percent}%)`;
-
-        setTimeout(() => {
-          wrapper.classList.remove('no-transition');
-        }, 50);
-      }
-    };
   }
 
 </script>
