@@ -311,6 +311,7 @@
       </div>
     </section>
     </template>
+    <section id="appointment"></section>
 
     <!-- flow -->
     <section class="mx-auto max-w-[1440px] pb-[min(3.125rem,50px)] md:pb-25">
@@ -1648,7 +1649,6 @@
       document.querySelector('input[placeholder="聯絡人"]').value = "";
       document.querySelector('input[placeholder="聯繫電話"]').value = "";
       document.querySelector('input[placeholder="預約時間"]').value = "";
-
     } catch (err) {
       resultMsg.textContent = "送出失敗";
       resultMsg.classList.remove("hidden");
@@ -1665,9 +1665,13 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const template = document.getElementById("appointment-template");
-    const clone = template.content.cloneNode(true);
-    document.getElementById("appointment-clone").appendChild(clone);
-  });
+  const template = document.getElementById("appointment-template");
+
+  const clone1 = template.content.cloneNode(true);
+  const clone2 = template.content.cloneNode(true);
+
+  document.getElementById("appointment").appendChild(clone1);
+  document.getElementById("appointment-clone").appendChild(clone2);
+});
 </script>
 </html>
