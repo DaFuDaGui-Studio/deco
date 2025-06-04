@@ -64,9 +64,7 @@
       @apply !relative mt-[32px]
     }
 
-    .no-transition {
-      transition: none !important;
-    }
+    [x-cloak] { display: none; }
 
     @media screen and (min-width: 768px) {
       :root {
@@ -1171,6 +1169,61 @@
             </button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- faq -->
+    <section class="pt-[50px] md:pt-25">
+      <div class="relative">
+        <div class="absolute top-3 md:-top-5 -z-10 w-full">
+          <img src="./assets/banner_bg.png" class="w-full h-[108px] md:h-auto object-cover object-[25%_75%] md:object-center" />
+        </div>
+        <h3 class="custom-heading-en">FAQ</h3>
+        <h2 class="custom-heading-zh">常見問題</h2>
+      </div>
+      <div x-data="{
+        faqs: [
+          {
+            id: '01',
+            title: '請問要如何進行預約呢？',
+            answer: '請先與我們咨詢關於攝影方案的詳細內容，我們將會依據您的需求為您確認拍攝檔期。'
+          },
+          {
+            id: '02',
+            title: '我需要自備服裝嗎？',
+            answer: '我們提供超過8000款婚紗及和服款式，無需自備。'
+          },
+          {
+            id: '03',
+            title: '有哪些拍攝地點可以選？',
+            answer: '全日本25間 Studio，並協助合法拍攝許可。'
+          }
+        ]
+      }"
+      class="relative flex flex-col items-center max-w-[1440px] pt-[50px] md:pt-25 pb-[50px] md:pb-63.5 px-[35px] sm:px-[100px] md:px-35"
+      >
+        <template x-for="(item, index) in faqs" :key="item.id">
+          <div x-data="{ open: false }" class="w-full max-w-[600px] flex flex-col items-center mb-[20px]" :class="open ? 'mb-[50px]' : 'mb-[20px]'">
+            <button class="flex items-center gap-2" @click="open = !open">
+              <p class="custom-heading-info mt-0 font-noto-serif-tc font-bold" x-text="item.id"></p>
+              <p class="custom-heading-info mt-0 mx-[10px] sm:mx-[20px] md:mx-[28px]" x-text="item.title"></p>
+              <div class="w-[15px] sm:w-[20px] md:[26px]">
+                <img x-show="!open" x-cloak class="w-full h-auto" src="assets/icons/toggle_open.svg" alt="關閉狀態">
+                <img x-show="open" x-cloak class="w-full h-auto" src="assets/icons/toggle_close.svg" alt="開啟狀態">
+              </div>
+            </button>
+            <div 
+              class="w-full overflow-hidden custom-heading-info !text-left mt-[30px] bg-[#F4F4F4] text-[#4D403E] rounded-[10px] transition-[max-height] duration-300 ease-in-out"
+              :class="open ? 'max-h-96' : 'max-h-0'"
+            >
+              <div class="w-full px-[30px]" x-text="item.answer"></div>
+            </div>
+          </div>
+        </template>
+        <p class="hidden md:inline-block text-sm text-right font-noto-serif-tc tracking-[0.3rem] 
+          leading-[1.8] rotate-90 absolute right-35" style="transform-origin: top right; bottom: 50px;">
+          DE&Co.<br>Decollte Photography
+        </p>
       </div>
     </section>
 
