@@ -112,7 +112,7 @@
       }
 
       .custom-heading-info {
-        @apply font-noto-sans-tc font-light text-center leading-[160%] tracking-[0.2rem] text-[min(0.75rem,12px)] md:text-xl mt-[min(2.06rem,33px)] md:mt-7.5 whitespace-pre-line;
+        @apply font-noto-sans-tc font-light text-center leading-[160%] tracking-[0.2rem] text-[clamp(10px,3.1vw,17px)] sm:text-[clamp(14px,2vw,16px)] md:text-[clamp(14px,1.38vw,20px)] mt-[0px] sm:mt-[20px] md:mt-7.5 whitespace-pre-line;
       }
 
       .swiper-wrapper{ 
@@ -186,8 +186,8 @@
             alt="" />
         </template>
         <!-- scroll icon phone -->
-        <div class="flex sm:hidden items-center h-[min(0.875rem,14px)] absolute left-1/2 bottom-[0] transform -translate-x-1/2 translate-y-[-0.625rem] z-20 ">
-          <span class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[min(0.625rem,10px)] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
+        <div class="flex sm:hidden items-center h-[14px] absolute left-1/2 bottom-[0] transform -translate-x-1/2 translate-y-[-0.625rem] z-20 ">
+          <span class="leading-[130%] tracking-[0.2em] font-noto-sans-jp font-normal text-white text-[10px] drop-shadow-[0_0_0.3125rem_black]">SCROLL</span>
           <div x-data x-init="
             const anim = lottie.loadAnimation({
               container: $el,
@@ -201,26 +201,26 @@
         </div>
       </div>
       <div
-        class="flex flex-col items-center h-[min(8.5rem,136px)] sm:h-[min(23.5rem,375px)] bg-no-repeat bg-[25%_35%] sm:bg-[center_70%] bg-[length:800px] sm:bg-[length:100%]"
+        class="flex flex-col items-center h-[136px] sm:h-[375px] bg-no-repeat bg-[25%_35%] sm:bg-[center_70%] bg-[length:800px] sm:bg-[length:100%]"
         style="background-image: url('assets/banner_bg.png');">
         <!-- japanese title phone -->
-        <div class="block sm:hidden flex flex-col items-center flex-grow mt-[min(1.875rem,30px)]">
+        <div class="block sm:hidden flex flex-col items-center flex-grow mt-[30px]">
           <p
             class="font-cactus-classical-serif text-[clamp(20px,6.25vw,24px)] sm:text-[clamp(20px,3.2vw,24px)] text-center text-caption">
             「特別な瞬間」<br>を一生の思い出に
           </p>
         </div>
         <!-- japanese title -->
-        <p class="hidden sm:block font-cactus-classical-serif text-[clamp(24px,2.8vw,40px)] text-body sm:mt-[min(4.375rem,70px)]">
+        <p class="hidden sm:block font-cactus-classical-serif text-[clamp(24px,2.8vw,40px)] text-body sm:mt-[70px]">
           「特別な瞬間」を一生の思い出に
         </p>
         <p
-          class="font-cactus-classical-serif text-info-size text-body bottom-4 sm:static mt-[clamp(20px,6.25vw,24px)] sm:mt-[min(2.5rem,40px)]">
+          class="font-cactus-classical-serif text-info-size text-body bottom-4 sm:static mt-[clamp(20px,6.25vw,24px)] sm:mt-[40px]">
           將「特別的瞬間」變成一生的回憶
         </p>
         <!-- scroll icon -->
-        <div class="hidden sm:flex sm:mt-[min(3.125rem,50px)] items-center h-[min(1rem,16px)]">
-          <span class="leading-[130%] tracking-[0.2em] text-[min(0.75rem,12px)] font-noto-sans-jp font-normal">SCROLL</span>
+        <div class="hidden sm:flex sm:mt-[50px] items-center h-[16px]">
+          <span class="leading-[130%] tracking-[0.2em] text-[12px] font-noto-sans-jp font-normal">SCROLL</span>
           <div x-data x-init="
             const anim = lottie.loadAnimation({
               container: $el,
@@ -621,7 +621,7 @@
 
     <!-- appointment -->
     <section
-      class="mx-auto max-w-[1440px] py-[min(3.125rem,50px)] md:py-[min(6.25rem,100px)] px-[35px] sm:px-[100px] md:px-[140px]">
+      class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
       <h3 class="custom-heading-en md:!text-left">Appointment</h3>
       <h2 class="custom-heading-zh md:!text-left">提供多樣方案<br class="sm:hidden">預約諮詢</h2>
       <div
@@ -716,7 +716,7 @@
           { "img": "assets/appointment_7.png", "alt": "紅葉季拍攝推薦" },
           { "img": "assets/appointment_8.png", "alt": "紅葉季拍攝推薦" }
         ]'
-        class="relative mt-[min(1.875rem,30px)] md:mt-[min(3.125rem,50px)]">
+        class="relative mt-[30px] md:mt-[50px]">
 
         <div class="swiper-container overflow-hidden w-auto aspect-[280/192]">
           <div class="swiper-wrapper"></div>
@@ -836,7 +836,7 @@
 
     <!-- service -->
     <section
-      class="mx-auto max-w-[1440px] py-[min(3.125rem,50px)] md:py-[min(6.25rem,100px)] px-[35px] sm:px-[100px] md:px-[140px]">
+      class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
       <h3 class="custom-heading-en">Service</h3>
       <h2 class="custom-heading-zh">DE&Co.<br class="sm:hidden">服務特色</h2>
       <div x-data="{
@@ -874,7 +874,7 @@
             text: ['遠離人潮的隱世秘景', '全國25間Studio', '小眾城市也可輕鬆抵達拍攝']
           }
         ]}"
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-[min(1.875rem,30px)] md:mt-[min(4.68rem,75px)] md:gap-x-[1vw]">
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-[30px] md:mt-[75px] md:gap-x-[1vw]">
 
         <template x-for="(service, index) in services" :key="service.id">
           <div :class="[
@@ -886,9 +886,9 @@
           ]">
             <!-- 編號 + 垂直線 -->
             <div class="flex flex-col items-center"
-              :class="[index % 2 === 0 ? '-mr-1 sm:mr-2 md:mr-[0.5vw]' : 'sm:mr-2 md:mr-[0.5vw]',]">
+              :class="[index % 2 === 0 ? '-mr-1 sm:mr-0 md:mr-[0.5vw]' : 'sm:mr-0 md:mr-[0.5vw]',]">
               <div
-                class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-tc font-light text-[4vw] sm:text-[3vw] md:text-[min(1.5rem,20px)] tracking-[0.1em]"
+                class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-tc font-light text-[4vw] sm:text-[3vw] md:text-[20px] tracking-[0.1em]"
                 x-text="service.id"></div>
               <div
                 class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[clamp(75px,25vw,160px)] sm:h-[clamp(140px,22vw,170px)] md:h-[clamp(130px,17vw,200px)]">
@@ -1004,7 +1004,7 @@
     </section>
 
     <!-- dress -->
-    <section class="mx-auto max-w-[1440px] py-[min(3.125rem,50px)] md:py-[min(6.25rem,100px)] md:px-[85px]">
+    <section class="mx-auto max-w-[1440px] py-[50px] md:py-25 md:px-21.25">
       <h3 class="custom-heading-en">Dress & Kimono options</h3>
       <h2 class="custom-heading-zh">服裝選擇</h2>
       <p class="custom-heading-info">
@@ -1055,14 +1055,14 @@
           "assets/dress_4.png",
           "assets/dress_5.png"
         ]'
-        class="mt-[min(1.875rem,30px)] md:mt-[50px]"
+        class="mt-[30px] md:mt-12.5"
       >
         <div class="swiper-container overflow-hidden w-auto h-[125vw] sm:h-[clamp(333px,52.1vw,400px)] md:h-[clamp(340px,41.6vw,600px)]">
           <div class="swiper-wrapper h-full flex justify-between sm:max-width-[20%]"></div>
         </div>
       </div>
       <div class="sm:hidden flex justify-center mt-[20px]">
-        <span class="leading-[130%] tracking-[0.2em] font-noto-sans-tc font-light text-[min(0.625rem,10px)] ">SCROLL</span>
+        <span class="leading-[130%] tracking-[0.2em] font-noto-sans-tc font-light text-[10px] ">SCROLL</span>
         <div class=" h-[15px] w-[30px] ml-[0.3125rem] md:hidden">
           <div x-data x-init="
             const anim = lottie.loadAnimation({
@@ -1091,15 +1091,15 @@
     <section class="my-[3.125rem] md:my-[6.25rem]">
       <h3 class="custom-heading-en">Hair & Make up</h3>
       <h2 class="custom-heading-zh">妝髮造型</h2>
-      <p class="custom-heading-info">
+      <p class="custom-heading-info px-[30px] sm:px-[100px]">
         DE&Co.的化妝及髮型師皆為正式員工，
         並定期接受技術考核與專業培訓，致力於提供您最優質且多元的造型服務。
       </p>
-      <div class="flex flex-col md:flex-row my-[1.25rem] md:mt-[5.5rem] md:mb-[1.875rem]">
+      <div class="flex flex-col md:flex-row my-[1.25rem] sm:mt-[50px] md:mt-[5.5rem] md:mb-[1.875rem]">
         <img src="assets/hair_1.png" class="w-full md:w-1/2 object-cover" alt="">
         <img src="assets/hair_2.png" class="w-full md:w-1/2 object-cover" alt="">
       </div>
-      <p class="custom-heading-info">豐富多樣的髮飾選擇，讓您自由搭配，展現獨特風格。</p>
+      <p class="custom-heading-info px-[30px] sm:px[100px]">豐富多樣的髮飾選擇，讓您自由搭配，展現獨特風格。</p>
 
       <div class="w-full overflow-hidden">
         <div class="w-[53rem] md:w-[198.56rem] h-[12.5rem] md:h-[46.875rem] hair_swiper hairSwiper my-[1.875rem] md:my-25">
