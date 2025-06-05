@@ -1171,81 +1171,80 @@
     </section>
 
     <!-- plan -->
-    <section class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
+    <section class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[0] sm:px-[0] md:px-35">
       <h3 class="custom-heading-en">Photography Plan Introduction</h3>
-      <h2 class="custom-heading-zh">DE&Co.攝影方案介紹</h2>
-
-     <div x-data="{
-  plans: [
-    {
-      id: '01',
-      name: 'Standard Plan',
-      title: '妝髮<span class=\'text-[clamp(10px,1.38vw,20px)]\'>×</span>交通<span class=\'clamp(10px,1.38vw,20px)\'>×</span>翻譯<br>包套貼心服務',
-      items: [
-        { icon: 'assets/icons/plan_loacation.svg', text: '外景地1處' },
-        { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各1套' },
-        { icon: 'assets/icons/plan_time.svg', text: '服務時間6小時～' }
-      ],
-      image: 'assets/plan_1.png'
-    },
-    {
-      id: '02',
-      name: 'Luxury Plan',
-      title: '自選外景拍攝地點<br>在不同景色留下美好回憶',
-      items: [
-        { icon: 'assets/icons/plan_loacation.svg', text: '外景地2處' },
-        { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各2套' },
-        { icon: 'assets/icons/plan_time.svg', text: '服務時間9小時～' }
-      ],
-      image: 'assets/plan_2.png'
-    },
-    {
-      id: '03',
-      name: 'Premium Plan',
-      title: '在沒有人拍攝過的隱世密景<br>留下獨一無二的婚紗紀念',
-      items: [
-        { icon: 'assets/icons/plan_loacation.svg', text: '私人訂製外景地' },
-        { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各2套' },
-        { icon: 'assets/icons/plan_time.svg', text: '服務時間11小時～' }
-      ],
-      image: 'assets/plan_3.png'
-    }
-  ]
-}">
-  <template x-for="(plan, index) in plans" :key="plan.id">
-    <div class="mt-[106px] flex justify-between items-stretch"
-         :class="index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'">
-      <div class="w-[60.3%]">
-        <img :src="plan.image" class="h-full w-auto object-cover">
-      </div>
-      <div class="max-w-[600px] flex flex-col" :class="index % 2 === 0 ? 'items-start' : 'items-end'">
-        <div>
-          <span class="font-noto-serif-tc font-bold text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]" x-text="plan.id"></span>
-          <span class="font-monsieur-la-doulaise font-normal -ml-9 text-[3.75rem] leading-[74%] tracking-[0.125rem] text-[#8C8C8C]">plan.</span>
-        </div>
-
-        <div class="flex items-center mt-[4.86vw]" :class="index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'">
-          <span class="font-noto-serif-tc font-bold text-[#8C8C8C] text-body uppercase" x-text="plan.name"></span>
-          <hr class="w-[5.55vw] border-t border-[#8C8C8C] mt-[2px] mx-[10px]">
-        </div>
-
-        <p class="font-noto-serif-tc text-caption text-[clamp(16px,2vw,30px)] mt-[4.9vw]" x-html="plan.title"
-          :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
-
-        <div class="mt-[1.38vw] text-[clamp(10px,1.38vw,20px)] font-noto-sans-tc font-light tracking-[0.2rem] text-[#4D403E] flex flex-col gap-3"
-          :class="index % 2 === 0 ? 'items-start' : 'items-end'">
-          <template x-for="(item, i) in plan.items" :key="i">
-            <div class="flex items-center gap-4" :class="index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'">
-              <img :src="item.icon" alt="" class="w-[2.08vw] h-auto mt-1">
-              <p x-text="item.text" :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
+      <h2 class="custom-heading-zh">DE&Co.<br class="sm:hidden">攝影方案介紹</h2>
+      <div x-data="{
+        plans: [
+          {
+            id: '01',
+            name: 'Standard Plan',
+            title: '妝髮<span class=\'text-[clamp(10px,1.38vw,20px)]\'>×</span>交通<span class=\'clamp(10px,1.38vw,20px)\'>×</span>翻譯<br>包套貼心服務',
+            items: [
+              { icon: 'assets/icons/plan_loacation.svg', text: '外景地1處' },
+              { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各1套' },
+              { icon: 'assets/icons/plan_time.svg', text: '服務時間6小時～' }
+            ],
+            image: 'assets/plan_1.png'
+          },
+          {
+            id: '02',
+            name: 'Luxury Plan',
+            title: '自選外景拍攝地點<br>在不同景色留下美好回憶',
+            items: [
+              { icon: 'assets/icons/plan_loacation.svg', text: '外景地2處' },
+              { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各2套' },
+              { icon: 'assets/icons/plan_time.svg', text: '服務時間9小時～' }
+            ],
+            image: 'assets/plan_2.png'
+          },
+          {
+            id: '03',
+            name: 'Premium Plan',
+            title: '在沒有人拍攝過的隱世密景<br>留下獨一無二的婚紗紀念',
+            items: [
+              { icon: 'assets/icons/plan_loacation.svg', text: '私人訂製外景地' },
+              { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各2套' },
+              { icon: 'assets/icons/plan_time.svg', text: '服務時間11小時～' }
+            ],
+            image: 'assets/plan_3.png'
+          }
+        ]
+      }">
+        <template x-for="(plan, index) in plans" :key="plan.id">
+          <div class="mt-[50px] md:mt-[106px] flex gap-5 md:gap-0 justify-between items-center md:items-stretch flex-col-reverse"
+              :class="index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'">
+            <div class="h-[26vw] md:h-auto w-full md:w-[60.3%] overflow-hidden">
+              <img :src="plan.image" class="h-auto md:h-full w-full md:w-auto object-cover">
             </div>
-          </template>
-        </div>
-      </div>
-    </div>
-  </template>
-</div>
+            
+            <div class="max-w-[600px] flex flex-col items-center w-full md:w-[39.7%]" :class="index % 2 === 0 ? 'md:items-start' : 'md:items-end'">
+              <div>
+                <span class="font-noto-serif-tc font-bold text-[20px] sm:text-[30px] md:text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]" x-text="plan.id"></span>
+                <span class="font-monsieur-la-doulaise font-normal -ml-9 text-[20px] sm:text-[30px] text-[3.75rem] leading-[74%] tracking-[0.125rem] text-[#8C8C8C]">plan.</span>
+              </div>
 
+              <div class="flex items-center mt-[4.68vw] sm:mt-[1.9vw] md:mt-[4.86vw] text-[clamp(10px,2.08vw,16px)] md:text-[clamp(10px,1.38vw,20px)]" :class="index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'">
+                <span class="font-noto-serif-tc font-bold text-[#8C8C8C] text-body uppercase" x-text="plan.name"></span>
+                <hr class="hidden md:block w-[5.55vw] border-t border-[#8C8C8C] mt-[2px] mx-[10px]">
+              </div>
+
+              <p class="font-noto-serif-tc text-caption sm:leading-[180%] text-[clamp(16px,2.6vw,20px)] md:text-[clamp(16px,2vw,30px)] text-center mt-[4.68vw] sm:mt-[1.9vw] md:mt-[4.9vw]" x-html="plan.title"
+                :class="index % 2 === 0 ? 'md:text-left' : 'md:text-right'"></p>
+
+              <div class="mt-[6.25vw] sm:mt-[2.6vw] md:mt-[1.38vw] text-[clamp(10px,3.758vw,12px)] sm:text-[clamp(10px,2.08vw,16px)] md:text-[clamp(10px,1.38vw,20px)] font-noto-sans-tc font-light tracking-[0.2rem] text-[#4D403E] flex items-start flex-col gap-1 md:gap-3"
+                :class="index % 2 === 0 ? '' : 'md:items-end'">
+                <template x-for="(item, i) in plan.items" :key="i">
+                  <div class="flex items-center flex-row gap-2 sm:gap-3 md:gap-4" :class="index % 2 === 1 ? 'md:flex-row-reverse' : ''">
+                    <img :src="item.icon" alt="" class="w-[clamp(10px,3.758vw,12px)] sm:w-[clamp(10px,2.08vw,16px)] md:w-[clamp(10px,1.38vw,20px)] h-auto mt-1">
+                    <p x-text="item.text" :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
     </section>
 
     <!-- faq -->
@@ -1262,25 +1261,28 @@
           {
             id: '01',
             title: '請問要如何進行預約呢？',
-            answer: '請先與我們咨詢關於攝影方案的詳細內容，我們將會依據您的需求為您確認拍攝檔期。'
+            answer: '<br>請先與我們咨詢關於攝影方案的詳細內容，我們將會依據您的需求為您確認拍攝檔期。<br><br>'
           },
           {
             id: '02',
             title: '我需要自備服裝嗎？',
-            answer: '我們提供超過8000款婚紗及和服款式，無需自備。'
+            answer: '<br>我們提供超過8000款婚紗及和服款式，無需自備。<br><br>'
           },
           {
             id: '03',
             title: '有哪些拍攝地點可以選？',
-            answer: '全日本25間 Studio，並協助合法拍攝許可。'
+            answer: '<br>全日本25間 Studio，並協助合法拍攝許可。<br><br>'
           }
         ]
       }"
       class="relative flex flex-col items-center max-w-[1440px] pt-[50px] md:pt-25 pb-[50px] md:pb-63.5 px-[35px] sm:px-[100px] md:px-70"
       >
         <template x-for="(item, index) in faqs" :key="item.id">
-          <div x-data="{ open: false }" class="w-full max-w-[600px] flex flex-col items-center mb-[20px]" :class="open ? 'mb-[50px]' : 'mb-[20px]'">
-            <button class="flex items-center gap-2" @click="open = !open">
+          <div x-data="{ open: false, height: 0, whiteSpace:'normal'}" 
+            class="w-full max-w-[600px] flex flex-col items-center mb-[20px]" :class="open ? 'mb-[50px]' : 'mb-[20px]'">
+            <button class="flex items-center gap-2" 
+              @click="open = !open; height = open ? $refs.content.scrollHeight : 0;"
+            >
               <p class="custom-heading-info mt-0 font-noto-serif-tc font-bold" x-text="item.id"></p>
               <p class="custom-heading-info mt-0 mx-[10px] sm:mx-[20px] md:mx-[28px]" x-text="item.title"></p>
               <div class="w-[15px] sm:w-[20px] md:[26px]">
@@ -1288,11 +1290,11 @@
                 <img x-show="open" x-cloak class="w-full h-auto" src="assets/icons/toggle_close.svg" alt="開啟狀態">
               </div>
             </button>
-            <div 
-              class="w-full overflow-hidden custom-heading-info !text-left mt-[30px] bg-[#F4F4F4] text-[#4D403E] rounded-[10px] transition-[max-height] duration-300 ease-in-out"
-              :class="open ? 'max-h-96' : 'max-h-0'"
+            <div x-ref="content"
+              class="w-full overflow-hidden custom-heading-info whitespace-normal !text-left mt-[30px] bg-[#F4F4F4] text-[#4D403E] rounded-[10px] origin-top transition-all duration-300 ease-in-out"
+              :style="`height: ${height}px;`"
             >
-              <div class="w-full px-[30px]" x-text="item.answer"></div>
+              <div class="w-full px-[30px]" x-html="item.answer"></div>
             </div>
           </div>
         </template>
