@@ -285,7 +285,7 @@
                     <p class="tracking-[0.1rem] text-[clamp(20px,2.54vw,30px)] sm:text-[clamp(10px,3.91vw,20px)] md:text-[clamp(10px,1.92vw,18px)] font-[800] font-noto-serif-tc md:tracking-[0.3rem]">立即預約</p>
                     <img class="w-auto h-[1.5rem] sm:h-[0.9rem] md:h-[2rem] " src="./assets/icons/arrow-rignt-circle.svg" alt="icon">
                   </button>
-                  <p id="submitResult" class="hidden bg-[#4D403E] text-white rounded-lg px-6 py-1 sm:px-4 tracking-[0.2rem] text-[clamp(20px,2.54vw,30px)] sm:text-[clamp(10px,3.91vw,20px)] md:text-[clamp(10px,1.92vw,18px)] mt-3 sm:mt-0 sm:ml-3 md:mt-0 md:ml-6 font-[600] font-noto-serif-tc md:tracking-[0.3rem]">送出成功!</p>
+                  <p class="submitResult hidden bg-[#4D403E] text-white rounded-lg px-6 py-1 sm:px-4 tracking-[0.2rem] text-[clamp(20px,2.54vw,30px)] sm:text-[clamp(10px,3.91vw,20px)] md:text-[clamp(10px,1.92vw,18px)] mt-3 sm:mt-0 sm:ml-3 md:mt-0 md:ml-6 font-[600] font-noto-serif-tc md:tracking-[0.3rem]">送出成功!</p>
               </div>
                </div>
               <div
@@ -1491,11 +1491,12 @@
   async function submitToGoogleSheet(e) {
     e.preventDefault();
 
-    const name = document.querySelector('input[name="contantName"]').value.trim();
-    const phone = document.querySelector('input[name="contantPhone"]').value.trim();
-    const date = document.querySelector('input[name="date"]').value.trim();
+    const form = e.target;
+    const name = form.querySelector('input[name="contantName"]').value.trim();
+    const phone = form.querySelector('input[name="contantPhone"]').value.trim();
+    const date = form.querySelector('input[name="date"]').value.trim();
+    const resultMsg = form.querySelector(".submitResult");
 
-    const resultMsg = document.getElementById("submitResult");
     resultMsg.classList.add('hidden');
     resultMsg.textContent = "";
 
@@ -1523,18 +1524,17 @@
       await fetch("https://script.google.com/macros/s/AKfycbz24SVYxNuxSeAo-h8v7BUWdhYl3aITBAOnQZoHHlxIRNHTEqYSGWwOiTVa_zmiqGI2Ow/exec", {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
       resultMsg.textContent = "送出成功!";
       resultMsg.classList.remove("hidden");
 
-      document.querySelector('input[placeholder="聯絡人"]').value = "";
-      document.querySelector('input[placeholder="聯繫電話"]').value = "";
-      document.querySelector('input[placeholder="預約時間"]').value = "";
+      form.querySelector('input[name="contantName"]').value = "";
+      form.querySelector('input[name="contantPhone"]').value = "";
+      form.querySelector('input[name="date"]').value = "";
+
     } catch (err) {
       resultMsg.textContent = "送出失敗";
       resultMsg.classList.remove("hidden");
@@ -1542,22 +1542,23 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
-    if (form) {
-      form.addEventListener("submit", submitToGoogleSheet);
-    }
+    const template = document.getElementById("appointment-template");
+
+    const clone1 = template.content.cloneNode(true);
+    const clone2 = template.content.cloneNode(true);
+
+    const container1 = document.getElementById("appointment");
+    const container2 = document.getElementById("appointment-clone");
+
+    container1.appendChild(clone1);
+    container2.appendChild(clone2);
+
+    setTimeout(() => {
+      document.querySelectorAll("form").forEach((form) => {
+        form.addEventListener("submit", submitToGoogleSheet);
+      });
+    }, 0);
   });
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const template = document.getElementById("appointment-template");
-
-  const clone1 = template.content.cloneNode(true);
-  const clone2 = template.content.cloneNode(true);
-
-  document.getElementById("appointment").appendChild(clone1);
-  document.getElementById("appointment-clone").appendChild(clone2);
-});
-</script>
 </html>
