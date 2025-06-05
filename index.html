@@ -618,8 +618,7 @@
     </section>
 
     <!-- appointment -->
-    <section
-      class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
+    <section class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
       <h3 class="custom-heading-en md:!text-left">Appointment</h3>
       <h2 class="custom-heading-zh md:!text-left">提供多樣方案<br class="sm:hidden">預約諮詢</h2>
       <div
@@ -833,8 +832,7 @@
     </section>
 
     <!-- service -->
-    <section
-      class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
+    <section class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
       <h3 class="custom-heading-en">Service</h3>
       <h2 class="custom-heading-zh">DE&Co.<br class="sm:hidden">服務特色</h2>
       <div x-data="{
@@ -1170,6 +1168,82 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- plan -->
+    <section class="mx-auto max-w-[1440px] py-[50px] md:py-25 px-[35px] sm:px-[100px] md:px-35">
+      <h3 class="custom-heading-en">Photography Plan Introduction</h3>
+      <h2 class="custom-heading-zh">DE&Co.攝影方案介紹</h2>
+
+     <div x-data="{
+  plans: [
+    {
+      id: '01',
+      name: 'Standard Plan',
+      title: '妝髮<span class=\'text-[clamp(10px,1.38vw,20px)]\'>×</span>交通<span class=\'clamp(10px,1.38vw,20px)\'>×</span>翻譯<br>包套貼心服務',
+      items: [
+        { icon: 'assets/icons/plan_loacation.svg', text: '外景地1處' },
+        { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各1套' },
+        { icon: 'assets/icons/plan_time.svg', text: '服務時間6小時～' }
+      ],
+      image: 'assets/plan_1.png'
+    },
+    {
+      id: '02',
+      name: 'Luxury Plan',
+      title: '自選外景拍攝地點<br>在不同景色留下美好回憶',
+      items: [
+        { icon: 'assets/icons/plan_loacation.svg', text: '外景地2處' },
+        { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各2套' },
+        { icon: 'assets/icons/plan_time.svg', text: '服務時間9小時～' }
+      ],
+      image: 'assets/plan_2.png'
+    },
+    {
+      id: '03',
+      name: 'Premium Plan',
+      title: '在沒有人拍攝過的隱世密景<br>留下獨一無二的婚紗紀念',
+      items: [
+        { icon: 'assets/icons/plan_loacation.svg', text: '私人訂製外景地' },
+        { icon: 'assets/icons/plan_clothes.svg', text: '日式/西服 服裝各2套' },
+        { icon: 'assets/icons/plan_time.svg', text: '服務時間11小時～' }
+      ],
+      image: 'assets/plan_3.png'
+    }
+  ]
+}">
+  <template x-for="(plan, index) in plans" :key="plan.id">
+    <div class="mt-[106px] flex justify-between items-start"
+         :class="index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'">
+      <img :src="plan.image" class="w-[48.6vw]">
+      <div class="max-w-[600px] flex flex-col" :class="index % 2 === 0 ? 'items-start' : 'items-end'">
+        <div>
+          <span class="font-noto-serif-tc font-bold text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]" x-text="plan.id"></span>
+          <span class="font-monsieur-la-doulaise font-normal -ml-9 text-[3.75rem] leading-[74%] tracking-[0.125rem] text-[#8C8C8C]">plan.</span>
+        </div>
+
+        <div class="flex items-center mt-[4.86vw]" :class="index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'">
+          <span class="font-noto-serif-tc font-bold text-[#8C8C8C] text-body uppercase" x-text="plan.name"></span>
+          <hr class="w-[5.55vw] border-t border-[#8C8C8C] mt-[2px] mx-[10px]">
+        </div>
+
+        <p class="font-noto-serif-tc text-caption text-[clamp(16px,2vw,30px)] mt-[4.9vw]" x-html="plan.title"
+          :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
+
+        <div class="mt-[20px] text-[20px] font-noto-sans-tc font-light text-caption text-[#4D403E] flex flex-col gap-[0.1vw]"
+          :class="index % 2 === 0 ? 'items-start' : 'items-end'">
+          <template x-for="(item, i) in plan.items" :key="i">
+            <div class="flex items-center gap-4" :class="index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'">
+              <img :src="item.icon" alt="" class="w-[2.08vw] h-auto mt-1">
+              <p x-text="item.text" class="text-[clamp(10px,1.38vw,20px)]" :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+
     </section>
 
     <!-- faq -->
