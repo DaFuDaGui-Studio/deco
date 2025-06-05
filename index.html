@@ -895,7 +895,7 @@
             <div class="flex flex-col items-start" :class="index % 2 === 0 ? '' : '-mr-1 md:mr-0'">
               <div
                 class="aspect-[2/1] sm:aspect-square md:aspect-auto h-[clamp(100px,31.25vw,200px)] sm:h-[clamp(150px,27vw,200px)] md:h-[clamp(150px,20vw,300px)] overflow-hidden">
-                <img :src="service.img" :alt="service.alt" class="w-full h-auto" :style="
+                <img :src="service.img" :alt="service.alt" class="w-full h-auto sm:max-w-[26vw] md:max-w-[13.8vw]" :style="
                   window.innerWidth < 640
                     ? 'transform: translateY(' + service.translateY + ');'
                     : (window.innerWidth < 768
