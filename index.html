@@ -1213,9 +1213,11 @@
   ]
 }">
   <template x-for="(plan, index) in plans" :key="plan.id">
-    <div class="mt-[106px] flex justify-between items-start"
+    <div class="mt-[106px] flex justify-between items-stretch"
          :class="index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'">
-      <img :src="plan.image" class="w-[48.6vw]">
+      <div class="w-[60.3%]">
+        <img :src="plan.image" class="h-full w-auto object-cover">
+      </div>
       <div class="max-w-[600px] flex flex-col" :class="index % 2 === 0 ? 'items-start' : 'items-end'">
         <div>
           <span class="font-noto-serif-tc font-bold text-[3.75rem] leading-[92%] tracking-[0.125rem] mr-[1.25rem]" x-text="plan.id"></span>
@@ -1230,12 +1232,12 @@
         <p class="font-noto-serif-tc text-caption text-[clamp(16px,2vw,30px)] mt-[4.9vw]" x-html="plan.title"
           :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
 
-        <div class="mt-[20px] text-[20px] font-noto-sans-tc font-light text-caption text-[#4D403E] flex flex-col gap-[0.1vw]"
+        <div class="mt-[1.38vw] text-[clamp(10px,1.38vw,20px)] font-noto-sans-tc font-light tracking-[0.2rem] text-[#4D403E] flex flex-col gap-3"
           :class="index % 2 === 0 ? 'items-start' : 'items-end'">
           <template x-for="(item, i) in plan.items" :key="i">
             <div class="flex items-center gap-4" :class="index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'">
               <img :src="item.icon" alt="" class="w-[2.08vw] h-auto mt-1">
-              <p x-text="item.text" class="text-[clamp(10px,1.38vw,20px)]" :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
+              <p x-text="item.text" :class="index % 2 === 0 ? 'text-left' : 'text-right'"></p>
             </div>
           </template>
         </div>
