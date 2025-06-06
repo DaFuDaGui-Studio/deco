@@ -692,7 +692,7 @@
                   const widthPx = window.innerWidth
                   container.style.width = '100%';
                   if (widthPx >= 768) {
-                    container.style.height = `clamp(230px, ${widthPx * 0.3}px, 377px)`;
+                    container.style.height = '25.875rem';
                   } else if(widthPx >= 640) {
                     container.style.height = `clamp(370px, ${widthPx * 0.6}px, 423px)`;
                   } else {
@@ -1277,7 +1277,7 @@
           }
         ]
       }"
-      class="relative flex flex-col items-center max-w-[1440px] pt-[50px] md:pt-25 pb-[50px] md:pb-63.5 px-[35px] sm:px-[100px] md:px-70"
+      class="relative flex flex-col items-center mx-auto max-w-[1440px] pt-[50px] md:pt-25 pb-[50px] md:pb-63.5 px-[35px] sm:px-[100px] md:px-70"
       >
         <template x-for="(item, index) in faqs" :key="item.id">
           <div x-data="{ open: false, height: 0, whiteSpace:'normal'}" 
