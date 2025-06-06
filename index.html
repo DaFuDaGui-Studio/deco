@@ -513,18 +513,20 @@
       <div class="hidden md:block mx-auto max-w-[1440px] mt-20 px-35">
         <div class="grid grid-cols-5 gap-x-0.5 w-full">
           <template x-for="(customer, index) in customers" :key="`voc_${index}`">
-            <div class="flex flex-col items-center gap-y-5">
-              <img :src="customer.img" class="rounded-full w-37.5 h-37.5" />
-              <p class="flex gap-x-2.5 text-sm font-noto-sans-tc leading-[130%] tracking-[0.1em] text-center">
-                <span x-text="customer.name"></span>
-                <span x-text="customer.age"></span>
-              </p>
-              <p class="font-cactus-classical-serif text-center text-xl text-caption" x-html="customer.title"></p>
-              <p class="px-3 text-sm font-noto-sans-tc text-caption text-center" x-text="customer.content"></p>
-            </div>
-            <div class="flex items-end justify-center gap-x-2.5">
-              <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
-              <p class="font-noto-sans-tc leading-[130%] tracking-[0.2em] text-xs" x-text="customer.office"></p>
+            <div class="flex flex-col justify-between gap-y-5">
+              <div class="flex flex-col items-center gap-y-5">
+                <img :src="customer.img" class="rounded-full w-37.5 h-37.5" />
+                <p class="flex gap-x-2.5 text-sm font-noto-sans-tc leading-[130%] tracking-[0.1em] text-center">
+                  <span x-text="customer.name"></span>
+                  <span x-text="customer.age"></span>
+                </p>
+                <p class="font-cactus-classical-serif text-center text-xl text-caption" x-html="customer.title"></p>
+                <p class="px-3 text-sm font-noto-sans-tc text-caption text-center" x-text="customer.content"></p>
+              </div>
+              <div class="flex items-end justify-center gap-x-2.5">
+                <img src="./assets/icons/location.svg" class="w-3.75 h-5" />
+                <p class="font-noto-sans-tc leading-[130%] tracking-[0.2em] text-xs" x-text="customer.office"></p>
+              </div>
             </div>
           </template>
         </div>
@@ -1316,18 +1318,18 @@
             <h2 class="custom-heading-zh md:!text-left">香港工作室</h2>
             <h3 class="custom-heading-en mt-2.5 md:!text-left">Tsim Sha Tsui Office 香港</h3>
           </div>
-          <div class="flex flex-col gap-y-[min(1.875rem,30px)] md:gap-y-7.5">
-            <div class="mt-[min(1.875rem,30px)] md:mt-17.5 text-center md:text-left font-noto-serif-tc">
-              <p class="font-bold text-[min(0.875rem,14px)] md:text-xl leading-[130%] tracking-[0.2em]">Address</p>
-              <p class="mt-[min(0.625rem,10px)] mt-2.5 text-[min(0.875rem,14px)] md:text-xl font-light leading-[160%] tracking-[0.1em]">Tsim Sha Tsui Office 香港</p>
+          <div class="flex flex-col gap-y-[min(1.875rem,30px)] md:gap-y-7.5 mt-[min(1.875rem,30px)] md:mt-17.5">
+            <div class="text-center md:text-left text-[min(0.875rem,14px)] sm:text-[min(1rem,16px)] md:text-xl font-noto-serif-tc">
+              <p class="font-bold leading-[130%] tracking-[0.2em]">Address</p>
+              <p class="mt-[min(0.625rem,10px)] mt-2.5  font-light leading-[160%] tracking-[0.1em]">Tsim Sha Tsui Office 香港</p>
             </div>
-            <div class="text-center md:text-left font-noto-serif-tc">
-              <p class="font-bold text-[min(0.875rem,14px)] md:text-xl leading-[130%] tracking-[0.2em]">Opening Hours</p>
-              <p class="mt-[min(0.625rem,10px)] mt-2.5 text-[min(0.875rem,14px)] md:text-xl font-light leading-[160%] tracking-[0.1em]">需預約</p>
+            <div class="text-center md:text-left text-[min(0.875rem,14px)] sm:text-[min(1rem,16px)] md:text-xl font-noto-serif-tc">
+              <p class="font-bold leading-[130%] tracking-[0.2em]">Opening Hours</p>
+              <p class="mt-[min(0.625rem,10px)] mt-2.5 font-light leading-[160%] tracking-[0.1em]">需預約</p>
             </div>
-            <div class="text-center md:text-left font-noto-serif-tc">
-              <p class="font-bold text-[min(0.875rem,14px)] md:text-xl leading-[130%] tracking-[0.2em]">Shop Tel</p>
-              <p class="mt-[min(0.625rem,10px)] mt-2.5 text-[min(0.875rem,14px)] md:text-xl font-light leading-[160%] tracking-[0.1em]">+852 57444856</p>
+            <div class="text-center md:text-left text-[min(0.875rem,14px)] sm:text-[min(1rem,16px)] md:text-xl font-noto-serif-tc">
+              <p class="font-bold leading-[130%] tracking-[0.2em]">Shop Tel</p>
+              <p class="mt-[min(0.625rem,10px)] mt-2.5 font-light leading-[160%] tracking-[0.1em]">+852 57444856</p>
             </div>
           </div>
           <div class="flex justify-center md:justify-start mt-[min(1.875rem,30px)] md:mt-25">
@@ -1339,7 +1341,7 @@
           </div>
         </div>
 
-        <iframe class="w-full h-50 md:w-200 md:h-150" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.4013530896814!2d114.1721209!3d22.3006559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340401996c11e965%3A0xbabd1b38215fb03!2zRGVjb2xsdGUgUGhvdG9ncmFwaHkg5pel5pys5bCI5qWt5ama57SX5pSd5b2x!5e0!3m2!1szh-TW!2shk!4v1725267165308!5m2!1szh-TW!2shk"
+        <iframe class="w-full h-50 sm:h-[min(25rem,400px)] md:w-200 md:h-150" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.4013530896814!2d114.1721209!3d22.3006559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340401996c11e965%3A0xbabd1b38215fb03!2zRGVjb2xsdGUgUGhvdG9ncmFwaHkg5pel5pys5bCI5qWt5ama57SX5pSd5b2x!5e0!3m2!1szh-TW!2shk!4v1725267165308!5m2!1szh-TW!2shk"
           style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
