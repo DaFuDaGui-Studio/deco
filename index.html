@@ -421,7 +421,7 @@
         <div class="flex md:hidden">
           <!--HTML CODE-->
           <div class="w-full relative">
-            <div class="swiper default-carousel swiper-container">
+            <div class="swiper flow-carousel swiper-container">
               <div class="swiper-wrapper">
                 <template x-for="(item, index) in items" :key="index">
                   <div class="swiper-slide">
@@ -1354,21 +1354,6 @@
 
 </body>
 <script defer>
-
-  setTimeout(() => {
-    var swiper = new Swiper(".default-carousel", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  }, 100)
-
   function carousel() {
     return {
       images: [],
@@ -1391,17 +1376,15 @@
 </script>
 
 <script>
-  // var swiper = new Swiper(".default-carousel", {
-  //   loop: true,
-  //   pagination: {
-  //     el: ".swiper-pagination",
-  //     clickable: true,
-  //   },
-  //   navigation: {
-  //     nextEl: ".swiper-button-next",
-  //     prevEl: ".swiper-button-prev",
-  //   },
-  // });
+  setTimeout(() => {
+    const flowSwiper = new Swiper(".flow-carousel", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      }
+    });
+  }, 100)
 
   const hair_swiper = new Swiper(".hairSwiper", {
     resistanceRatio:0,
@@ -1460,7 +1443,7 @@
   }, 100);
 
   setTimeout(() => {
-    const voc_swiper = new Swiper(".voc-pad-swiper", {
+    const voc_pad_swiper = new Swiper(".voc-pad-swiper", {
       loop: true,
       pagination: {
         el: ".swiper-pagination",
