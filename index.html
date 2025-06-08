@@ -1377,13 +1377,15 @@
 
 <script>
   setTimeout(() => {
-    const flowSwiper = new Swiper(".flow-carousel", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      }
-    });
+    const flowContainer = document.querySelector(".flow-carousel")
+    const flowSwiper = new Swiper(flowContainer,
+      {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        }
+      });
   }, 100)
 
   const hair_swiper = new Swiper(".hairSwiper", {
