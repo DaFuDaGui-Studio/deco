@@ -420,8 +420,20 @@
         <!-- mobile -->
         <div class="flex md:hidden">
           <!--HTML CODE-->
-          <div class="w-full relative">
-            <div class="swiper flow-carousel swiper-container">
+          <div class="w-full relative"
+              x-data
+              x-init="$nextTick(() => {
+                const container = $root.querySelector('.swiper-container')
+                const swiper = new Swiper(container,
+                  {
+                    loop: true,
+                    pagination: {
+                      el: '.swiper-pagination',
+                      clickable: true,
+                    }
+                  });
+              })">
+            <div class="swiper swiper-container">
               <div class="swiper-wrapper">
                 <template x-for="(item, index) in items" :key="index">
                   <div class="swiper-slide">
@@ -534,8 +546,20 @@
 
       <!-- pad -->
       <div class="hidden sm:block md:hidden px-[min(6.25rem,100px)] mt-[min(5rem,80px)]">
-        <div class="w-full relative">
-          <div class="swiper voc-pad-swiper swiper-container">
+        <div class="w-full relative"
+            x-data
+            x-init="$nextTick(() => {
+              const container = $root.querySelector('.swiper-container')
+              const swiper = new Swiper(container,
+                {
+                  loop: true,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  }
+                });
+            })">
+          <div class="swiper swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="grid grid-cols-3 gap-x-[min(1.8125rem,29px)]">
@@ -588,8 +612,20 @@
 
       <!-- mobile -->
       <div class="sm:hidden mt-[58px]">
-        <div class="w-full relative">
-          <div class="swiper voc-mobile-swiper swiper-container">
+        <div class="w-full relative"
+            x-data
+            x-init="$nextTick(() => {
+              const container = $root.querySelector('.swiper-container')
+              const swiper = new Swiper(container,
+                {
+                  loop: true,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  }
+                });
+            })">
+          <div class="swiper swiper-container">
             <div class="swiper-wrapper">
               <!--items-->
               <template x-for="(customer, index) in customers" :key="`voc-${index}`">
@@ -1376,18 +1412,6 @@
 </script>
 
 <script>
-  setTimeout(() => {
-    const flowContainer = document.querySelector(".flow-carousel")
-    const flowSwiper = new Swiper(flowContainer,
-      {
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        }
-      });
-  }, 100)
-
   const hair_swiper = new Swiper(".hairSwiper", {
     resistanceRatio:0,
     loop: true,
@@ -1430,29 +1454,6 @@
     },
   });
 
-</script>
-
-<!-- voc swiper -->
-<script> 
-  setTimeout(() => {
-    const voc_swiper = new Swiper(".voc-mobile-swiper", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      }
-    })
-  }, 100);
-
-  setTimeout(() => {
-    const voc_pad_swiper = new Swiper(".voc-pad-swiper", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      }
-    })
-  }, 100);
 </script>
 
 <!-- mobile works gallery -->
