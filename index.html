@@ -281,9 +281,10 @@
                 <div
                   class="order-4 md:order-5 flex justify-center col-span-2 sm:col-span-1 sm:justify-start sm:pl-[70px] md:pl-0 md:col-span-1 md:justify-start sm:w-60 md:w-[28.625rem] mt-[3.125rem] sm:mt-[2rem] md:mt-[4.375rem]">
                    <div class="flex flex-col sm:flex-row md:flex-row items-center md:gap-x-2">
-                  <button type="submit" class="flex items-center gap-x-3 sm:gap-x-1 md:gap-x-2 cursor-pointer hover:opacity-80 transition duration-200">
+                  <button type="submit" class="flex items-center gap-x-3 sm:gap-x-1 md:gap-x-2 cursor-pointer transition duration-200 group">
                     <p class="tracking-[0.1rem] text-[clamp(20px,2.54vw,30px)] sm:text-[clamp(10px,3.91vw,20px)] md:text-[clamp(10px,1.92vw,18px)] font-[800] font-noto-serif-tc md:tracking-[0.3rem]">立即預約</p>
-                    <img class="w-auto h-[1.5rem] sm:h-[0.9rem] md:h-[2rem] " src="./assets/icons/arrow-rignt-circle.svg" alt="icon">
+                    <img class="w-auto h-[1.5rem] sm:h-[0.9rem] md:h-[2rem] group-hover:hidden" src="./assets/icons/arrow-rignt-circle.svg">
+                    <img class="w-auto h-[1.5rem] sm:h-[0.9rem] md:h-[2rem] hidden group-hover:inline-block " src="./assets/icons/arrow-rignt-circle-hover.svg" >
                   </button>
                   <p class="submitResult hidden bg-[#4D403E] text-white rounded-lg px-6 py-1 sm:px-4 tracking-[0.2rem] text-[clamp(20px,2.54vw,30px)] sm:text-[clamp(10px,3.91vw,20px)] md:text-[clamp(10px,1.92vw,18px)] mt-3 sm:mt-0 sm:ml-3 md:mt-0 md:ml-6 font-[600] font-noto-serif-tc md:tracking-[0.3rem]">送出成功!</p>
               </div>
@@ -1165,45 +1166,62 @@
     </section>
 
     <!-- album -->
-    <section class="my-25">
-      <div class="mt-[3.125rem] mb-[1.875rem] md:ml-[10%] md:my-25">
-        <h3 class="custom-heading-en md:!text-left">Album</h3>
-        <h2 class="custom-heading-zh md:!text-left">相冊款式</h2>
-      </div>
-      <!--HTML CODE -->
-      <div class="w-full relative overflow-hidden">
-        <div class="album_swiper album_multiple-slide-carousel swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="flex justify-center items-center">
-                <img src="assets/album_1.png" class="h-[31.25rem] w-[31.25rem] object-cover" />
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="flex justify-center items-center">
-                <img src="assets/album_2.png" class="h-[31.25rem] w-[31.25rem]" />
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="flex justify-center items-center">
-                <img src="assets/album_3.png" class="h-[31.25rem] w-[31.25rem]" />
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="flex justify-center items-center">
-                <img src="assets/album_4.png" class="h-[31.25rem] w-[31.25rem]" />
-              </div>
-            </div>
+    <section class="mx-auto max-w-[1440px]">
+      <div class="my-10 w-full md:grid md:grid-cols-10">
+        <div class="md:col-span-3 flex flex-col justify-between">
+          <div class="mb-[1.875rem] md:ml-[30%]">
+            <h3 class="custom-heading-en sm:text-center md:!text-left">Album</h3>
+            <h2 class="custom-heading-zh sm:text-center md:!text-left">相冊款式</h2>
+            <p class="block md:hidden custom-heading-info mt-5 sm:mt-8 md:mt-10 md:text-left mt-4 leading-[1.8]">我們提供各式精緻相冊，珍藏您的美好時光。</p>
+            <p class="hidden md:block custom-heading-info tracking-[0.2rem] text-[clamp(10px,3vw,13px)] mt-5 sm:mt-8 md:mt-10 md:text-left mt-4 leading-[1.8]">我們提供各式精緻相冊，<br>珍藏您的美好時光。</p>
+            
           </div>
-
-          <div class="absolute items-center m-auto left-0 right-0 w-fit bottom-12">
-            <button  class="swiper-button-prev group !p-2 flex justify-center items-center  !w-12 !h-12 transition-all duration-500 rounded-full !-translate-x-16" data-carousel-prev>
-              <span class="">PREV</span>
+        
+          <!-- desktop Butoon Control-->
+          <div class="hidden md:flex justify-center gap-x-6 font-noto-sans-tc font-normal ml-7">
+            <button class="group album-swiper-button-prev flex items-center text-xl leading-[130%] tracking-[0.125rem]">
+               <img src="./assets/icons/arrow-rignt-circle.svg"
+                  class="size-4 transform scale-x-[-1] mr-[8px] group-hover:hidden" />
+               <img src="./assets/icons/arrow-rignt-circle-hover.svg"
+                  class="size-4 transform scale-x-[-1] mr-[8px] hidden group-hover:inline-block" />
+              <p class="transform scale-x-[1]" >PREV</p>
             </button>
-            <button class="swiper-button-next group !p-2 flex justify-center items-center !w-12 !h-12 transition-all duration-500 rounded-full !translate-x-16" data-carousel-next>
-              <span class="">NEXT</span>
+            <button class="group album-swiper-button-next flex items-center text-xl leading-[130%] tracking-[0.125rem]">
+              <p class="transform scale-x-[1] mr-2">NEXT</p>
+               <img src="./assets/icons/arrow-rignt-circle.svg"
+                  class="size-4 transform mr-[8px] group-hover:hidden" />
+               <img src="./assets/icons/arrow-rignt-circle-hover.svg"
+                  class="size-4 transform mr-[8px] hidden group-hover:inline-block" />
             </button>
           </div>
+        </div>
+        <div class="md:col-span-7 overflow-hidden">
+          <div class="album_swiper album_multiple-slide-carousel swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="flex justify-center items-center">
+                  <img src="assets/album_1.png" class="w-full max-w-[100%] h-auto object-cover object-cover" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex justify-center items-center">
+                  <img src="assets/album_2.png" class="w-full max-w-[100%] h-auto object-cover" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex justify-center items-center">
+                  <img src="assets/album_3.png" class="w-full max-w-[100%] h-auto object-cover" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex justify-center items-center">
+                  <img src="assets/album_4.png" class="w-full max-w-[100%] h-auto object-cover" />
+                </div>
+              </div>
+            </div>
+            <div class="album-swiper-pagination w-full flex justify-center mt-5  md:hidden h-[10px]"></div>
+          </div>
+        </div>
         </div>
       </div>
     </section>
@@ -1427,16 +1445,23 @@
 
   var album_swiper = new Swiper(".album_multiple-slide-carousel", {
     loop: true,
-    slidesPerView: 1,
+    slidesPerView: 2,
     spaceBetween: 10,
+    pagination: {
+    el: ".album-swiper-pagination",
+    clickable: true,
+    },
     navigation: {
-      nextEl: ".album_multiple-slide-carousel .swiper-button-next",
-      prevEl: ".album_multiple-slide-carousel .swiper-button-prev",
+      nextEl: ".album-swiper-button-next",
+      prevEl: ".album-swiper-button-prev",
     },
     breakpoints: {
       768: {
           slidesPerView: 2,
-          spaceBetween: 10
+          spaceBetween: 10,
+          pagination: {
+        el: null, // 768以上不使用點點
+      }
       }
     }
   });
