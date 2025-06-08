@@ -728,11 +728,11 @@
                   const widthPx = window.innerWidth
                   container.style.width = '100%';
                   if (widthPx >= 768) {
-                    container.style.height = '25.875rem';
+                    container.style.height = '27rem';
                   } else if(widthPx >= 640) {
                     container.style.height = `clamp(370px, ${widthPx * 0.6}px, 423px)`;
                   } else {
-                    container.style.height = `clamp(370px, ${widthPx * 1.12}px, 715px)`;
+                    container.style.height = `clamp(390px, ${widthPx * 1.22}px, 800px)`;
                   }
                 }, 100); // 延遲100ms後再移除height
               }
@@ -919,10 +919,10 @@
             index >= 2 ? 'sm:mt-5' : 'sm:mt-0',
           ]">
             <!-- 編號 + 垂直線 -->
-            <div class="flex flex-col items-center"
-              :class="[index % 2 === 0 ? '-mr-1 sm:mr-0 md:mr-[0.5vw]' : 'sm:mr-0 md:mr-[0.5vw]',]">
+            <div class="flex flex-col items-center sm:mr-0"
+              :class="[index % 2 === 0 ? '-mr-1' : '',]">
               <div
-                class="w-10 sm:w-5 md:w-10 -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-tc font-light text-[4vw] sm:text-[3vw] md:text-[20px] tracking-[0.1em]"
+                class="w-10 sm:w-[6.25vw] md:w-[4.75vw] -mt-[1vw] sm:-mt-1.3 md:-mt-[0.5vw] flex items-center justify-center font-noto-serif-tc font-light text-[4vw] sm:text-[3vw] md:text-[20px] tracking-[0.1em]"
                 x-text="service.id"></div>
               <div
                 class="w-[0.5px] md:w-[0.01vw] bg-black mt-1 md:mt-2 h-[clamp(75px,25vw,160px)] sm:h-[clamp(140px,22vw,170px)] md:h-[clamp(130px,17vw,200px)]">
@@ -1115,7 +1115,7 @@
           </div>
         </div>
       </div>
-      <p class="custom-heading-info !text-left sm:!text-right sm:border-l-[1.5px] sm:mt-[50px] mx-[35px] sm:mx-[100px] md:mx-0">和服、禮服，一次滿足
+      <p class="custom-heading-info !text-left sm:!text-right sm:border-l-[1.5px] sm:mt-[50px] mx-[35px] sm:mx-[100px] md:mx-0"><br class="sm:hidden">和服、禮服，一次滿足
         推薦擁有眾多服裝可供選擇的攝影棚
         親身體驗各式精緻服裝，感受服裝的質感與魅力
       </p>
