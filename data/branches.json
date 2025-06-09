@@ -183,6 +183,14 @@
       "img_1": "./assets/branches/sapporo_1.jpg",
       "img_2": "./assets/branches/sapporo_2.png",
       "description": "鬱金香、薰衣草 搭配不同季節的北海道風景拍攝婚紗照"
+    },
+    {
+      "name": "沖繩 宮古島店",
+      "branch": "沖繩 宮古島店",
+      "key": "miyako_jima",
+      "img_1": "./assets/branches/miyako_jima_1.png",
+      "img_2": "./assets/branches/miyako_jima_2.png",
+      "description": "在宮古島盡情享受湛藍海水的洗禮，感受大自然的純淨魅力。"
     }
   ]
 }
