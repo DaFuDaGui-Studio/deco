@@ -1131,8 +1131,10 @@
         並定期接受技術考核與專業培訓，致力於提供您最優質且多元的造型服務。
       </p>
       <div class="flex flex-col md:flex-row my-[1.25rem] sm:mt-[50px] md:mt-[5.5rem] md:mb-[1.875rem]">
-        <img src="assets/hair_1.png" class="w-full md:w-1/2 object-cover" alt="">
-        <img src="assets/hair_2.png" class="w-full md:w-1/2 object-cover" alt="">
+        <img src="assets/hair_md.png" class="hidden md:block w-full h-auth object-cover" alt="" />
+        <img src="assets/hair_pd.png" class="hidden sm:block md:!hidden w-full h-auth object-cover" alt="" />
+        <img src="assets/hair_1.png" class="w-full sm:hidden object-cover" alt="">
+        <img src="assets/hair_2.png" class="w-full sm:hidden object-cover" alt="">
       </div>
       <p class="custom-heading-info px-[30px] sm:px[100px]">豐富多樣的髮飾選擇，讓您自由搭配，展現獨特風格。</p>
 
@@ -1502,7 +1504,7 @@
       const active = document.querySelector('.works-carousel .swiper-slide-active')
       const pagy = active ? active.dataset.pagy : "1"
       const current = Number(pagy)
-      const total = 23
+      const total = 24
       const prev = current == 1 ? total : current - 1
       const next = current == total ? 1 : current + 1
 
