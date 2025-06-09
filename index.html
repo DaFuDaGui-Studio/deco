@@ -265,8 +265,8 @@
                 </div>
                 <div class="order-3 col-span-2 sm:col-span-1 md:col-span-1 mt-[3.125rem] sm:mt-[2rem] md:mt-[4.375rem]">
                   <div class="md:w-[15.625rem] pl-[70px] pr-[70px] sm:pr-0 md:pl-0 md:pr-0">
-                    <div x-data x-init=" flatpickr($refs.dateInput, { enableTime: true, noCalendar: false, dateFormat: 'Y-m-d H:i', 
-                    minDate: 'today', minTime: '10:00', maxTime:'19:00', time_24hr: true, minuteIncrement: 60, onReady: (selectedDates, dateStr, instance) => {instance._input.placeholder = '預約時間';}});">
+                   <div x-data x-init="flatpickr($refs.dateInput, {enableTime: true, noCalendar: false, dateFormat: 'Y-m-d H:i', minDate: 'today', minTime: '10:00', maxTime: '19:00', 
+                    time_24hr: true, minuteIncrement: 60, defaultHour: 10, defaultMinute: 0, onReady: function(selectedDates, dateStr, instance) { setTimeout(() => { instance._input.placeholder = '預約時間';}, 0);}});">
                       <div class="flex flex-row">
                         <input type="text" name="date" x-ref="dateInput" placeholder="預約時間" class="w-full text-[clamp(10px,3.08vw,15px)]  
                         tracking-[0.1rem] md:tracking-[0.2rem] font-[800] font-noto-serif-tc font-[500] 
@@ -1166,7 +1166,7 @@
     </section>
 
     <!-- album -->
-    <section class="mx-auto max-w-[1440px]">
+    <section class="mx-auto max-w-[1440px] pt-[50px] md:pt-25">
       <div class="my-10 w-full md:grid md:grid-cols-10">
         <div class="md:col-span-3 flex flex-col justify-between">
           <div class="mb-[1.875rem] md:ml-[30%]">
