@@ -450,7 +450,7 @@
                         <p class="text-center text-[min(0.75rem,12px)] sm:text-[min(1rem,16px)] font-noto-sans-tc font-light leading-[160%] tracking-[0.125rem]"
                           x-text="item.desc"></p>
                       </div>
-                      <img :src="item.image" class="w-full h-25 sm:h-[min(12.5rem,200px)] object-cover" alt="">
+                      <img :src="item.image" class="w-full h-25 sm:h-[min(12.5rem,200px)] object-cover object-top" :class="{'!object-center': item.step == '05' || item.step == '06'}" alt="">
                     </div>
                   </div>
                 </template>
