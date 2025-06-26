@@ -36,16 +36,16 @@
       "name": "Yokohama Minatomirai 橫濱未來港店",
       "branch": "橫濱未來港店",
       "key": "minatomirai",
-      "img_1": "./assets/branches/minatomirai_1.jpg",
-      "img_2": "./assets/branches/minatomirai_2.png",
+      "img_1": "./assets/branches/yokohama_minatomirai_1.png",
+      "img_2": "./assets/branches/yokohama_minatomirai_2.png",
       "description": "在日夜皆宜的橫濱未來港拍攝浪漫的婚紗照"
     },
     {
       "name": "Yokohama Ekimae 橫濱站前店",
       "branch": "橫濱站前店",
       "key": "ekimae",
-      "img_1": "./assets/branches/ekimae_1.png",
-      "img_2": "./assets/branches/ekimae_2.png",
+      "img_1": "./assets/branches/yokohama_ekimae_1.png",
+      "img_2": "./assets/branches/yokohama_ekimae_2.png",
       "description": "在日本的約會聖地，以西洋建築、歐式街道為背景，拍攝出不一樣的婚紗照。"
     },
     {
