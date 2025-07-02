@@ -1444,11 +1444,12 @@
 <script>
   const hair_swiper = new Swiper(".hairSwiper", {
     resistanceRatio:0,
-    loop: true,
+    loop: false,
     slidesPerView: 'auto',       // 根據內容自動調整
     spaceBetween: 0,
     speed: 30000,                 // 整個滑動動畫時間
     freeMode: true,              // 啟用自由模式（非強制一頁）
+    freeModeMomentum: false,
     autoplay: {
       delay: 0,                  // 沒有間隔時間
       disableOnInteraction: false,
@@ -1476,12 +1477,13 @@
   });
 
   var style_swiper = new Swiper(".vertical-slide-carousel", {
-    loop: true,
+    loop: false,
     direction: 'vertical',
     slidesPerView: 'auto',       // 根據內容自動調整
     spaceBetween: 0,
     speed: 30000,                 // 整個滑動動畫時間
     freeMode: true,              // 啟用自由模式（非強制一頁）
+    freeModeMomentum: false,
     autoplay: {
       delay: 0,                  // 沒有間隔時間
       disableOnInteraction: false,
