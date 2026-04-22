@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST WEB SHARE</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Alpine -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+  <main x-data="{
+    shareData: {
+      title: 'TEST WEB SHARE',
+      text: 'This is a test for Web Share API.',
+      url: 'window.location.href'
+    },
+    share() {
+      if (navigator.share) {
+        navigator.share(this.shareData)
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing', error));
+      } else {
+        alert('Web Share API is not supported in your browser.');
+      }
+    }
+  }">
+    <button @click="share">Instagram</button>
+    <button @click="share">Facebook</button>
+    <button @click="share">Threads</button>
+  </main>
+</body>
+</html>
