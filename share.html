@@ -28,19 +28,40 @@
       text: 'This is a test for Web Share API.',
       url: 'window.location.href'
     },
-    share() {
-      if (navigator.share) {
-        navigator.share(this.shareData)
-          .then(() => console.log('Successful share'))
-          .catch((error) => console.log('Error sharing', error));
-      } else {
-        alert('Web Share API is not supported in your browser.');
-      }
+    shareInstagram() {
+      const url = window.location.href
+
+      // 1. 複製連結
+      navigator.clipboard.writeText(url).then(() => {
+        // 2. 嘗試開啟 IG App (若有安裝)
+        // 使用 iframe 避免錯誤訊息
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = 'instagram://';
+        document.body.appendChild(iframe);
+        // 3. 退路：若沒裝 App 則開網頁版
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          window.open('https://www.instagram.com/direct/inbox/', '_blank');
+        }, 500);
+      });
+    },
+    shareThreads() {
+      const content = `這是我在網站上看到的超酷內容！\n ${window.location.href}`;
+      const threadsUrl = `https://www.threads.net/intent/post?text=${encodeURIComponent(content)}`;
+      window.open(threadsUrl, '_blank');
+    },
+    shareFB() {
+      const shareUrl = window.location.href;
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+
+      // 開啟小視窗
+      window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
     }
   }">
-    <button @click="share">Instagram</button>
-    <button @click="share">Facebook</button>
-    <button @click="share">Threads</button>
+    <button @click="shareInstagram">Instagram</button>
+    <button @click="shareFB ">Facebook</button>
+    <button @click="shareThreads">Threads</button>
   </main>
 </body>
 </html>
