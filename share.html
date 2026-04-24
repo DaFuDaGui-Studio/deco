@@ -65,7 +65,10 @@
     },
     shareWeb() {
       if (navigator.share) {
-        navigator.share(this.shareData)
+        navigator.share({
+          ...this.shareData,
+          url: window.location.href
+        })
           .then(() => console.log('分享成功'))
           .catch((error) => console.log('分享失敗', error));
       } else {
