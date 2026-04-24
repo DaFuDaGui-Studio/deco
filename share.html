@@ -58,6 +58,11 @@
       // 開啟小視窗
       window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
     },
+    shareLine() {
+      const shareUrl = window.location.href;
+      const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl)}`;
+      window.open(lineUrl, '_blank');
+    },
     shareWeb() {
       if (navigator.share) {
         navigator.share(this.shareData)
@@ -70,6 +75,7 @@
   }">
     <button @click="shareInstagram">Instagram</button>
     <button @click="shareFB ">Facebook</button>
+    <button @click="shareLine">LINE</button>
     <button @click="shareThreads">Threads</button>
     <button @click="shareWeb">Web Share API (行動端)</button>
   </main>
