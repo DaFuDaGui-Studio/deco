@@ -63,6 +63,14 @@
       const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl)}`;
       window.open(lineUrl, '_blank');
     },
+    shareLineText() {
+      const shareContent = '嘿！推薦這個給你：\nhttps://example.com';
+      // 注意：LINE 的 text 參數必須經過完整的 URL 編碼
+      const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(shareContent)}`;
+
+      // 執行跳轉
+      window.open(lineUrl, '_blank');
+    },
     shareWeb() {
       if (navigator.share) {
         navigator.share({
@@ -79,6 +87,7 @@
     <button @click="shareInstagram">Instagram</button>
     <button @click="shareFB ">Facebook</button>
     <button @click="shareLine">LINE</button>
+    <button @click="shareLineText">LINE (text)</button>
     <button @click="shareThreads">Threads</button>
     <button @click="shareWeb">Web Share API (行動端)</button>
   </main>
