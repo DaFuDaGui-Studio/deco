@@ -71,25 +71,45 @@
       // 執行跳轉
       window.open(lineUrl, '_blank');
     },
-    shareWeb() {
-      if (navigator.share) {
-        navigator.share({
-          ...this.shareData,
-          url: window.location.href
-        })
-          .then(() => console.log('分享成功'))
-          .catch((error) => console.log('分享失敗', error));
-      } else {
+    async shareWeb() {
+      if (!navigator.share) {
         alert('您的瀏覽器不支援 Web Share API');
+        return;
+      }
+
+      try {
+        const res = await fetch('./assets/opanchu.png');
+        const blob = await res.blob();
+        const file = new File([blob], 'opanchu.png', { type: blob.type });
+
+        const sharePayload = {
+          ...this.shareData,
+          url: window.location.href,
+        };
+
+        // 若支援檔案分享則附上圖片
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          sharePayload.files = [file];
+        }
+
+        await navigator.share(sharePayload);
+        console.log('分享成功');
+      } catch (error) {
+        console.log('分享失敗', error);
       }
     }
   }">
-    <button @click="shareInstagram">Instagram</button>
-    <button @click="shareFB ">Facebook</button>
-    <button @click="shareLine">LINE</button>
-    <button @click="shareLineText">LINE (text)</button>
-    <button @click="shareThreads">Threads</button>
-    <button @click="shareWeb">Web Share API (行動端)</button>
+    <div>
+      <button @click="shareInstagram">Instagram</button>
+      <button @click="shareFB ">Facebook</button>
+      <button @click="shareLine">LINE</button>
+      <button @click="shareLineText">LINE (text)</button>
+      <button @click="shareThreads">Threads</button>
+      <button @click="shareWeb">Web Share API (行動端)</button>
+    </div>
+    <div class="mt-10">
+      <img src="./assets/opanchu.png" alt="金幣" class="w-64">
+    </div>
   </main>
 </body>
 </html>
