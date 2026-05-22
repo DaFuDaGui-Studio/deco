@@ -4,14 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TEST WEB SHARE</title>
+  <title>Animation Demo</title>
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Monsieur+La+Doulaise&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -19,27 +17,421 @@
   <!-- Alpine -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 
+  <style>
+    body { font-family: 'Noto Sans TC', sans-serif; }
+
+    /* ① Coin Throw */
+    @keyframes coinThrow {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+      20%  { opacity: 1; }
+      100% { transform: translate(20px, -480px) rotate(720deg) scale(0.15); opacity: 0; }
+    }
+    @keyframes coinReturn {
+      0%   { transform: translateY(60px) scale(0.3); opacity: 0; }
+      60%  { transform: translateY(-12px) scale(1.1); opacity: 1; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .anim-throw  { animation: coinThrow  0.65s cubic-bezier(0.15, 0.9, 0.4, 1) forwards; }
+    .anim-return { animation: coinReturn 0.45s ease-out forwards; }
+
+    /* ② Drag & Drop */
+    @keyframes dropBounce {
+      0%   { transform: scale(1); }
+      30%  { transform: scale(1.3); }
+      55%  { transform: scale(0.9); }
+      75%  { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .anim-drop-bounce { animation: dropBounce 0.5s ease-out; }
+
+    /* ③ Shake + Flash */
+    @keyframes shake {
+      0%,100% { transform: translateX(0) rotate(0deg); }
+      10%  { transform: translateX(-10px) rotate(-4deg); }
+      20%  { transform: translateX(10px)  rotate(4deg); }
+      30%  { transform: translateX(-8px)  rotate(-3deg); }
+      40%  { transform: translateX(8px)   rotate(3deg); }
+      50%  { transform: translateX(-5px)  rotate(-2deg); }
+      60%  { transform: translateX(5px)   rotate(2deg); }
+      75%  { transform: translateX(-3px)  rotate(-1deg); }
+      88%  { transform: translateX(3px)   rotate(1deg); }
+    }
+    @keyframes expandRing {
+      0%   { transform: scale(0); opacity: 0.9; }
+      100% { transform: scale(35); opacity: 0; }
+    }
+    @keyframes screenWhite {
+      0%   { opacity: 0; }
+      20%  { opacity: 1; }
+      70%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    .anim-shake        { animation: shake       0.55s ease-in-out; }
+    .anim-expand-ring  { animation: expandRing  0.5s  ease-out forwards; }
+    .anim-screen-white { animation: screenWhite 0.75s ease-out forwards; }
+  </style>
 </head>
 
-<body>
-  <main x-data="{
+<body class="bg-gray-950 text-white min-h-screen pb-12">
+
+  <!-- Header -->
+  <div class="px-6 pt-8 pb-6">
+    <h1 class="text-xl font-bold text-yellow-400 tracking-wide">Animation Demo</h1>
+    <p class="text-gray-500 text-xs mt-1">Tailwind + Alpine.js</p>
+  </div>
+
+  <!-- ==============================
+       ① 丟錢幣
+  ============================== -->
+  <section
+    x-data="{
+      state: 'idle',
+      touchStartY: 0,
+      touchStartTime: 0,
+      onTouchStart(e) {
+        this.touchStartY = e.touches[0].clientY;
+        this.touchStartTime = Date.now();
+      },
+      onTouchEnd(e) {
+        const dy = this.touchStartY - e.changedTouches[0].clientY;
+        const dt = Date.now() - this.touchStartTime;
+        if (dy > 50 && dt < 350) this.launch();
+      },
+      launch() {
+        if (this.state !== 'idle') return;
+        this.state = 'throwing';
+        setTimeout(() => {
+          this.state = 'returning';
+          setTimeout(() => { this.state = 'idle'; }, 450);
+        }, 650);
+      }
+    }"
+    class="mx-4 mb-4 bg-gray-900 rounded-2xl px-5 pt-5 pb-6 overflow-hidden"
+  >
+    <p class="text-sm font-medium text-white mb-0.5">① 丟錢幣</p>
+    <p class="text-xs text-gray-500 mb-6">手機：向上滑　桌面：點擊</p>
+
+    <div class="flex flex-col items-center gap-3">
+      <!-- 手指向上提示 -->
+      <div class="flex flex-col items-center gap-1 text-gray-600 text-xs select-none pointer-events-none"
+           :class="state === 'idle' ? 'opacity-100' : 'opacity-0'"
+           style="transition: opacity 0.2s">
+        <span class="text-lg animate-bounce">☝️</span>
+        <span>swipe up</span>
+      </div>
+
+      <!-- 錢幣 -->
+      <img
+        src="./assets/coin.png"
+        alt="coin"
+        :class="{
+          'anim-throw':  state === 'throwing',
+          'anim-return': state === 'returning',
+          'cursor-pointer hover:scale-110 transition-transform duration-150': state === 'idle'
+        }"
+        class="w-20 h-20 object-contain select-none"
+        @click="launch"
+        @touchstart.prevent="onTouchStart"
+        @touchend.prevent="onTouchEnd"
+      >
+    </div>
+  </section>
+
+  <!-- ==============================
+       ② 拖移放入
+  ============================== -->
+  <section
+    x-data="{
+      selected: false,
+      dropping: false,
+      count: 0,
+      isOver: false,
+
+      selectCoin() {
+        if (this.dropping) return;
+        this.selected = !this.selected;
+      },
+      dropInto() {
+        if (!this.selected || this.dropping) return;
+        this.selected = false;
+        this.dropping = true;
+        this.count++;
+        setTimeout(() => { this.dropping = false; }, 600);
+      },
+
+      onDragOver(e) { e.preventDefault(); this.isOver = true; },
+      onDragLeave()  { this.isOver = false; },
+      onDrop(e)      { e.preventDefault(); this.isOver = false; this.dropInto(); },
+    }"
+    class="mx-4 mb-4 bg-gray-900 rounded-2xl px-5 pt-5 pb-6"
+  >
+    <p class="text-sm font-medium text-white mb-0.5">② 拖移放入</p>
+    <p class="text-xs text-gray-500 mb-6">桌面拖曳 / 手機：先點錢幣選取，再點袋子放入</p>
+
+    <div class="flex items-center justify-around">
+
+      <!-- 可拖曳的錢幣 -->
+      <div class="flex flex-col items-center gap-2">
+        <div
+          draggable="true"
+          @dragstart="selected = true"
+          @dragend="selected = false"
+          @click="selectCoin"
+          :class="{
+            'ring-2 ring-yellow-400 ring-offset-2 ring-offset-gray-900 scale-110': selected,
+            'opacity-0 pointer-events-none': dropping,
+            'hover:scale-105 cursor-grab active:cursor-grabbing': !selected && !dropping,
+          }"
+          class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center text-4xl select-none transition-all duration-200"
+        >🪙</div>
+        <span class="text-xs text-gray-600" x-text="selected ? '已選取' : '點我'"></span>
+      </div>
+
+      <!-- 箭頭 -->
+      <div class="text-gray-700 text-xl select-none">→</div>
+
+      <!-- 放入目標 -->
+      <div class="flex flex-col items-center gap-2">
+        <div
+          @dragover="onDragOver"
+          @dragleave="onDragLeave"
+          @drop="onDrop"
+          @click="dropInto"
+          :class="{
+            'border-yellow-400 bg-yellow-400/15 scale-105': isOver || selected,
+            'anim-drop-bounce': dropping,
+            'cursor-pointer': selected,
+            'border-gray-700': !isOver && !selected,
+          }"
+          class="w-16 h-16 rounded-2xl border-2 border-dashed flex items-center justify-center text-4xl transition-all duration-200 select-none"
+        >
+          <span x-text="dropping ? '✨' : '👜'"></span>
+        </div>
+        <span class="text-xs text-yellow-500 min-h-4" x-text="count > 0 ? '×' + count : ''"></span>
+      </div>
+
+    </div>
+
+    <!-- 成功提示 -->
+    <div class="mt-4 h-5 flex items-center justify-center">
+      <p x-show="dropping"
+         x-transition:enter="transition duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-1"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         class="text-yellow-400 text-sm">入袋！</p>
+    </div>
+  </section>
+
+  <!-- ==============================
+       ③ 晃動 + 閃光擴張 + 全白
+  ============================== -->
+  <section
+    x-data="{
+      shaking: false,
+      ringing: false,
+      whiteOut: false,
+      trigger() {
+        if (this.shaking || this.ringing) return;
+        this.shaking = true;
+        setTimeout(() => {
+          this.shaking = false;
+          this.ringing = true;
+          this.whiteOut = true;
+          setTimeout(() => { this.ringing  = false; }, 500);
+          setTimeout(() => { this.whiteOut = false; }, 800);
+        }, 560);
+      }
+    }"
+    class="mx-4 mb-4 bg-gray-900 rounded-2xl px-5 pt-5 pb-6 relative overflow-hidden"
+  >
+    <p class="text-sm font-medium text-white mb-0.5">③ 晃動 + 閃光</p>
+    <p class="text-xs text-gray-500 mb-4">點擊觸發：晃動 → 閃光擴張 → 畫面全白</p>
+
+    <div class="flex justify-center items-center h-32 relative">
+
+      <!-- 擴張光圈（從中心爆出） -->
+      <div
+        :class="ringing ? 'anim-expand-ring' : 'hidden'"
+        class="absolute w-16 h-16 rounded-full bg-white pointer-events-none"
+      ></div>
+
+      <!-- 主角物件 -->
+      <button
+        @click="trigger"
+        :class="shaking ? 'anim-shake' : 'hover:scale-110 transition-transform duration-150'"
+        class="relative z-10 focus:outline-none select-none"
+      >
+        <img src="./assets/opanchu.png" alt="opanchu" class="w-24 h-24 object-contain">
+      </button>
+
+    </div>
+
+    <!-- 全白 overlay（覆蓋整個 section） -->
+    <div
+      :class="whiteOut ? 'anim-screen-white' : 'hidden'"
+      class="absolute inset-0 bg-white pointer-events-none z-20 rounded-2xl"
+    ></div>
+  </section>
+
+  <!-- ==============================
+       ④ 雷達圖
+  ============================== -->
+  <section
+    x-data="{
+      progress: 0,
+      animating: false,
+      axes: [
+        { label: '魅力', value: 80 },
+        { label: '速度', value: 65 },
+        { label: '力量', value: 75 },
+        { label: '智慧', value: 90 },
+        { label: '防禦', value: 55 },
+        { label: '幸運', value: 70 },
+      ],
+      get dots() {
+        return this.axes.map((a, i) => {
+          const angle = (2 * Math.PI / 6) * i - Math.PI / 2;
+          const v = (a.value / 100) * this.progress;
+          return {
+            x: 150 + 100 * v * Math.cos(angle),
+            y: 150 + 100 * v * Math.sin(angle),
+            label: a.label,
+            value: a.value
+          };
+        });
+      },
+      get dataPolygon() {
+        return this.dots.map(d => d.x + ',' + d.y).join(' ');
+      },
+      gridPolygon(scale) {
+        return Array.from({ length: 6 }, (_, i) => {
+          const a = (2 * Math.PI / 6) * i - Math.PI / 2;
+          return (150 + 100 * scale * Math.cos(a)) + ',' + (150 + 100 * scale * Math.sin(a));
+        }).join(' ');
+      },
+      animate() {
+        if (this.animating) return;
+        this.animating = true;
+        this.progress = 0;
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min((now - start) / duration, 1);
+          this.progress = 1 - Math.pow(1 - t, 3);
+          if (t < 1) requestAnimationFrame(tick);
+          else { this.progress = 1; this.animating = false; }
+        };
+        requestAnimationFrame(tick);
+      },
+      init() { setTimeout(() => this.animate(), 400); }
+    }"
+    class="mx-4 mb-4 bg-gray-900 rounded-2xl px-5 pt-5 pb-6"
+  >
+    <div class="flex items-start justify-between mb-5">
+      <div>
+        <p class="text-sm font-medium text-white">④ 雷達圖</p>
+        <p class="text-xs text-gray-500 mt-0.5">數據由中心擴散到落點位置</p>
+      </div>
+      <button
+        @click="animate"
+        :disabled="animating"
+        :class="animating ? 'text-gray-600 cursor-not-allowed' : 'text-yellow-500 hover:text-yellow-400'"
+        class="text-xs px-3 py-1.5 rounded-lg border border-gray-700 transition-colors"
+      >重播</button>
+    </div>
+
+    <svg viewBox="0 0 300 300" class="w-full max-w-xs mx-auto overflow-visible">
+      <defs>
+        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- 背景網格 -->
+      <polygon :points="gridPolygon(1)"    fill="none" stroke="#1f2937" stroke-width="1"/>
+      <polygon :points="gridPolygon(0.75)" fill="none" stroke="#1f2937" stroke-width="1"/>
+      <polygon :points="gridPolygon(0.5)"  fill="none" stroke="#1f2937" stroke-width="1"/>
+      <polygon :points="gridPolygon(0.25)" fill="none" stroke="#1f2937" stroke-width="1"/>
+
+      <!-- 軸線（中心到頂點，靜態，6 條） -->
+      <line x1="150" y1="150" x2="150"  y2="50"  stroke="#374151" stroke-width="1"/>
+      <line x1="150" y1="150" x2="236.6" y2="100" stroke="#374151" stroke-width="1"/>
+      <line x1="150" y1="150" x2="236.6" y2="200" stroke="#374151" stroke-width="1"/>
+      <line x1="150" y1="150" x2="150"  y2="250" stroke="#374151" stroke-width="1"/>
+      <line x1="150" y1="150" x2="63.4" y2="200" stroke="#374151" stroke-width="1"/>
+      <line x1="150" y1="150" x2="63.4" y2="100" stroke="#374151" stroke-width="1"/>
+
+      <!-- 資料區域（動畫） -->
+      <polygon
+        :points="dataPolygon"
+        fill="rgba(234,179,8,0.12)"
+        stroke="#EAB308"
+        stroke-width="2"
+        stroke-linejoin="round"
+        filter="url(#glow)"
+      />
+
+      <!-- 中心點 -->
+      <circle cx="150" cy="150" r="3" fill="#EAB308" opacity="0.6"/>
+
+      <!-- 資料點（跟著 progress 移動） -->
+      <template x-for="dot in dots" :key="dot.label">
+        <circle
+          :cx="dot.x"
+          :cy="dot.y"
+          r="4"
+          fill="#EAB308"
+          stroke="#111827"
+          stroke-width="1.5"
+          filter="url(#glow)"
+        />
+      </template>
+
+      <!-- 數值標籤（progress=1 時淡入） -->
+      <template x-for="dot in dots" :key="'v-' + dot.label">
+        <text
+          :x="dot.x"
+          :y="dot.y - 9"
+          text-anchor="middle"
+          fill="#EAB308"
+          font-size="9"
+          :opacity="progress"
+          x-text="dot.value + '%'"
+        />
+      </template>
+
+      <!-- 軸標籤（靜態） -->
+      <text x="150"  y="26"  text-anchor="middle" fill="#6b7280" font-size="11">魅力</text>
+      <text x="258"  y="96"  text-anchor="start"  fill="#6b7280" font-size="11">速度</text>
+      <text x="258"  y="214" text-anchor="start"  fill="#6b7280" font-size="11">力量</text>
+      <text x="150"  y="276" text-anchor="middle" fill="#6b7280" font-size="11">智慧</text>
+      <text x="42"   y="214" text-anchor="end"    fill="#6b7280" font-size="11">防禦</text>
+      <text x="42"   y="96"  text-anchor="end"    fill="#6b7280" font-size="11">幸運</text>
+
+      <!-- 格線標記 25/50/75/100 -->
+      <text x="153" y="126" fill="#374151" font-size="8">25</text>
+      <text x="153" y="102" fill="#374151" font-size="8">50</text>
+      <text x="153" y="78"  fill="#374151" font-size="8">75</text>
+    </svg>
+  </section>
+
+  <!-- ==============================
+       原有分享功能
+  ============================== -->
+  <details class="mx-4 mt-6" x-data="{
     shareData: {
       title: 'TEST WEB SHARE',
       text: 'This is a test for Web Share API.',
       url: 'window.location.href'
     },
     shareInstagram() {
-      const url = window.location.href
-
-      // 1. 複製連結
+      const url = window.location.href;
       navigator.clipboard.writeText(url).then(() => {
-        // 2. 嘗試開啟 IG App (若有安裝)
-        // 使用 iframe 避免錯誤訊息
         const iframe = document.createElement('iframe');
         iframe.style.display = 'none';
         iframe.src = 'instagram://';
         document.body.appendChild(iframe);
-        // 3. 退路：若沒裝 App 則開網頁版
         setTimeout(() => {
           document.body.removeChild(iframe);
           window.open('https://www.instagram.com/direct/inbox/', '_blank');
@@ -48,48 +440,40 @@
     },
     shareThreads() {
       const content = `這是我在網站上看到的超酷內容！\n ${window.location.href}`;
-      const threadsUrl = `https://www.threads.net/intent/post?text=${encodeURIComponent(content)}`;
-      window.open(threadsUrl, '_blank');
+      window.open(`https://www.threads.net/intent/post?text=${encodeURIComponent(content)}`, '_blank');
     },
     shareFB() {
-      const shareUrl = window.location.href;
-      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
-
-      // 開啟小視窗
-      window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, 'facebook-share-dialog', 'width=800,height=600');
     },
     shareLine() {
-      const shareUrl = window.location.href;
-      const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl)}`;
-      window.open(lineUrl, '_blank');
+      window.open(`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}`, '_blank');
     },
     shareLineText() {
       const shareContent = '嘿！推薦這個給你：\nhttps://example.com';
-      // 注意：LINE 的 text 參數必須經過完整的 URL 編碼
-      const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(shareContent)}`;
-
-      // 執行跳轉
-      window.open(lineUrl, '_blank');
+      window.open(`https://line.me/R/msg/text/?${encodeURIComponent(shareContent)}`, '_blank');
     },
-    shareWeb() {
-      if (navigator.share) {
-        navigator.share({
-          ...this.shareData,
-          url: window.location.href
-        })
-          .then(() => console.log('分享成功'))
-          .catch((error) => console.log('分享失敗', error));
-      } else {
-        alert('您的瀏覽器不支援 Web Share API');
-      }
+    async shareWeb() {
+      if (!navigator.share) { alert('您的瀏覽器不支援 Web Share API'); return; }
+      try {
+        const res = await fetch('./assets/opanchu.png');
+        const blob = await res.blob();
+        const file = new File([blob], 'opanchu.png', { type: blob.type });
+        const sharePayload = { ...this.shareData, url: window.location.href };
+        if (navigator.canShare && navigator.canShare({ files: [file] })) sharePayload.files = [file];
+        await navigator.share(sharePayload);
+      } catch(e) { console.log('分享失敗', e); }
     }
   }">
-    <button @click="shareInstagram">Instagram</button>
-    <button @click="shareFB ">Facebook</button>
-    <button @click="shareLine">LINE</button>
-    <button @click="shareLineText">LINE (text)</button>
-    <button @click="shareThreads">Threads</button>
-    <button @click="shareWeb">Web Share API (行動端)</button>
-  </main>
+    <summary class="text-gray-600 text-xs cursor-pointer py-2 select-none">原有分享功能</summary>
+    <div class="mt-3 flex flex-wrap gap-2">
+      <button @click="shareInstagram" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs transition-colors">Instagram</button>
+      <button @click="shareFB"        class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs transition-colors">Facebook</button>
+      <button @click="shareLine"      class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs transition-colors">LINE</button>
+      <button @click="shareLineText"  class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs transition-colors">LINE (text)</button>
+      <button @click="shareThreads"   class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs transition-colors">Threads</button>
+      <button @click="shareWeb"       class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs transition-colors">Web Share API</button>
+    </div>
+  </details>
+
 </body>
 </html>
